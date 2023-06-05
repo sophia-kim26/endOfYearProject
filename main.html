@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<body onload = "startGame()">
 <style>
     canvas {
         border: 3px solid #d89898;
@@ -9,19 +8,13 @@
     }
 </style>
 </head>
+<body onload = "startGame()">
 <script>
 
 function startGame() {
-  myGamePiece = new component(30, 30, "red", 10, 120);
-  myGamePiece.gravity = 0.05;
   myScore = new component("30px", "Consolas", "black", 280, 40, "text");
   myGameArea.start();
 }
-
-var player;
-    function startGame() {
-        player = new component(30, 30, "red", 10, 120);
-    }
 
 var myGameArea = {
     canvas : document.createElement("canvas"),
