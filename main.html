@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <canvas id="myCanvas" width="300" height="150"></canvas>
+    <canvas id="myCanvas" width="900" height="690"></canvas>
 
     <script>
     var canvas = document.getElementById("myCanvas");
@@ -21,6 +21,10 @@
     var day1 = document.getElementById("day1.png");
     ctx.drawImage(day1, 100, 100, 100, 100);
     </script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.font = "30px Monospace"; // change font later
+    ctx.fillText("Day 1", 450, 100);
 
     <p>[ cat boba ]</p>
     <p2>by sylvia lee & sophia kim</p2>
