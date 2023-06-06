@@ -11,12 +11,12 @@
 </head>
 <script>
 
-var player;
+    var player;
     function startGame() {
         player = new component(30, 30, "red", 10, 120);
     }
 
-var myGameArea = {
+    var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
         this.canvas.width = 480;
@@ -29,7 +29,7 @@ var myGameArea = {
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
-}
+    }
 
 </script>
     <p>cat boba.</p>
