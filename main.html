@@ -12,7 +12,9 @@
 
     <canvas id="myCanvas" width="900" height="690"></canvas>
 
-    <script>
+<button onclick="myFunction()">START</button>
+
+<script>
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
     ctx.font = "30px Monospace"; // change font later
@@ -21,10 +23,13 @@
     const day1 = new Image();
     day1.src = "day1.png";
     ctx.drawImage(day1, 100, 100, 100, 100);
-    </script>
-    
 
-    <p>[ cat boba ]</p>
-    <p2>by sylvia lee & sophia kim</p2>
+    function day1() {
+        var startButton = document.createElement("BUTTON");
+    }
+
+</script>
+<p>[ cat boba ]</p>
+<p2>by sylvia lee & sophia kim</p2>
 </body>
 </html>
