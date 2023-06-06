@@ -10,16 +10,18 @@
 </head>
 <body>
 
-<canvas id="myCanvas" width="300" height="150"></canvas>
+    <canvas id="myCanvas" width="300" height="150"></canvas>
 
-<script>
+    <script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.font = "30px Arial";
+    ctx.fillText("Day 1", 10, 50);
 
-var canvas = document.getElementById("myCanvas");
-var ctx = canvas.getContext("2d");
-ctx.font = "30px Arial";
-ctx.fillText("Day 1", 10, 50);
+    var day1 = document.getElementById("day1.png");
+    ctx.drawImage(day1, 100, 100, 100, 100);
+    </script>
 
-</script>
     <p>[ cat boba ]</p>
     <p2>by sylvia lee & sophia kim</p2>
 </body>
