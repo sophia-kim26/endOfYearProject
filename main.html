@@ -17,8 +17,9 @@
     var ctx = canvas.getContext("2d");
     ctx.font = "30px Monospace"; // change font later
     ctx.fillText("Day 1", 450, 100);
-
-    var day1 = document.getElementById("day1.png");
+    
+    const day1 = new Image();
+    day1.src = "day1.png";
     ctx.drawImage(day1, 100, 100, 100, 100);
     </script>
     
