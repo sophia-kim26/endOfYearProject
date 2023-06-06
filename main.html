@@ -8,9 +8,13 @@
     }
 </style>
 </head>
-<body onload = "startGame()">
+<body>
+
+<canvas id="myCanvas" width="300" height="150"></canvas>
+
 <script>
 
+var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 ctx.font = "30px Arial";
 ctx.fillText("Day 1", 10, 50);
