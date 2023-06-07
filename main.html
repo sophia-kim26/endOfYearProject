@@ -16,6 +16,7 @@
             position: relative;
             top: 50px;
             right: 512px;
+            font-family: Monospace;
             
         }
         .orderButton {
@@ -26,6 +27,7 @@
             position: relative;
             top: 50px;
             right: 512px;
+            font-family: Monospace;
         }
         .mixingButton {
             border: none;
@@ -35,6 +37,7 @@
             position: relative;
             top: 50px;
             right: 512px;
+            font-family: Monospace;
         }
         .strawButton {
             border: none;
@@ -44,6 +47,18 @@
             position: relative;
             top: 50px;
             right: 512px;
+            font-family: Monospace;
+        }
+
+        p1 {
+            font-family: Monospace;
+            position: relative;
+            top: 100px;
+            right: 1025px;
+        }
+
+        p2 {
+            font-family: Monospace;
         }
 
         </style>
@@ -51,10 +66,10 @@
     <body>
         <canvas id="myCanvas" width="500" height="300"></canvas>
 
-        <button class = "button startButton", onclick="start()", style = "font-family: Monospace">START</button>
-        <button class = "button orderButton"onclick="order()", style = "font-family: Monospace">ORDER</button>
-        <button class = "button mixingButton"onclick="mixing()", style = "font-family: Monospace">MIXING</button>
-        <button class = "button strawButton"onclick="straw()", style = "font-family: Monospace">STRAW</button>
+        <button class = "button startButton", onclick="start()">START</button>
+        <button class = "button orderButton"onclick="order()">ORDER</button>
+        <button class = "button mixingButton"onclick="mixing()">MIXING</button>
+        <button class = "button strawButton"onclick="straw()">STRAW</button>
 
         <script>
             // canvas
@@ -95,7 +110,7 @@
             }
 
         </script>
-        <p>[ cat boba ]</p>
+        <p1>[ cat boba ]</p>
         <p2>by sylvia lee & sophia kim</p2>
     </body>
 </html>
