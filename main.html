@@ -10,38 +10,54 @@
         /* main buttons */
         .startButton {
             border: none;
-            padding: 15px 32px;
+            padding: 15px 28px;
             background-color: #a1dba3;
-            font-size: 25px;
+            font-size: 22px;
+            position: relative;
+            top: 50px;
+            right: 510px;
+            
         }
         .orderButton {
             border: none;
-            padding: 15px 32px;
+            padding: 15px 28px;
             background-color: #9ccede;
-            font-size: 25px;
+            font-size: 22px;
+            position: relative;
+            top: 50px;
+            right: 510px;
         }
         .mixingButton {
             border: none;
-            padding: 15px 32px;
+            padding: 15px 28px;
             background-color: #ccb7e4;
-            font-size: 25px;
+            font-size: 22px;
+            position: relative;
+            top: 50px;
+            right: 510px;
         }
         .strawButton {
             border: none;
-            padding: 15px 32px;
+            padding: 15px 28px;
             background-color: #eaddaa;
-            font-size: 25px;
+            font-size: 22px;
+            position: relative;
+            top: 50px;
+            right: 510px;
         }
 
         </style>
     </head>
     <body>
         <canvas id="myCanvas" width="500" height="300"></canvas>
+
         <button class = "button startButton", onclick="myFunction()", style = "font-family: Monospace">START</button>
         <button class = "button orderButton"onclick="myFunction()", style = "font-family: Monospace">ORDER</button>
         <button class = "button mixingButton"onclick="myFunction()", style = "font-family: Monospace">MIXING</button>
         <button class = "button strawButton"onclick="myFunction()", style = "font-family: Monospace">STRAW</button>
+        
         <img id="day1" width="100" height="100" src="day1.png">
+
         <script>
             // canvas
             var canvas = document.getElementById("myCanvas");
@@ -54,7 +70,7 @@
             // image
             window.onload = function() {
                 var day1 = document.getElementById("day1");
-                ctx.drawImage(day1, 10, 10 );
+                ctx.drawImage(day1, 10, 10);
             }
 
             // button
