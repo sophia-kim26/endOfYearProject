@@ -3,7 +3,7 @@
     <head>
         <style>
         canvas {
-            border: 3px solid #d89898;
+            border: 5px solid #d89898;
             background-color: #f1f1f1;
         }
 
@@ -15,7 +15,7 @@
             font-size: 22px;
             position: relative;
             top: 50px;
-            right: 510px;
+            right: 512px;
             
         }
         .orderButton {
@@ -25,7 +25,7 @@
             font-size: 22px;
             position: relative;
             top: 50px;
-            right: 510px;
+            right: 512px;
         }
         .mixingButton {
             border: none;
@@ -34,7 +34,7 @@
             font-size: 22px;
             position: relative;
             top: 50px;
-            right: 510px;
+            right: 512px;
         }
         .strawButton {
             border: none;
@@ -43,7 +43,7 @@
             font-size: 22px;
             position: relative;
             top: 50px;
-            right: 510px;
+            right: 512px;
         }
 
         </style>
@@ -51,10 +51,10 @@
     <body>
         <canvas id="myCanvas" width="500" height="300"></canvas>
 
-        <button class = "button startButton", onclick="myFunction()", style = "font-family: Monospace">START</button>
-        <button class = "button orderButton"onclick="myFunction()", style = "font-family: Monospace">ORDER</button>
-        <button class = "button mixingButton"onclick="myFunction()", style = "font-family: Monospace">MIXING</button>
-        <button class = "button strawButton"onclick="myFunction()", style = "font-family: Monospace">STRAW</button>
+        <button class = "button startButton", onclick="start()", style = "font-family: Monospace">START</button>
+        <button class = "button orderButton"onclick="order()", style = "font-family: Monospace">ORDER</button>
+        <button class = "button mixingButton"onclick="mixing()", style = "font-family: Monospace">MIXING</button>
+        <button class = "button strawButton"onclick="straw()", style = "font-family: Monospace">STRAW</button>
 
         <script>
             // canvas
@@ -78,6 +78,22 @@
             var orderButton = document.createElement("BUTTON");
             var mixingButton = document.createElement("BUTTON");
             var strawButton = document.createElement("BUTTON");
+
+            function start() {
+                alert("start working");
+            }
+
+            function order() {
+                alert("order working");
+            }
+
+            function mixing() {
+                alert("mixing working");
+            }
+
+            function straw() {
+                alert("straw working");
+            }
 
         </script>
         <p>[ cat boba ]</p>
