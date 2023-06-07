@@ -49,8 +49,10 @@
             ctx.fillText("Day 1", 50, 50);
             
             // image
-            var day1 = document.getElementById("day1");
-            ctx.drawImage(day1, 10, 10  );
+            window.onload = function() {
+                var day1 = document.getElementById("day1");
+                ctx.drawImage(day1, 10, 10 );
+            }
 
             // button
             var startButton = document.createElement("BUTTON");
