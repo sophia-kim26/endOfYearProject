@@ -11,6 +11,7 @@
     <body>
         <canvas id="myCanvas" width="900" height="690"></canvas>
         <button onclick="myFunction()">START</button>
+        <img id="day1" width="100" height="100" src="day1.jpg">
         <script>
             // canvas
             var canvas = document.getElementById("myCanvas");
@@ -21,9 +22,8 @@
             ctx.fillText("Day 1", 450, 100);
             
             // image
-            const day1 = new Image();
-            day1.src = "day1.png";
-            ctx.drawImage(day1, 100, 100, 100, 100);
+            var day1 = document.getElementById("day1");
+            ctx.drawImage(day1, 10, 10  );
 
             // button
             var startButton = document.createElement("BUTTON");
