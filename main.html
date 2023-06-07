@@ -38,7 +38,7 @@
         <button class = "button mixingButton"onclick="myFunction()">MIXING</button>
         <button class = "button strawButton"onclick="myFunction()">STRAW</button>
         <button onclick="myFunction()">START</button>
-        <img id="day1" width="100" height="100" src="day1.jpg">
+        <img id="day1" width="100" height="100" src="day1.png">
         <script>
             // canvas
             var canvas = document.getElementById("myCanvas");
@@ -49,9 +49,10 @@
             ctx.fillText("Day 1", 50, 50);
             
             // image
-            var day1 = document.getElementById("day1");
-            ctx.drawImage(day1, 10, 10  );
-
+            window.onload = function() {
+                var day1 = document.getElementById("day1");
+                ctx.drawImage(day1, 10, 10  );
+            }
             // button
             var startButton = document.createElement("BUTTON");
             var orderButton = document.createElement("BUTTON");
