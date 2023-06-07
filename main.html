@@ -6,10 +6,37 @@
             border: 3px solid #d89898;
             background-color: #f1f1f1;
         }
+
+        /* main buttons */
+        .startButton {
+            border: none;
+            background-color: #a1dba3;
+            font-size: 25px;
+        }
+        .orderButton {
+            border: none;
+            background-color: #9ccede;
+            font-size: 25px;
+        }
+        .mixingButton {
+            border: none;
+            background-color: #ccb7e4;
+            font-size: 25px;
+        }
+        .strawButton {
+            border: none;
+            background-color: #eaddaa;
+            font-size: 25px;
+        }
+
         </style>
     </head>
     <body>
         <canvas id="myCanvas" width="500" height="300"></canvas>
+        <button class = "button startButton", onclick="myFunction()">START</button>
+        <button class = "button orderButton"onclick="myFunction()">ORDER</button>
+        <button class = "button mixingButton"onclick="myFunction()">MIXING</button>
+        <button class = "button strawButton"onclick="myFunction()">STRAW</button>
         <button onclick="myFunction()">START</button>
         <img id="day1" width="100" height="100" src="day1.png">
         <script>
