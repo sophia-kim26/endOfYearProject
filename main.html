@@ -152,7 +152,7 @@
             var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d");
 
-            // title page
+            // beginning page
             var bg = new Image();
             bg.src = "studioghibli.jpeg";
 
@@ -196,6 +196,10 @@
             }
 
             function order() {
+                var ctx = canvas.getContext("2d");
+                var orderBg = new Image();
+                orderBg.src = "studioghibli2.jpeg";
+                ctx.drawImage(orderBg, 0, 0, 1100, 600);
                 alert("order working");
             }
 
@@ -208,7 +212,7 @@
             }
 
             function credits() {
-                alert("made by sylvia lee and sophia kim, bca atcs '26");
+                alert("made by sylvia lee and sophia kim, bca atcs '26\nimage credits go to studio ghibli; go check them out they have nice films");
             }
 
         </script>
