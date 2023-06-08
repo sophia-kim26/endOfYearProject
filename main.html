@@ -153,10 +153,27 @@
             var ctx = canvas.getContext("2d");
 
             // title page
-            var title = new Image();
-            title.src = "studioghibli.jpeg";
+            var bg = new Image();
+            bg.src = "studioghibli.jpeg";
+
+            var arrietty = new Image();
+            arrietty.src = "arrietty.png";
+
+            var ponyo = new Image();
+            ponyo.src = "ponyo.png";
+
+            var shizuku = new Image();
+            shizuku.src = "shizuku.png";
+
+            var catbus = new Image();
+            catbus.src = "catbus.png";
+
             window.onload = function() {
-                ctx.drawImage(title, 0, 0, 1100, 600);
+                ctx.drawImage(bg, 0, 0, 1100, 600);
+                ctx.drawImage(arrietty, -150, 240, 679, 367);
+                ctx.drawImage(ponyo, 150, 240, 500, 500);
+                ctx.drawImage(shizuku, 550, 300, 214, 300);
+                ctx.drawImage(catbus, 790, 414, 261, 193);
             }
             
             // text
