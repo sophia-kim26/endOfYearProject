@@ -26,30 +26,20 @@
             cursor: pointer;
             
         }
-        .startButton{
-            background-color: #a1dba3;
+        .startButton{background-color: #a1dba3;}
+        .startButton:hover {background-color: #74ba76;}
+        .orderButton {background-color: #9ccede;}
+        .orderButton:hover {background-color: #75afc2;}
+        .mixingButton {background-color: #ccb7e4;}
+        .mixingButton:hover {background-color: #a68cc5;}
+        .strawButton {background-color: #eaddaa;}
+        .strawButton:hover {background-color: #c8b97b;}
+        .creditsButton {
+            background-color: #aaeae0;
+            top: 270px;
+            left: 990px;
         }
-        .startButton:hover {
-            background-color: #74ba76;
-        }
-        .orderButton {
-            background-color: #9ccede;
-        }
-        .orderButton:hover {
-            background-color: #75afc2;
-        }
-        .mixingButton {
-            background-color: #ccb7e4;
-        }
-        .mixingButton:hover {
-            background-color: #a68cc5;
-        }
-        .strawButton {
-            background-color: #eaddaa;
-        }
-        .strawButton:hover {
-            background-color: #c8b97b;
-        }
+        .creditsButton:hover {background-color: #86d2c7;}
 
         p1 {
             font-family: Monospace;
@@ -74,6 +64,7 @@
         <button class = "button orderButton"onclick="order()">ORDER</button>
         <button class = "button mixingButton"onclick="mixing()">MIXING</button>
         <button class = "button strawButton"onclick="straw()">STRAW</button>
+        <button class = "button creditsButton"onclick="credits()">CREDITS</button>
 
         <script>
             // canvas
@@ -96,6 +87,7 @@
             var orderButton = document.createElement("BUTTON");
             var mixingButton = document.createElement("BUTTON");
             var strawButton = document.createElement("BUTTON");
+            var creditsButton = document.createElement("BUTTON");
 
             function start() {
                 alert("start working");
@@ -111,6 +103,10 @@
 
             function straw() {
                 alert("straw working");
+            }
+
+            function credits() {
+                alert("made by sylvia lee and sophia kim, bca atcs '26");
             }
 
         </script>
