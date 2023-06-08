@@ -18,7 +18,7 @@
             border: none;
             padding: 30px 56px;
             font-size: 22px;
-            position: relative;
+            position: absolute;
             top: 50px;
             right: 1200px;
             font-family: Monospace;
@@ -30,30 +30,35 @@
             background-color: #E4A5FF;
             top: 80px;
             right: 940px;
+            position: absolute;
         }
         .startButton:hover {background-color: #c17bdf;}
         .orderButton {
             background-color: #FFAAC9;
             top: -5px;
             right: -380px;
+            position: absolute;
         }
         .orderButton:hover {background-color: #df7ca0;}
         .mixingButton {
             background-color: #FFCDA8;
             top: -5px;
             right: -400px;
+            position: absolute;
         }
         .mixingButton:hover {background-color: #dea87e;}
         .strawButton {
             background-color: #FFE7CE;
             top: -5px;
             right: -420px;
+            position: absolute;
         }
         .strawButton:hover {background-color: rgb(173, 157, 92);}
         .creditsButton {
             background-color: #FFCDA8;
             top: 80px;
             left: 675px;
+            position: absolute;
         }
         .creditsButton:hover {background-color: #dda57a;}
 
@@ -62,6 +67,7 @@
             position: relative;
             top: 50px;
             right: 145px;
+            position: absolute;
         }
 
         p2 {
@@ -69,6 +75,7 @@
             position: relative;
             top: -20px;
             right: -155px;
+            position: absolute;
         }
 
         .rulesPanel {
@@ -78,7 +85,7 @@
             font-family: Monospace;
             padding: 20px 15px;
             width: 200px;
-            position: relative;
+            position: absolute;
             top: -718px;
             right: -1175px;
         }
@@ -90,7 +97,7 @@
             font-family: Monospace;
             padding: 20px 15px;
             width: 200px;
-            position: relative;
+            position: absolute;
             top: -700px;
             right: -1175px;
         }
@@ -102,7 +109,7 @@
             font-family: Monospace;
             padding: 20px 15px;
             width: 200px;
-            position: relative;
+            position: absolute;
             top: -682px;
             right: -1175px;
         }
@@ -114,15 +121,19 @@
             font-family: Monospace;
             padding: 20px 15px;
             width: 200px;
-            position: relative;
+            position: absolute;
             top: -664px;
             right: -1175px;
         }
 
+
         </style>
     </head>
     <body>
-        <canvas id="myCanvas" width="1100" height="600"></canvas>
+        <canvas id="title" width="1100" height="600" style = "position: absolute;"></canvas>
+        <canvas id="day1" width="1100" height="600"style = "position: absolute;"></canvas>
+        <canvas id="order" width="1100" height="600"style = "position: absolute;"></canvas>
+
 
         <button class = "button startButton", onclick="start()">START</button>
         <button class = "button orderButton"onclick="order()">ORDER</button>
@@ -149,14 +160,29 @@
 
         <script>
             // canvas
-            var canvas = document.getElementById("myCanvas");
-            var ctx = canvas.getContext("2d");
+            var titlec = document.getElementById("title");
+            var titlectx = titlec.getContext("2d");
+            var day1c = document.getElementById("day1");
+            var day1ctx = day1c.getContext("2d");
+            var orderc = document.getElementById("order");
+            var orderctx
 
             // title page
-            var title = new Image();
-            title.src = "studioghibli.jpeg";
+            var titleBG = new Image();
+            titleBG.src = "studioghibli.jpeg";
+
+            var day1BG = new Image();
+            day1BG.src = "day1.png";
+
+            var orderBG = new Image();
+            orderBG.src = "gameOver.png"
+            
+            // when start
             window.onload = function() {
-                ctx.drawImage(title, 0, 0, 1100, 600);
+                titlectx.drawImage(titleBG, 0, 0, 1100, 600);
+                day1ctx.drawImage(day1BG, 0, 0, 1100, 600);
+                titlec.style.visibility='visible';
+                day1c.style.visibility='hidden';
             }
             
             // text
@@ -172,14 +198,13 @@
 
             function start() {
                 alert("start working");
-                background.src = "gameOver.png";
-                window.onload = function(){
-                    ctx.drawImage(background,0,0, 500, 300);
-                }
+                titlec.style.visibility='hidden';
+                day1c.style.visibility='visible';
             }
 
             function order() {
                 alert("order working");
+
             }
 
             function mixing() {
@@ -193,6 +218,7 @@
             function credits() {
                 alert("made by sylvia lee and sophia kim, bca atcs '26");
             }
+
 
         </script>
         <p1>[ cat boba ]</p>
