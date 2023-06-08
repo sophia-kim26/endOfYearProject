@@ -61,11 +61,11 @@
             var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d");
 
-            // background
-            var background = new Image();
-            background.src = "day1.png";
+            // title page
+            var title = new Image();
+            title.src = "day1.png";
             window.onload = function() {
-                ctx.drawImage(background, 0, 0, 500, 300);
+                ctx.drawImage(title, 0, 0, 500, 300);
             }
             
             // text
@@ -80,6 +80,10 @@
 
             function start() {
                 alert("start working");
+                background.src = "gameOver.png";
+                window.onload = function(){
+                    ctx.drawImage(background,0,0, 500, 300);
+                }
             }
 
             function order() {
