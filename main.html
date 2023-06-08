@@ -165,7 +165,7 @@
             var day1c = document.getElementById("day1");
             var day1ctx = day1c.getContext("2d");
             var orderc = document.getElementById("order");
-            var orderctx
+            var orderctx = orderc.getContext("2d");
 
             // title page
             var titleBG = new Image();
@@ -183,6 +183,30 @@
                 day1ctx.drawImage(day1BG, 0, 0, 1100, 600);
                 titlec.style.visibility='visible';
                 day1c.style.visibility='hidden';
+                orderc.style.visibility='hidden';
+            // beginning page
+            var bg = new Image();
+            bg.src = "studioghibli.jpeg";
+
+            var arrietty = new Image();
+            arrietty.src = "arrietty.png";
+
+            var ponyo = new Image();
+            ponyo.src = "ponyo.png";
+
+            var shizuku = new Image();
+            shizuku.src = "shizuku.png";
+
+            var catbus = new Image();
+            catbus.src = "catbus.png";
+
+            window.onload = function() {
+                alert("go into full screen for highest quality experience!")
+                ctx.drawImage(bg, 0, 0, 1100, 600);
+                ctx.drawImage(arrietty, -150, 240, 679, 367);
+                ctx.drawImage(ponyo, 150, 240, 500, 500);
+                ctx.drawImage(shizuku, 550, 300, 214, 300);
+                ctx.drawImage(catbus, 790, 414, 261, 193);
             }
             
             // text
@@ -203,6 +227,9 @@
             }
 
             function order() {
+                // var orderBg = new Image();
+                // orderBg.src = "studioghibli2.jpeg";
+                // ctx.drawImage(orderBg, 0, 0, 1100, 600);
                 alert("order working");
 
             }
@@ -216,7 +243,7 @@
             }
 
             function credits() {
-                alert("made by sylvia lee and sophia kim, bca atcs '26");
+                alert("made by sylvia lee and sophia kim, bca atcs '26\nimage credits go to studio ghibli; go check them out they have nice films");
             }
 
 
