@@ -167,7 +167,7 @@
             var orderc = document.getElementById("order");
             var orderctx = orderc.getContext("2d");
 
-            // title page
+            // images
             var titleBG = new Image();
             titleBG.src = "studioghibli.jpeg";
 
@@ -176,17 +176,6 @@
 
             var orderBG = new Image();
             orderBG.src = "gameOver.png"
-            
-            // when start
-            window.onload = function() {
-                titlectx.drawImage(titleBG, 0, 0, 1100, 600);
-                day1ctx.drawImage(day1BG, 0, 0, 1100, 600);
-                titlec.style.visibility='visible';
-                day1c.style.visibility='hidden';
-                orderc.style.visibility='hidden';
-            // beginning page
-            var bg = new Image();
-            bg.src = "studioghibli.jpeg";
 
             var arrietty = new Image();
             arrietty.src = "arrietty.png";
@@ -199,14 +188,20 @@
 
             var catbus = new Image();
             catbus.src = "catbus.png";
+            
+            // beginning page
 
             window.onload = function() {
                 alert("go into full screen for highest quality experience!")
-                ctx.drawImage(bg, 0, 0, 1100, 600);
-                ctx.drawImage(arrietty, -150, 240, 679, 367);
-                ctx.drawImage(ponyo, 150, 240, 500, 500);
-                ctx.drawImage(shizuku, 550, 300, 214, 300);
-                ctx.drawImage(catbus, 790, 414, 261, 193);
+                titlectx.drawImage(titleBG, 0, 0, 1100, 600);
+                titlectx.drawImage(arrietty, -150, 240, 679, 367);
+                titlectx.drawImage(ponyo, 150, 240, 500, 500);
+                titlectx.drawImage(shizuku, 550, 300, 214, 300);
+                titlectx.drawImage(catbus, 790, 414, 261, 193);
+                day1ctx.drawImage(day1BG, 0, 0, 1100, 600);
+                titlec.style.visibility='visible';
+                day1c.style.visibility='hidden';
+                orderc.style.visibility='hidden';
             }
             
             // text
@@ -224,6 +219,7 @@
                 alert("start working");
                 titlec.style.visibility='hidden';
                 day1c.style.visibility='visible';
+                orderc.style.visibility='hidden';
             }
 
             function order() {
