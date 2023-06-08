@@ -122,7 +122,9 @@
         </style>
     </head>
     <body>
-        <canvas id="myCanvas" width="1100" height="600"></canvas>
+        <canvas id="orderCanvas" width="1100" height="600" style="position: absolute;"></canvas>
+        <canvas id="mixingCanvas" width="1100" height="600" style="position: absolute;"></canvas>
+        <canvas id="strawCanvas" width="1100" height="600" style="position: absolute;"></canvas>
 
         <button class = "button startButton", onclick="start()">START</button>
         <button class = "button orderButton"onclick="order()">ORDER</button>
@@ -148,20 +150,46 @@
 
 
         <script>
-            // canvas
-            var canvas = document.getElementById("myCanvas");
-            var ctx = canvas.getContext("2d");
+            // canvases
+            var ORDER = document.getElementById("orderCanvas");
+            var order = ORDER.getContext("2d");
+            var MIXING = document.getElementById("mixingCanvas");
+            var mixing = MIXING.getContext("2d");
+            var STRAW = document.getElementById("strawCanvas");
+            var straw = STRAW.getContext("2d");
 
             // title page
             var title = new Image();
             title.src = "day1.png";
+
+            var 
             window.onload = function() {
-                ctx.drawImage(title, 0, 0, 1100, 600);
+                order();
             }
             
+            
             // text
-            ctx.font = "30px Monospace";
-            ctx.fillText("Day 1", 50, 50);
+            order.font = "30px Monospace";
+            order.fillText("Day 1", 50, 50);
+
+            // change visibility
+            function showORDER() {
+            ORDER.style.visibility='visible';
+            MIXING.style.visibility='hidden';
+            STRAW.style.visibility='hidden';
+            }
+
+            function showMIXING() {
+            ORDER.style.visibility='hidden';
+            MIXING.style.visibility='visible';
+            STRAW.style.visibility='hidden';
+            }
+
+            function showSTRAW() {
+            ORDER.style.visibility='hidden';
+            MIXING.style.visibility='hidden';
+            STRAW.style.visibility='visible';
+            }
             
             // button
             var startButton = document.createElement("BUTTON");
@@ -180,14 +208,20 @@
 
             function order() {
                 alert("order working");
+                showORDER();
+                order.drawImage(title, 0, 0, 1100, 600);
             }
 
             function mixing() {
                 alert("mixing working");
+                showMIXING();
+                mixing.drawImage(title, 0, 0, 1100, 600);
             }
 
             function straw() {
                 alert("straw working");
+                showSTRAW();
+                straw.drawImage(title, 0, 0, 1100, 600);
             }
 
             function credits() {
