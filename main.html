@@ -2,48 +2,105 @@
 <html>
     <head>
         <style>
+        /* main page / body */
+        body {
+            background-color: #fae1ed;
+        }
+
+        /* canvas */
         canvas {
             border: 5px solid #d89898;
             background-color: #f1f1f1;
         }
 
         /* main buttons */
-        .startButton {
+        .button {
             border: none;
             padding: 15px 28px;
-            background-color: #a1dba3;
             font-size: 22px;
             position: relative;
             top: 50px;
             right: 512px;
+            font-family: Monospace;
+            transition-duration: 0.4s;
+            cursor: pointer;
             
         }
-        .orderButton {
-            border: none;
-            padding: 15px 28px;
-            background-color: #9ccede;
-            font-size: 22px;
-            position: relative;
-            top: 50px;
-            right: 512px;
+        .startButton{background-color: #E4A5FF;}
+        .startButton:hover {background-color: #c17bdf;}
+        .orderButton {background-color: #FFAAC9;}
+        .orderButton:hover {background-color: #df7ca0;}
+        .mixingButton {background-color: #FFCDA8;}
+        .mixingButton:hover {background-color: #dea87e;}
+        .strawButton {background-color: #FFE7CE;}
+        .strawButton:hover {background-color: rgb(173, 157, 92);}
+        .creditsButton {
+            background-color: #FFCDA8;
+            top: 270px;
+            left: 990px;
         }
-        .mixingButton {
-            border: none;
-            padding: 15px 28px;
-            background-color: #ccb7e4;
-            font-size: 22px;
+        .creditsButton:hover {background-color: #dda57a;}
+
+        p1 {
+            font-family: Monospace;
             position: relative;
             top: 50px;
-            right: 512px;
+            right: 145px;
         }
-        .strawButton {
-            border: none;
-            padding: 15px 28px;
-            background-color: #eaddaa;
-            font-size: 22px;
+
+        p2 {
+            font-family: Monospace;
             position: relative;
-            top: 50px;
-            right: 512px;
+            top: -20px;
+            right: -155px;
+        }
+
+        .rulesPanel {
+            background-color: #E4A5FF;    
+            text-align: center;
+            font-size: 20px;
+            font-family: Monospace;
+            padding: 8px 5px;
+            width: 200px;
+            position: relative;
+            top: -370px;
+            right: -920px;
+        }
+
+        .rule1 {
+            background-color: #FFAAC9;
+            text-align: center;
+            font-size: 15px;
+            font-family: Monospace;
+            padding: 8px 5px;
+            width: 200px;
+            position: relative;
+            top: -355px;
+            right: -920px;
+        }
+
+        .rule2 {
+            background-color: #FFCDA8;    
+            text-align: center;
+            font-size: 15px;
+            font-family: Monospace;
+            padding: 8px 5px;
+            width: 200px;
+            position: relative;
+            top: -340px;
+            right: -920px;
+        }
+
+        .rule3 {
+            background-color: #FFE7CE;
+            text-align: center;
+            font-size: 15px;
+            font-family: Monospace;
+            padding: 8px 5px;
+            width: 200px;
+            position: relative;
+            top: -325px;
+            right: -920px;
         }
 
         </style>
@@ -51,10 +108,28 @@
     <body>
         <canvas id="myCanvas" width="500" height="300"></canvas>
 
-        <button class = "button startButton", onclick="start()", style = "font-family: Monospace">START</button>
-        <button class = "button orderButton"onclick="order()", style = "font-family: Monospace">ORDER</button>
-        <button class = "button mixingButton"onclick="mixing()", style = "font-family: Monospace">MIXING</button>
-        <button class = "button strawButton"onclick="straw()", style = "font-family: Monospace">STRAW</button>
+        <button class = "button startButton", onclick="start()">START</button>
+        <button class = "button orderButton"onclick="order()">ORDER</button>
+        <button class = "button mixingButton"onclick="mixing()">MIXING</button>
+        <button class = "button strawButton"onclick="straw()">STRAW</button>
+        <button class = "button creditsButton"onclick="credits()">CREDITS</button>
+
+        <div class = "rulesPanel">
+            <h3>|| INFO ||</h3>
+        </div>
+
+        <div class = "rule1">
+            <p3>a 3-day adventure where you complete boba orders using 3 different stations!</p3>
+        </div>
+
+        <div class = "rule2">
+            <p3>after getting an order, mix in the tea, bubbles, ice, and sugar. then poke in the straw!</p3>
+        </div>
+
+        <div class = "rule3">
+            <p3>there are also speciality seasonal drinks / tea / toppings available!</p3>
+        </div>
+
 
         <script>
             // canvas
@@ -77,6 +152,7 @@
             var orderButton = document.createElement("BUTTON");
             var mixingButton = document.createElement("BUTTON");
             var strawButton = document.createElement("BUTTON");
+            var creditsButton = document.createElement("BUTTON");
 
             function start() {
                 alert("start working");
@@ -98,8 +174,12 @@
                 alert("straw working");
             }
 
+            function credits() {
+                alert("made by sylvia lee and sophia kim, bca atcs '26");
+            }
+
         </script>
-        <p>[ cat boba ]</p>
+        <p1>[ cat boba ]</p>
         <p2>by sylvia lee & sophia kim</p2>
     </body>
 </html>
