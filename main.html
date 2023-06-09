@@ -173,7 +173,7 @@
             day1BG.src = "day1.png";
 
             var orderBG = new Image();
-            orderBG.src = "gameOver.png"
+            orderBG.src = "studioghibli2.jpeg"
 
             var arrietty = new Image();
             arrietty.src = "arrietty.png";
@@ -197,6 +197,7 @@
                 titlectx.drawImage(shizuku, 550, 300, 214, 300);
                 titlectx.drawImage(catbus, 790, 414, 261, 193);
                 day1ctx.drawImage(day1BG, 0, 0, 1100, 600);
+                orderctx.drawImage(orderBG, 0, 0, 1100, 600);
                 titlec.style.visibility='visible';
                 day1c.style.visibility='hidden';
                 orderc.style.visibility='hidden';
@@ -221,10 +222,10 @@
             }
 
             function order() {
-                // var orderBg = new Image();
-                // orderBg.src = "studioghibli2.jpeg";
-                // ctx.drawImage(orderBg, 0, 0, 1100, 600);
                 alert("order working");
+                titlec.style.visibility='hidden';
+                day1c.style.visibility='hidden';
+                orderc.style.visibility='visible';
 
             }
 
