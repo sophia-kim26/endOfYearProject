@@ -172,7 +172,7 @@
 
             // images
             var titleBG = new Image();
-            titleBG.src = "day1.png";
+            titleBG.src = "day.png";
 
             var dayBG = new Image();
             dayBG.src = "studioghibli.jpeg";
@@ -217,10 +217,6 @@
                 strawc.style.visibility='hidden';
             }
             
-            // text
-            ctx.font = "30px Monospace";
-            ctx.fillText("Day 1", 50, 50);
-            
             // button
             var startButton = document.createElement("BUTTON");
             var orderButton = document.createElement("BUTTON");
@@ -261,6 +257,13 @@
                 orderc.style.visibility='hidden';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
+
+                // text
+                dayctx.font = "30px Monospace";
+                dayctx.textAlign = "center";
+                dayctx.fillText("Day 1", 550, 50);
+                dayctx.font = "20px Monospace";
+                dayctx.fillText("This is your first day as an intern at Cat Boba!", 550, 100)
             }
 
             function order() {
