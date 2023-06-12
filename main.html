@@ -236,10 +236,17 @@
                 orderc.style.visibility='visible';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
+            
+            function showStraw() {
+                titlec.style.visibility='hidden';
+                day1c.style.visibility='hidden';
+                orderc.style.visibility='hidden';
+                mixingc.style.visibility='hidden';
+                strawc.style.visibility='visible';
             }
 
             function start() {
-                alert("start working");
+                // alert("start working");
                 titlec.style.visibility='hidden';
                 day1c.style.visibility='visible';
                 orderc.style.visibility='hidden';
@@ -248,13 +255,12 @@
             }
 
             function order() {
-                alert("order working");
+                // alert("order working");
                 showOrder();
-
             }
 
             function mixing() {
-                alert("mixing working");
+                // alert("mixing working");
                 titlec.style.visibility='hidden';
                 day1c.style.visibility='hidden';
                 orderc.style.visibility='hidden';
@@ -263,12 +269,8 @@
             }
 
             function straw() {
-                alert("straw working");
-                titlec.style.visibility='hidden';
-                day1c.style.visibility='hidden';
-                orderc.style.visibility='hidden';
-                mixingc.style.visibility='hidden';
-                strawc.style.visibility='visible';
+                // alert("straw working");
+                showStraw();
             }
 
             function credits() {
