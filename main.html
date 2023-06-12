@@ -131,7 +131,8 @@
         <canvas id="title" width="1100" height="600" style = "position: absolute;"></canvas>
         <canvas id="day1" width="1100" height="600"style = "position: absolute;"></canvas>
         <canvas id="order" width="1100" height="600"style = "position: absolute;"></canvas>
-
+        <canvas id="mixing" width="1100" height="600"style = "position: absolute;"></canvas>
+        <canvas id="straw" width="1100" height="600"style = "position: absolute;"></canvas>
 
         <button class = "button startButton", onclick="start()">START</button>
         <button class = "button orderButton"onclick="order()">ORDER</button>
@@ -164,6 +165,10 @@
             var day1ctx = day1c.getContext("2d");
             var orderc = document.getElementById("order");
             var orderctx = orderc.getContext("2d");
+            var mixingc = document.getElementById("mixing");
+            var mixingctx = mixingc.getContext("2d");
+            var strawc = document.getElementById("straw");
+            var strawctx = strawc.getContext("2d");
 
             // images
             var titleBG = new Image();
@@ -173,7 +178,13 @@
             day1BG.src = "day1.png";
 
             var orderBG = new Image();
-            orderBG.src = "studioghibli2.jpeg"
+            orderBG.src = "studioghibli2.jpeg";
+            
+            var mixingBG = new Image();
+            mixingBG.src = "studioghibli3.jpeg";
+
+            var strawBG = new Image();
+            strawBG.src = "studioghibli4.jpeg"
 
             var arrietty = new Image();
             arrietty.src = "arrietty.png";
@@ -188,7 +199,6 @@
             catbus.src = "catbus.png";
             
             // beginning page
-
             window.onload = function() {
                 alert("go into full screen for highest quality experience!")
                 titlectx.drawImage(titleBG, 0, 0, 1100, 600);
@@ -198,9 +208,12 @@
                 titlectx.drawImage(catbus, 790, 414, 261, 193);
                 day1ctx.drawImage(day1BG, 0, 0, 1100, 600);
                 orderctx.drawImage(orderBG, 0, 0, 1100, 600);
+                mixingctx.drawImage(mixingBG, 0, 0, 1100, 600);
                 titlec.style.visibility='visible';
                 day1c.style.visibility='hidden';
                 orderc.style.visibility='hidden';
+                mixingc.style.visibility='hidden';
+                strawc.style.visibility='hidden';
             }
             
             // text
@@ -219,6 +232,8 @@
                 titlec.style.visibility='hidden';
                 day1c.style.visibility='visible';
                 orderc.style.visibility='hidden';
+                mixingc.style.visibility='hidden';
+                strawc.style.visibility='hidden';
             }
 
             function order() {
@@ -226,15 +241,27 @@
                 titlec.style.visibility='hidden';
                 day1c.style.visibility='hidden';
                 orderc.style.visibility='visible';
+                mixingc.style.visibility='hidden';
+                strawc.style.visibility='hidden';
 
             }
 
             function mixing() {
                 alert("mixing working");
+                titlec.style.visibility='hidden';
+                day1c.style.visibility='hidden';
+                orderc.style.visibility='hidden';
+                mixingc.style.visibility='visible';
+                strawc.style.visibility='hidden';
             }
 
             function straw() {
                 alert("straw working");
+                titlec.style.visibility='hidden';
+                day1c.style.visibility='hidden';
+                orderc.style.visibility='hidden';
+                mixingc.style.visibility='hidden';
+                strawc.style.visibility='visible';
             }
 
             function credits() {
