@@ -129,7 +129,7 @@
     </head>
     <body>
         <canvas id="title" width="1100" height="600" style = "position: absolute;"></canvas>
-        <canvas id="day1" width="1100" height="600"style = "position: absolute;"></canvas>
+        <canvas id="day" width="1100" height="600"style = "position: absolute;"></canvas>
         <canvas id="order" width="1100" height="600"style = "position: absolute;"></canvas>
         <canvas id="mixing" width="1100" height="600"style = "position: absolute;"></canvas>
         <canvas id="straw" width="1100" height="600"style = "position: absolute;"></canvas>
@@ -161,7 +161,7 @@
             // canvas
             var titlec = document.getElementById("title");
             var titlectx = titlec.getContext("2d");
-            var dayc = document.getElementById("day1");
+            var dayc = document.getElementById("day");
             var dayctx = dayc.getContext("2d");
             var orderc = document.getElementById("order");
             var orderctx = orderc.getContext("2d");
@@ -215,6 +215,10 @@
                 orderc.style.visibility='hidden';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
+                //text
+                titlectx.font = "30px Monospace";
+                titlectx.fillText("Cat Boba", 100, 100);
+                titlectx.fillText("[Press START to Continue]", 100, 150);
             }
             
             // button
@@ -226,6 +230,13 @@
 
 
             // show specific canvas
+            function showStart() {
+                titlec.style.visibility='hidden';
+                dayc.style.visibility='visible';
+                orderc.style.visibility='hidden';
+                mixingc.style.visibility='hidden';
+                strawc.style.visibility='hidden';
+            }
             function showOrder() {
                 titlec.style.visibility='hidden';
                 dayc.style.visibility='hidden';
@@ -264,6 +275,7 @@
                 dayctx.fillText("Day 1", 550, 50);
                 dayctx.font = "20px Monospace";
                 dayctx.fillText("This is your first day as an intern at Cat Boba!", 550, 100)
+                showStart();
             }
 
             function order() {
