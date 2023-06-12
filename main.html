@@ -228,6 +228,16 @@
             var strawButton = document.createElement("BUTTON");
             var creditsButton = document.createElement("BUTTON");
 
+
+            // show specific canvas
+            function showOrder() {
+                titlec.style.visibility='hidden';
+                day1c.style.visibility='hidden';
+                orderc.style.visibility='visible';
+                mixingc.style.visibility='hidden';
+                strawc.style.visibility='hidden';
+            }
+
             function start() {
                 alert("start working");
                 titlec.style.visibility='hidden';
@@ -239,11 +249,7 @@
 
             function order() {
                 alert("order working");
-                titlec.style.visibility='hidden';
-                day1c.style.visibility='hidden';
-                orderc.style.visibility='visible';
-                mixingc.style.visibility='hidden';
-                strawc.style.visibility='hidden';
+                showOrder();
 
             }
 
