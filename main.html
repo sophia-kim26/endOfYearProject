@@ -228,6 +228,15 @@
             var strawButton = document.createElement("BUTTON");
             var creditsButton = document.createElement("BUTTON");
 
+            
+            function showStraw() {
+                titlec.style.visibility='hidden';
+                day1c.style.visibility='hidden';
+                orderc.style.visibility='hidden';
+                mixingc.style.visibility='hidden';
+                strawc.style.visibility='visible';
+            }
+
             function start() {
                 // alert("start working");
                 titlec.style.visibility='hidden';
@@ -258,11 +267,7 @@
 
             function straw() {
                 // alert("straw working");
-                titlec.style.visibility='hidden';
-                day1c.style.visibility='hidden';
-                orderc.style.visibility='hidden';
-                mixingc.style.visibility='hidden';
-                strawc.style.visibility='visible';
+                showStraw();
             }
 
             function credits() {
