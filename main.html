@@ -161,8 +161,8 @@
             // canvas
             var titlec = document.getElementById("title");
             var titlectx = titlec.getContext("2d");
-            var day1c = document.getElementById("day1");
-            var day1ctx = day1c.getContext("2d");
+            var dayc = document.getElementById("day1");
+            var dayctx = dayc.getContext("2d");
             var orderc = document.getElementById("order");
             var orderctx = orderc.getContext("2d");
             var mixingc = document.getElementById("mixing");
@@ -174,8 +174,8 @@
             var titleBG = new Image();
             titleBG.src = "studioghibli.jpeg";
 
-            var day1BG = new Image();
-            day1BG.src = "day1.png";
+            var dayBG = new Image();
+            dayBG.src = "day1.png";
 
             var orderBG = new Image();
             orderBG.src = "studioghibli2.jpeg";
@@ -206,12 +206,12 @@
                 titlectx.drawImage(ponyo, 150, 240, 500, 500);
                 titlectx.drawImage(shizuku, 550, 300, 214, 300);
                 titlectx.drawImage(catbus, 790, 414, 261, 193);
-                day1ctx.drawImage(day1BG, 0, 0, 1100, 600);
+                dayctx.drawImage(dayBG, 0, 0, 1100, 600);
                 orderctx.drawImage(orderBG, 0, 0, 1100, 600);
                 mixingctx.drawImage(mixingBG, 0, 0, 1100, 600);
                 strawctx.drawImage(strawBG, 0, 0, 1100, 600)
                 titlec.style.visibility='visible';
-                day1c.style.visibility='hidden';
+                dayc.style.visibility='hidden';
                 orderc.style.visibility='hidden';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
@@ -232,23 +232,32 @@
             // show specific canvas
             function showOrder() {
                 titlec.style.visibility='hidden';
-                day1c.style.visibility='hidden';
+                dayc.style.visibility='hidden';
                 orderc.style.visibility='visible';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
             }
+            function showMixing() {
+                titlec.style.visibility='hidden';
+                dayc.style.visibility='hidden';
+                orderc.style.visibility='hidden';
+                mixingc.style.visibility='visible';
+                strawc.style.visibility='hidden';
+            }
             function showStraw() {
                 titlec.style.visibility='hidden';
-                day1c.style.visibility='hidden';
+                dayc.style.visibility='hidden';
                 orderc.style.visibility='hidden';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='visible';
             }
 
+
+            // when button pressed
             function start() {
                 // alert("start working");
                 titlec.style.visibility='hidden';
-                day1c.style.visibility='visible';
+                dayc.style.visibility='visible';
                 orderc.style.visibility='hidden';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
@@ -261,11 +270,7 @@
 
             function mixing() {
                 // alert("mixing working");
-                titlec.style.visibility='hidden';
-                day1c.style.visibility='hidden';
-                orderc.style.visibility='hidden';
-                mixingc.style.visibility='visible';
-                strawc.style.visibility='hidden';
+                showMixing();
             }
 
             function straw() {
