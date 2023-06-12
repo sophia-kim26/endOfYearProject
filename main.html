@@ -215,11 +215,10 @@
                 orderc.style.visibility='hidden';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
-            }
-            
-            // text
-            ctx.font = "30px Monospace";
+                //text
+                ctx.font = "30px Monospace";
             ctx.fillText("Day 1", 50, 50);
+            }
             
             // button
             var startButton = document.createElement("BUTTON");
@@ -230,6 +229,13 @@
 
 
             // show specific canvas
+            function showStart() {
+                titlec.style.visibility='hidden';
+                dayc.style.visibility='visible';
+                orderc.style.visibility='hidden';
+                mixingc.style.visibility='hidden';
+                strawc.style.visibility='hidden';
+            }
             function showOrder() {
                 titlec.style.visibility='hidden';
                 dayc.style.visibility='hidden';
@@ -256,11 +262,7 @@
             // when button pressed
             function start() {
                 // alert("start working");
-                titlec.style.visibility='hidden';
-                dayc.style.visibility='visible';
-                orderc.style.visibility='hidden';
-                mixingc.style.visibility='hidden';
-                strawc.style.visibility='hidden';
+                showStart();
             }
 
             function order() {
