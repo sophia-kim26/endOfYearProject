@@ -202,10 +202,6 @@
             window.onload = function() {
                 alert("go into full screen for highest quality experience!")
                 titlectx.drawImage(titleBG, 0, 0, 1100, 600);
-                titlectx.drawImage(arrietty, -150, 240, 679, 367);
-                titlectx.drawImage(ponyo, 150, 240, 500, 500);
-                titlectx.drawImage(shizuku, 550, 300, 214, 300);
-                titlectx.drawImage(catbus, 790, 414, 261, 193);
                 dayctx.drawImage(dayBG, 0, 0, 1100, 600);
                 orderctx.drawImage(orderBG, 0, 0, 1100, 600);
                 mixingctx.drawImage(mixingBG, 0, 0, 1100, 600);
@@ -230,7 +226,6 @@
             var mixingButton = document.createElement("BUTTON");
             var strawButton = document.createElement("BUTTON");
             var creditsButton = document.createElement("BUTTON");
-
 
             // show specific canvas
             function showStart() {
@@ -279,13 +274,17 @@
                 dayctx.font = "20px Monospace";
                 dayctx.fillText("This is your first day as an intern at Cat Boba!", 550, 100)
                 dayctx.fillText("Use the stations on the bottom of the screen to carry out orders.", 550, 150)
-                dayctx.fillText("Press the Order button the continue.", 550, 200)
+                dayctx.fillText("Press the Order button to continue.", 550, 200)
                 showStart();
             }
 
             function order() {
                 // alert("order working");
                 showOrder();
+                orderctx.drawImage(arrietty, -150, 240, 679, 367);
+                orderctx.drawImage(ponyo, 150, 240, 500, 500);
+                orderctx.drawImage(shizuku, 550, 300, 214, 300);
+                orderctx.drawImage(catbus, 790, 414, 261, 193);
             }
 
             function mixing() {
