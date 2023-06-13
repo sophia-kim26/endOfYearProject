@@ -238,6 +238,9 @@
             // straw button
             var pokeb = document.getElementById("poke");
 
+            // // straw images
+            // var strawStrawInCupi = document.getElementById("strawStrawInCup");
+
 
             // functions for switching visibility of mixing buttons
             function showMixingButtons() {
@@ -290,11 +293,14 @@
             var strawStraw = new Image();
             strawStraw.src = "strawStraw.png";
 
+            var strawStrawInCup = new Image();
+            strawStrawInCup.src = "strawStrawInCup.png";
+
             // beginning page
             window.onload = function() {
                 alert("go into full screen for highest quality experience!")
                 
-                // buttons
+                // hiding buttons
                 hideMixingButtons();
                 pokeb.style.visibility="hidden";
 
@@ -303,8 +309,6 @@
                 orderctx.drawImage(orderBG, 0, 0, 1100, 600);
                 mixingctx.drawImage(mixingBG, 0, 0, 1100, 600);
                 strawctx.drawImage(strawBG, 0, 0, 1100, 600);
-                strawctx.drawImage(strawStraw, 177, 100, 800, 500);
-                strawctx.drawImage(strawCup, 210, 200, 733, 400);
 
                 // mixing buttons
                 titlec.style.visibility='visible';
@@ -315,6 +319,11 @@
 
                 // straw button
                 mostb.style.visibility='hidden';
+
+                // straw images
+                strawctx.drawImage(strawStraw, 177, 100, 800, 500);
+                strawctx.drawImage(strawCup, 210, 200, 733, 400);
+                strawctx.drawImage(strawStrawInCup, 210, 200, 733, 400);
 
                 // title screen text
                 titlectx.textAlign = "center";
@@ -402,6 +411,7 @@
                 // alert("straw working");
                 hideMixingButtons();
                 pokeb.style.visibility='visible';
+                strawStrawInCupi.style.visibility="hidden";
                 showStraw();
             }
 
