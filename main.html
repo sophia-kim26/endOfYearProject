@@ -270,11 +270,7 @@
             // when button pressed
             function start() {
                 // alert("start working");
-                titlec.style.visibility='hidden';
-                dayc.style.visibility='visible';
-                orderc.style.visibility='hidden';
-                mixingc.style.visibility='hidden';
-                strawc.style.visibility='hidden';
+                showStart();
 
                 // text
                 dayctx.font = "30px Monospace";
@@ -284,16 +280,11 @@
                 dayctx.fillText("This is your first day as an intern at Cat Boba!", 550, 100)
                 dayctx.fillText("Use the stations on the bottom of the screen to carry out orders.", 550, 150)
                 dayctx.fillText("Press the Order button to continue.", 550, 200)
-                showStart();
             }
 
             function order() {
                 // alert("order working");
                 showOrder();
-                orderctx.drawImage(arrietty, -150, 240, 679, 367);
-                orderctx.drawImage(ponyo, 150, 240, 500, 500);
-                orderctx.drawImage(shizuku, 550, 300, 214, 300);
-                orderctx.drawImage(catbus, 790, 414, 261, 193);
             }
 
             function mixing() {
