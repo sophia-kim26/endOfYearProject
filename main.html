@@ -63,27 +63,41 @@
         .creditsButton:hover {background-color: #dda57a;}
 
         /* buttons on top of canvas */
-        .lessButton {
-            background-color: #ffdaaa;
-            top: 90px;
-            right: 1100px;
+        .leastButton {
+            background-color: #B2A4FF;
+            top: 50px;
+            right: 1250px;
             position: absolute;
         }
-        .lessButton:hover {background-color: rgb(213, 153, 107);}
+        .leastButton:hover {background-color: #9a8cec;}
+        .lessButton {
+            background-color: #FFBDF7;
+            top: 50px;
+            right: 1050px;
+            position: absolute;
+        }
+        .lessButton:hover {background-color: #eb9de2;}
         .regularButton {
-            background-color: #feaaff;
-            top: 90px;
+            background-color: #FFB4B4;
+            top: 50px;
             right: 800px;
             position: absolute;
         }
-        .regularButton:hover {background-color: #e284e4;}
+        .regularButton:hover {background-color: #ec9696;}
         .moreButton {
-            background-color: #aab0ff;
-            top: 90px;
-            right: 550px;
+            background-color: #FFDEB4;
+            top: 50px;
+            right: 600px;
             position: absolute;
         }
-        .moreButton:hover {background-color: #838ae3;}
+        .moreButton:hover {background-color: #eeca9a;}
+        .mostButton {
+            background-color: #FDF7C3;
+            top: 50px;
+            right: 400px;
+            position: absolute;
+        }
+        .mostButton:hover {background-color: #e7e0a2;}
         p1 {
             font-family: Monospace;
             top: 50px;
@@ -162,9 +176,11 @@
         <button class = "button strawButton"onclick="straw()">STRAW</button>
         <button class = "button creditsButton"onclick="credits()">CREDITS</button>
 
-        <button class = "button lessButton">LESS</button>
-        <button class = "button regularButton">REGULAR</button>
-        <button class = "button moreButton">MORE</button>
+        <button id = "least" class = "button leastButton">LEAST</button>
+        <button id = "less" class = "button lessButton">LESS</button>
+        <button id = "regular" class = "button regularButton">REGULAR</button>
+        <button id = "more" class = "button moreButton">MORE</button>
+        <button id = "most" class = "button mostButton">MOST</button>
 
         <div class = "rulesPanel">
             <h3>|| INFO ||</h3>
@@ -195,6 +211,31 @@
             var mixingctx = mixingc.getContext("2d");
             var strawc = document.getElementById("straw");
             var strawctx = strawc.getContext("2d");
+
+            // mixing buttons
+            var leastb = document.getElementById("least");
+            var lessb = document.getElementById("less");
+            var regularb = document.getElementById("regular");
+            var moreb = document.getElementById("more");
+            var mostb = document.getElementById("most");
+
+
+            // functions for switching visibility of mixing buttons
+            function showMixingButtons() {
+                leastb.style.visibility='visible';
+                lessb.style.visibility='visible';
+                regularb.style.visibility='visible';
+                moreb.style.visibility='visible';
+                mostb.style.visibility='visible';
+            }
+
+            function hideMixingButtons() {
+                leastb.style.visibility='hidden';
+                lessb.style.visibility='hidden';
+                regularb.style.visibility='hidden';
+                moreb.style.visibility='hidden';
+                mostb.style.visibility='hidden';
+            }
 
             // images
             var titleBG = new Image();
@@ -227,6 +268,7 @@
             // beginning page
             window.onload = function() {
                 alert("go into full screen for highest quality experience!")
+                hideMixingButtons();
                 titlectx.drawImage(titleBG, 0, 0, 1100, 600);
                 dayctx.drawImage(dayBG, 0, 0, 1100, 600);
                 orderctx.drawImage(orderBG, 0, 0, 1100, 600);
@@ -237,7 +279,8 @@
                 orderc.style.visibility='hidden';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
-                //text
+
+                // text
                 titlectx.textAlign = "center";
                 titlectx.font = "100px Monospace";
                 titlectx.fillText("Cat Boba", 550, 200);
@@ -301,6 +344,7 @@
 
             function order() {
                 // alert("order working");
+                hideMixingButtons();
                 showOrder();
                 orderctx.drawImage(arrietty, -150, 240, 679, 367);
                 orderctx.drawImage(ponyo, 150, 240, 500, 500);
@@ -310,12 +354,14 @@
 
             function mixing() {
                 // alert("mixing working");
+                showMixingButtons();
                 showMixing();
             }
 
             function straw() {
                 // alert("straw working");
                 showStraw();
+                hideMixingButtons();
             }
 
             function credits() {
