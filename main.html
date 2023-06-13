@@ -200,7 +200,7 @@
 
 
         <script>
-            // canvas
+            // canvases
             var titlec = document.getElementById("title");
             var titlectx = titlec.getContext("2d");
             var dayc = document.getElementById("day");
@@ -264,7 +264,13 @@
 
             var catbus = new Image();
             catbus.src = "catbus.png";
+
+            var strawCup = new Image();
+            strawCup.src = "strawCup.png";
             
+            var strawStraw = new Image();
+            strawStraw.src = "strawStraw.png";
+
             // beginning page
             window.onload = function() {
                 alert("go into full screen for highest quality experience!")
@@ -273,7 +279,10 @@
                 dayctx.drawImage(dayBG, 0, 0, 1100, 600);
                 orderctx.drawImage(orderBG, 0, 0, 1100, 600);
                 mixingctx.drawImage(mixingBG, 0, 0, 1100, 600);
-                strawctx.drawImage(strawBG, 0, 0, 1100, 600)
+                strawctx.drawImage(strawBG, 0, 0, 1100, 600);
+                strawctx.drawImage(strawStraw, 190, 100, 800, 500);
+                strawctx.drawImage(strawCup, 215, 200, 733, 400);
+
                 titlec.style.visibility='visible';
                 dayc.style.visibility='hidden';
                 orderc.style.visibility='hidden';
