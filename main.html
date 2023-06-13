@@ -62,7 +62,7 @@
         }
         .creditsButton:hover {background-color: #dda57a;}
 
-        /* buttons on top of canvas */
+        /* buttons on top of canvas for mixing station */
         .leastButton {
             background-color: #B2A4FF;
             top: 50px;
@@ -98,6 +98,16 @@
             position: absolute;
         }
         .mostButton:hover {background-color: #e7e0a2;}
+
+        /* button for straw station */
+        .pokeButton {
+            background-color: #c3eafd;
+            top: 50px;
+            right: 800px;
+            position: absolute;
+        }
+        .pokeButton:hover {background-color: #a2d0e8;}
+
         p1 {
             font-family: Monospace;
             top: 50px;
@@ -164,23 +174,29 @@
         </style>
     </head>
     <body>
+        <!-- canvases -->
         <canvas id="title" width="1100" height="600" style = "position: absolute;"></canvas>
         <canvas id="day" width="1100" height="600"style = "position: absolute;"></canvas>
         <canvas id="order" width="1100" height="600"style = "position: absolute;"></canvas>
         <canvas id="mixing" width="1100" height="600"style = "position: absolute;"></canvas>
         <canvas id="straw" width="1100" height="600"style = "position: absolute;"></canvas>
 
+        <!-- stations buttons -->
         <button class = "button startButton", onclick="start()">START</button>
         <button class = "button orderButton"onclick="order()">ORDER</button>
         <button class = "button mixingButton"onclick="mixing()">MIXING</button>
         <button class = "button strawButton"onclick="straw()">STRAW</button>
         <button class = "button creditsButton"onclick="credits()">CREDITS</button>
 
+        <!-- mixing station -->
         <button id = "least" class = "button leastButton">LEAST</button>
         <button id = "less" class = "button lessButton">LESS</button>
         <button id = "regular" class = "button regularButton">REGULAR</button>
         <button id = "more" class = "button moreButton">MORE</button>
         <button id = "most" class = "button mostButton">MOST</button>
+
+        <!-- straw station -->
+        <button id = "poke" class = "button pokeButton">POKE!</button>
 
         <div class = "rulesPanel">
             <h3>|| INFO ||</h3>
@@ -218,6 +234,9 @@
             var regularb = document.getElementById("regular");
             var moreb = document.getElementById("more");
             var mostb = document.getElementById("most");
+
+            // straw button
+            var pokeb = document.getElementById("poke");
 
 
             // functions for switching visibility of mixing buttons
@@ -274,22 +293,30 @@
             // beginning page
             window.onload = function() {
                 alert("go into full screen for highest quality experience!")
+                
+                // buttons
                 hideMixingButtons();
+                pokeb.style.visibility="hidden";
+
                 titlectx.drawImage(titleBG, 0, 0, 1100, 600);
                 dayctx.drawImage(dayBG, 0, 0, 1100, 600);
                 orderctx.drawImage(orderBG, 0, 0, 1100, 600);
                 mixingctx.drawImage(mixingBG, 0, 0, 1100, 600);
                 strawctx.drawImage(strawBG, 0, 0, 1100, 600);
-                strawctx.drawImage(strawStraw, 190, 100, 800, 500);
-                strawctx.drawImage(strawCup, 215, 200, 733, 400);
+                strawctx.drawImage(strawStraw, 177, 100, 800, 500);
+                strawctx.drawImage(strawCup, 210, 200, 733, 400);
 
+                // mixing buttons
                 titlec.style.visibility='visible';
                 dayc.style.visibility='hidden';
                 orderc.style.visibility='hidden';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
 
-                // text
+                // straw button
+                mostb.style.visibility='hidden';
+
+                // title screen text
                 titlectx.textAlign = "center";
                 titlectx.font = "100px Monospace";
                 titlectx.fillText("Cat Boba", 550, 200);
@@ -340,6 +367,8 @@
             function start() {
                 // alert("start working");
                 showStart();
+                hideMixingButtons();
+                pokeb.style.visibility='hidden';
 
                 // text
                 dayctx.font = "30px Monospace";
@@ -354,6 +383,7 @@
             function order() {
                 // alert("order working");
                 hideMixingButtons();
+                pokeb.style.visibility='hidden';
                 showOrder();
                 orderctx.drawImage(arrietty, -150, 240, 679, 367);
                 orderctx.drawImage(ponyo, 150, 240, 500, 500);
@@ -364,13 +394,15 @@
             function mixing() {
                 // alert("mixing working");
                 showMixingButtons();
+                pokeb.style.visibility='hidden';
                 showMixing();
             }
 
             function straw() {
                 // alert("straw working");
-                showStraw();
                 hideMixingButtons();
+                pokeb.style.visibility='visible';
+                showStraw();
             }
 
             function credits() {
