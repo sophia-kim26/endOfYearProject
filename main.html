@@ -108,15 +108,15 @@
         }
         .pokeButton:hover {background-color: #a2d0e8;}
 
-        /* buttons in order canvas */
-        .arrietyButton {
+        /* buttons in order station */
+        .seeOrderButton {
             background-color: #f5775a;
-            top: 1000px;
-            right: 1100px;
-            height:200px;
-            width:400px;
+            top: 50px;
+            right: 1140px;
+            border-radius: 50%;
             position: absolute;
         }
+        .seeOrderButton:hover {background-color: #df5f42;}
         /* buttons in mixing canvas */
         .teaButton {
             background-color: #ba947d;
@@ -224,6 +224,8 @@
 
         <!-- buttons in order canvas -->
         <button class = "button arrietyButton">SEE ORDER!</button>
+        <!-- buttons in order canvas -->
+        <button id = "seeOrder" class = "button seeOrderButton" onclick="seeOrder()">SEE ORDER!</button>
 
         <div class = "rulesPanel">
             <h3>|| INFO ||</h3>
@@ -270,10 +272,42 @@
             // straw button
             var pokeb = document.getElementById("poke");
 
+            // order button + lists for randomizing orders
+            var seeOrderb = document.getElementById("seeOrder");
+            const ice = ["Saab", "Volvo", "BMW"];
+            const sugar = ["Saab", "Volvo", "BMW"];
+            const tea = ["Saab", "Volvo", "BMW"];
+            const bubbles = ["Black pearl", "Volvo", "BMW"];
+
             // // straw images
             // var strawStrawInCupi = document.getElementById("strawStrawInCup");
 
 
+            // functions for switching visibility of mixing buttons
+            function showMixingButtons() {
+                leastb.style.visibility='visible';
+                lessb.style.visibility='visible';
+                regularb.style.visibility='visible';
+                moreb.style.visibility='visible';
+                mostb.style.visibility='visible';
+            }
+
+            function hideMixingButtons() {
+                leastb.style.visibility='hidden';
+                lessb.style.visibility='hidden';
+                regularb.style.visibility='hidden';
+                moreb.style.visibility='hidden';
+                mostb.style.visibility='hidden';
+            }
+
+            function drawTextBg(x, y, text) {
+                orderctx.font = "25px Monospace";
+                orderctx.fillStyle = '#FFFFFF';
+                orderctx.fillRect(x-10, y-30, 250, 50);
+                orderctx.fillStyle = '#000000';
+                orderctx.fillText(text, x, y);
+            }
+            
             // images
             var titleBG = new Image();
             titleBG.src = "day.png";
@@ -323,6 +357,8 @@
                 alert("go into full screen for highest quality experience!")
 
                 // backgrounds
+                seeOrderb.style.visibility="hidden";
+
                 titlectx.drawImage(titleBG, 0, 0, 1100, 600);
                 dayctx.drawImage(dayBG, 0, 0, 1100, 600);
                 orderctx.drawImage(orderBG, 0, 0, 1100, 600);
@@ -424,6 +460,7 @@
                 showStart();
                 hideMixingButtons();
                 pokeb.style.visibility='hidden';
+                seeOrderb.style.visibility="hidden";
 
                 // text
                 dayctx.font = "30px Monospace";
@@ -435,11 +472,22 @@
                 dayctx.fillText("Press the Order button to continue.", 550, 200)
             }
 
+            function seeOrder() {
+                    // order text
+                    drawTextBg(550, 75, "I would like...");
+                    drawTextBg(550, 135, "Ice:");
+                    drawTextBg(550, 195, "Sugar:");
+                    drawTextBg(550, 255, "Tea:");
+                    drawTextBg(550, 255, "Bubbles:");
+            }
+
             function order() {
                 // alert("order working");
                 hideMixingButtons();
                 pokeb.style.visibility='hidden';
+                seeOrderb.style.visibility="visible";
                 showOrder();
+
                 orderctx.drawImage(arrietty, -150, 240, 679, 367);
                 orderctx.drawImage(ponyo, 150, 240, 500, 500);
                 orderctx.drawImage(shizuku, 550, 300, 214, 300);
@@ -450,6 +498,7 @@
                 // alert("mixing working");
                 showMixingButtons();
                 pokeb.style.visibility='hidden';
+                seeOrderb.style.visibility="hidden";
                 showMixing();
             }
 
@@ -457,6 +506,7 @@
                 // alert("straw working");
                 hideMixingButtons();
                 pokeb.style.visibility='visible';
+                seeOrderb.style.visibility="hidden";
                 strawStrawInCup.style.visibility="hidden"; // not working!
                 showStraw();
             }
