@@ -210,7 +210,7 @@
 
 
         <!-- buttons in order canvas -->
-        <button id = "seeOrder" class = "button seeOrderButton">SEE ORDER!</button>
+        <button id = "seeOrder" class = "button seeOrderButton" onclick="seeOrder()">SEE ORDER!</button>
 
         <div class = "rulesPanel">
             <h3>|| INFO ||</h3>
@@ -337,9 +337,6 @@
                 mixingctx.drawImage(mixingBG, 0, 0, 1100, 600);
                 strawctx.drawImage(strawBG, 0, 0, 1100, 600);
 
-                // order text
-                drawTextBg(550, 75, "I would like...");
-
                 // mixing buttons
                 titlec.style.visibility='visible';
                 dayc.style.visibility='hidden';
@@ -420,12 +417,18 @@
                 dayctx.fillText("Press the Order button to continue.", 550, 200)
             }
 
+            function seeOrder() {
+                    // order text
+                    drawTextBg(550, 75, "I would like...");
+            }
+
             function order() {
                 // alert("order working");
                 hideMixingButtons();
                 pokeb.style.visibility='hidden';
                 seeOrderb.style.visibility="visible";
                 showOrder();
+
                 orderctx.drawImage(arrietty, -150, 240, 679, 367);
                 orderctx.drawImage(ponyo, 150, 240, 500, 500);
                 orderctx.drawImage(shizuku, 550, 300, 214, 300);
