@@ -208,7 +208,6 @@
         <!-- straw station -->
         <button id = "poke" class = "button pokeButton">POKE!</button>
 
-
         <!-- buttons in order canvas -->
         <button id = "seeOrder" class = "button seeOrderButton" onclick="seeOrder()">SEE ORDER!</button>
 
@@ -252,12 +251,15 @@
             // straw button
             var pokeb = document.getElementById("poke");
 
-            // order button
+            // order button + lists for randomizing orders
             var seeOrderb = document.getElementById("seeOrder");
+            const ice = ["Saab", "Volvo", "BMW"];
+            const sugar = ["Saab", "Volvo", "BMW"];
+            const tea = ["Saab", "Volvo", "BMW"];
+            const bubbles = ["Black pearl", "Volvo", "BMW"];
 
             // // straw images
             // var strawStrawInCupi = document.getElementById("strawStrawInCup");
-
 
             // functions for switching visibility of mixing buttons
             function showMixingButtons() {
@@ -423,7 +425,7 @@
                     drawTextBg(550, 135, "Ice:");
                     drawTextBg(550, 195, "Sugar:");
                     drawTextBg(550, 255, "Tea:");
-                    drawTextBg(550, 255, "Boba:");
+                    drawTextBg(550, 255, "Bubbles:");
             }
 
             function order() {
