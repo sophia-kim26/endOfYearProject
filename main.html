@@ -117,6 +117,14 @@
             width:400px;
             position: absolute;
         }
+        /* buttons in mixing canvas */
+        .teaButton {
+            background-color: #ba947d;
+            top: 100px;
+            right: 800px;
+            position: absolute;
+        }
+        .teaButton:hover {background-color: #ba947de1;}
 
         p1 {
             font-family: Monospace;
@@ -191,6 +199,10 @@
         <canvas id="mixing" width="1100" height="600"style = "position: absolute;"></canvas>
         <canvas id="straw" width="1100" height="600"style = "position: absolute;"></canvas>
 
+        <!-- canvases for ingredients-->
+        <canvas id="tea" width="1100" height="600"style = "position: absolute;"></canvas>
+
+
         <!-- stations buttons -->
         <button class = "button startButton", onclick="start()">START</button>
         <button class = "button orderButton"onclick="order()">ORDER</button>
@@ -204,12 +216,13 @@
         <button id = "regular" class = "button regularButton">REGULAR</button>
         <button id = "more" class = "button moreButton">MORE</button>
         <button id = "most" class = "button mostButton">MOST</button>
+        <button id = "tea" class = "button teaButton">TEA</button>
 
         <!-- straw station -->
         <button id = "poke" class = "button pokeButton">POKE!</button>
 
 
-        // buttons in order canvas
+        <!-- buttons in order canvas -->
         <button class = "button arrietyButton">SEE ORDER!</button>
 
         <div class = "rulesPanel">
@@ -242,12 +255,17 @@
             var strawc = document.getElementById("straw");
             var strawctx = strawc.getContext("2d");
 
+            // ingredient canvases
+            var teac = document.getElementById("tea");
+            var teactx = teac.getContext("2d");
+
             // mixing buttons
             var leastb = document.getElementById("least");
             var lessb = document.getElementById("less");
             var regularb = document.getElementById("regular");
             var moreb = document.getElementById("more");
             var mostb = document.getElementById("most");
+            var teab = document.getElementById("tea");
 
             // straw button
             var pokeb = document.getElementById("poke");
@@ -255,23 +273,6 @@
             // // straw images
             // var strawStrawInCupi = document.getElementById("strawStrawInCup");
 
-
-            // functions for switching visibility of mixing buttons
-            function showMixingButtons() {
-                leastb.style.visibility='visible';
-                lessb.style.visibility='visible';
-                regularb.style.visibility='visible';
-                moreb.style.visibility='visible';
-                mostb.style.visibility='visible';
-            }
-
-            function hideMixingButtons() {
-                leastb.style.visibility='hidden';
-                lessb.style.visibility='hidden';
-                regularb.style.visibility='hidden';
-                moreb.style.visibility='hidden';
-                mostb.style.visibility='hidden';
-            }
 
             // images
             var titleBG = new Image();
@@ -310,26 +311,34 @@
             var strawStrawInCup = new Image();
             strawStrawInCup.src = "straw/strawStrawInCup.png";
 
+            var mixingCup = new Image();
+            mixingCup.src = "mixing/mixingCup.png";
+
             // beginning page
             window.onload = function() {
-                alert("go into full screen for highest quality experience!")
-                
                 // hiding buttons
                 hideMixingButtons();
                 pokeb.style.visibility="hidden";
 
+                alert("go into full screen for highest quality experience!")
+
+                // backgrounds
                 titlectx.drawImage(titleBG, 0, 0, 1100, 600);
                 dayctx.drawImage(dayBG, 0, 0, 1100, 600);
                 orderctx.drawImage(orderBG, 0, 0, 1100, 600);
                 mixingctx.drawImage(mixingBG, 0, 0, 1100, 600);
                 strawctx.drawImage(strawBG, 0, 0, 1100, 600);
 
-                // mixing buttons
+                // canvas visibility
                 titlec.style.visibility='visible';
                 dayc.style.visibility='hidden';
                 orderc.style.visibility='hidden';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
+                teac.style.visibility='hidden';
+
+                // mixing images
+                mixingctx.drawImage(mixingCup, 325, 150, 450, 450);
 
                 // straw button
                 mostb.style.visibility='hidden';
@@ -362,6 +371,7 @@
                 orderc.style.visibility='hidden';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
+                teac.style.visibility='hidden';
             }
             function showOrder() {
                 titlec.style.visibility='hidden';
@@ -369,6 +379,7 @@
                 orderc.style.visibility='visible';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
+                teac.style.visibility='hidden';
             }
             function showMixing() {
                 titlec.style.visibility='hidden';
@@ -376,6 +387,7 @@
                 orderc.style.visibility='hidden';
                 mixingc.style.visibility='visible';
                 strawc.style.visibility='hidden';
+                teac.style.visibility='hidden';
             }
             function showStraw() {
                 titlec.style.visibility='hidden';
@@ -383,6 +395,26 @@
                 orderc.style.visibility='hidden';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='visible';
+                teac.style.visibility='hidden';
+            }
+
+            // functions for switching visibility of mixing buttons
+            function showMixingButtons() {
+                leastb.style.visibility='visible';
+                lessb.style.visibility='visible';
+                regularb.style.visibility='visible';
+                moreb.style.visibility='visible';
+                mostb.style.visibility='visible';
+                teab.style.visibility='visible';
+            }
+
+            function hideMixingButtons() {
+                leastb.style.visibility='hidden';
+                lessb.style.visibility='hidden';
+                regularb.style.visibility='hidden';
+                moreb.style.visibility='hidden';
+                mostb.style.visibility='hidden';
+                teab.style.visiblity='hidden';
             }
 
 
