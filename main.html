@@ -481,11 +481,17 @@
             function seeOrder() {
                     // order text
                     if (orderTaken == false) {
+                        var iceOrder = ice[parseInt(Math.random() * 5)];
+                        var sugarOrder = sugar[parseInt(Math.random() * 5)];
+                        var teaOrder = tea[parseInt(Math.random() * 5)];
+                        var bubblesOrder = bubbles[parseInt(Math.random() * 5)];
+                        const orderList = [iceOrder, sugarOrder, teaOrder, bubblesOrder];
+
                         drawTextBg(550, 75, "I would like...");
-                        drawTextBg(550, 135, "Ice: " + ice[parseInt(Math.random() * 5)]);
-                        drawTextBg(550, 195, "Sugar: "+ sugar[parseInt(Math.random() * 5)]);
-                        drawTextBg(550, 255, "Tea: "+ tea[parseInt(Math.random() * 5)]);
-                        drawTextBg(550, 255, "Bubbles: "+ bubbles[parseInt(Math.random() * 5)]);
+                        drawTextBg(550, 135, "Ice: " + iceOrder);
+                        drawTextBg(550, 195, "Sugar: "+ sugarOrder);
+                        drawTextBg(550, 255, "Tea: "+ teaOrder);
+                        drawTextBg(550, 255, "Bubbles: "+ bubblesOrder);
                         orderTaken = true;
                     }
             }
