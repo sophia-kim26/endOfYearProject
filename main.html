@@ -245,6 +245,10 @@
 
 
         <script>
+            let day = 1;
+            let ordersCompleted = 0;
+            let orderTaken = false;
+            
             // canvases
             var titlec = document.getElementById("title");
             var titlectx = titlec.getContext("2d");
@@ -305,7 +309,7 @@
             function drawTextBg(x, y, text) {
                 orderctx.font = "25px Monospace";
                 orderctx.fillStyle = '#FFFFFF';
-                orderctx.fillRect(x-10, y-30, 250, 50);
+                orderctx.fillRect(x-10, y-30, 320, 50);
                 orderctx.fillStyle = '#000000';
                 orderctx.fillText(text, x, y);
             }
@@ -379,7 +383,6 @@
 
                 // mixing images + button
                 mixingctx.drawImage(mixingCup, 325, 150, 450, 450);
-                teab.style.visibility='hidden';
 
                 // straw images
                 strawctx.drawImage(strawStraw, 177, 100, 800, 500);
@@ -477,11 +480,14 @@
 
             function seeOrder() {
                     // order text
-                    drawTextBg(550, 75, "I would like...");
-                    drawTextBg(550, 135, "Ice: " + ice[parseInt(Math.random() * 5)]);
-                    drawTextBg(550, 195, "Sugar: "+ sugar[parseInt(Math.random() * 5)]);
-                    drawTextBg(550, 255, "Tea: "+ tea[parseInt(Math.random() * 5)]);
-                    drawTextBg(550, 255, "Bubbles: "+ bubbles[parseInt(Math.random() * 5)]);
+                    if (orderTaken == false) {
+                        drawTextBg(550, 75, "I would like...");
+                        drawTextBg(550, 135, "Ice: " + ice[parseInt(Math.random() * 5)]);
+                        drawTextBg(550, 195, "Sugar: "+ sugar[parseInt(Math.random() * 5)]);
+                        drawTextBg(550, 255, "Tea: "+ tea[parseInt(Math.random() * 5)]);
+                        drawTextBg(550, 255, "Bubbles: "+ bubbles[parseInt(Math.random() * 5)]);
+                        orderTaken = true;
+                    }
             }
 
             function order() {
