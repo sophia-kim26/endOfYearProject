@@ -124,7 +124,7 @@
             right: 800px;
             position: absolute;
         }
-        .teaButton:hover {background-color: #ba947de1;}
+        .teaButton:hover {background-color: #9f7d69;}
 
         p1 {
             font-family: Monospace;
@@ -216,7 +216,7 @@
         <button id = "regular" class = "button regularButton">REGULAR</button>
         <button id = "more" class = "button moreButton">MORE</button>
         <button id = "most" class = "button mostButton">MOST</button>
-        <button id = "tea" class = "button teaButton">TEA</button>
+        <button id = "teab" class = "button teaButton">TEA</button>
 
         <!-- straw station -->
         <button id = "poke" class = "button pokeButton">POKE!</button>
@@ -267,7 +267,7 @@
             var regularb = document.getElementById("regular");
             var moreb = document.getElementById("more");
             var mostb = document.getElementById("most");
-            var teab = document.getElementById("tea");
+            var teab = document.getElementById("teab");
 
             // straw button
             var pokeb = document.getElementById("poke");
@@ -356,6 +356,7 @@
                 hideMixingButtons();
                 pokeb.style.visibility="hidden";
                 teab.style.visibility="hidden";
+                mostb.style.visibility='hidden';
 
                 alert("go into full screen for highest quality experience!")
 
@@ -378,9 +379,6 @@
 
                 // mixing images
                 mixingctx.drawImage(mixingCup, 325, 150, 450, 450);
-
-                // straw button
-                mostb.style.visibility='hidden';
 
                 // straw images
                 strawctx.drawImage(strawStraw, 177, 100, 800, 500);
