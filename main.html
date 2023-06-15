@@ -376,8 +376,9 @@
                 strawc.style.visibility='hidden';
                 teac.style.visibility='hidden';
 
-                // mixing images
+                // mixing images + button
                 mixingctx.drawImage(mixingCup, 325, 150, 450, 450);
+                teab.style.visibility='hidden';
 
                 // straw button
                 mostb.style.visibility='hidden';
@@ -464,6 +465,7 @@
                 hideMixingButtons();
                 pokeb.style.visibility='hidden';
                 seeOrderb.style.visibility="hidden";
+                teab.style.visibility="hidden";
 
                 // text
                 dayctx.font = "30px Monospace";
@@ -478,10 +480,10 @@
             function seeOrder() {
                     // order text
                     drawTextBg(550, 75, "I would like...");
-                    drawTextBg(550, 135, "Ice:");
-                    drawTextBg(550, 195, "Sugar:");
-                    drawTextBg(550, 255, "Tea:");
-                    drawTextBg(550, 255, "Bubbles:");
+                    drawTextBg(550, 135, "Ice: " + ice[parseInt(Math.random() * 5)]);
+                    drawTextBg(550, 195, "Sugar: "+ sugar[parseInt(Math.random() * 5)]);
+                    drawTextBg(550, 255, "Tea: "+ tea[parseInt(Math.random() * 5)]);
+                    drawTextBg(550, 255, "Bubbles: "+ bubbles[parseInt(Math.random() * 5)]);
             }
 
             function order() {
