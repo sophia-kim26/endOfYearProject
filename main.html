@@ -290,6 +290,37 @@
             let day = 1;
             let ordersCompleted = 0;
             let orderTaken = false;
+
+            // order button + lists for randomizing orders
+            var seeOrderb = document.getElementById("seeOrder");
+            const ice = ["Least", "Less", "Regular", "More", "Most"];
+            const sugar = ["Least", "Less", "Regular", "More", "Most"];
+            const tea = ["Milk", "Strawberry", "Taro", "Matcha", "Thai"];
+            const bubbles = ["Black pearls", "Agar pearls", "Grass jelly", "Ube balls", "Taro balls"];
+
+            var iceAndSugarDict = {
+                "Least" : leastb,
+                "Less" : lessb,
+                "Regular" : regularb,
+                "More" : moreb,
+                "Most" : mostb
+            }
+
+            var teaDict = {
+                "Milk" : milkb,
+                "Strawberry" : strawberryb,
+                "Taro" : tarob,
+                "Matcha" : matchab,
+                "Thai" : thaib
+            }
+
+            var bubblesDict = {
+                "Black pearls" : blackPearlsb,
+                "Agar pearls" : agarPearlsb,
+                "Grass jelly" : grassJellyb,
+                "Ube balls" : ubeBallsb,
+                "Taro Balls" : taroBallsb
+            }
             
             // canvases
             var titlec = document.getElementById("title");
@@ -324,13 +355,6 @@
 
             // straw button
             var pokeb = document.getElementById("poke");
-
-            // order button + lists for randomizing orders
-            var seeOrderb = document.getElementById("seeOrder");
-            const ice = ["Least", "Less", "Regular", "More", "Most"];
-            const sugar = ["Least", "Less", "Regular", "More", "Most"];
-            const tea = ["Milk", "Strawberry", "Taro", "Matcha", "Thai"];
-            const bubbles = ["Black pearls", "Agar pearls", "Grass jelly", "Ube balls", "Taro balls"];
 
             // // straw images
             // var strawStrawInCupi = document.getElementById("strawStrawInCup");
@@ -550,11 +574,20 @@
             function seeOrder() {
                     // order text
                     if (orderTaken == false) {
+                        var iceOrder = ice[parseInt(Math.random() * 5)];
+                        var sugarOrder = sugar[parseInt(Math.random() * 5)];
+                        var teaOrder = tea[parseInt(Math.random() * 5)];
+                        var bubblesOrder = bubbles[parseInt(Math.random() * 5)];
+                        const orderList = [iceOrder, sugarOrder, teaOrder, bubblesOrder];
+
                         drawTextBg(550, 75, "I would like...");
-                        drawTextBg(550, 135, "Ice: " + ice[parseInt(Math.random() * 5)]);
-                        drawTextBg(550, 195, "Sugar: "+ sugar[parseInt(Math.random() * 5)]);
-                        drawTextBg(550, 255, "Tea: "+ tea[parseInt(Math.random() * 5)]);
-                        drawTextBg(550, 255, "Bubbles: "+ bubbles[parseInt(Math.random() * 5)]);
+                        drawTextBg(550, 135, "Ice: " + iceOrder);
+                        drawTextBg(550, 195, "Sugar: "+ sugarOrder);
+                        drawTextBg(550, 255, "Tea: "+ teaOrder);
+                        drawTextBg(550, 315, "Bubbles: "+ bubblesOrder);
+
+                        var correctOptions = [iceAndSugarDict[iceOrder], iceAndSugarDict[sugarOrder], teaDict[teaOrder], bubblesDict[bubblesOrder]]
+
                         orderTaken = true;
                     }
             }
