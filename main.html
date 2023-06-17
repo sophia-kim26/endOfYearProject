@@ -98,6 +98,7 @@
             position: absolute;
         }
         .mostButton:hover {background-color: #e7e0a2;}
+
         .teaButton {
             background-color: #ba947d;
             top: 200px;
@@ -199,6 +200,24 @@
             position: absolute;
         }
 
+        .iceButton {
+            background-color: #ba947d;
+            width: 180px;
+            top: 200px;
+            right: 500px;
+            position: absolute;
+        }
+        .iceButton:hover {background-color: #9f7d69;}
+
+        .sugarButton {
+            background-color: #ba947d;
+            width: 180px;
+            top: 300px;
+            right: 500px;
+            position: absolute;
+        }
+        .sugarButton:hover {background-color: #9f7d69;}
+
         /* button for straw station */
         .pokeButton {
             background-color: #c3eafd;
@@ -292,6 +311,8 @@
 
         <!-- canvases for ingredients-->
         <canvas id="tea" width="1100" height="600"style = "position: absolute;"></canvas>
+        <canvas id="ice" width="1100" height="600"style = "position: absolute;"></canvas>
+        <canvas id="sugar" width="1100" height="600"style = "position: absolute;"></canvas>
 
 
         <!-- stations buttons -->
@@ -307,7 +328,10 @@
         <button id = "regular" class = "button regularButton">REGULAR</button>
         <button id = "more" class = "button moreButton">MORE</button>
         <button id = "most" class = "button mostButton">MOST</button>
+
         <button id = "teab" class = "button teaButton" onclick="seeTea()">TEA</button>
+        <button id = "iceb" class = "button iceButton" onclick="seeIce()">ICE</button>
+        <button id = "sugarb" class = "button sugarButton" onclick="seeSugar()">SUGAR</button>
 
         <!-- teas -->
         <button id = "milk" class = "button milkButton" onclick="seeMilk()">MILK</button>
@@ -404,6 +428,12 @@
             var teac = document.getElementById("tea");
             var teactx = teac.getContext("2d");
 
+            var icec = document.getElementById("ice");
+            var icectx = teac.getContext("2d");
+
+            var sugarc = document.getElementById("sugar");
+            var sugarctx = teac.getContext("2d");
+
             // mixing buttons
             var leastb = document.getElementById("least");
             var lessb = document.getElementById("less");
@@ -456,6 +486,12 @@
             // mixing button bgs
             var teaBG = new Image();
             teaBG.src = "backgrounds/mixing/teaBG.png";
+
+            var iceBG = new Image();
+            iceBG.src = "backgrounds/mixing/iceBG.png";
+
+            var sugarBG = new Image();
+            sugarBG.src = "backgrounds/mixing/sugarBG.png";
 
             // toppings
             var milkTea = new Image();
@@ -561,6 +597,8 @@
                 mixingctx.drawImage(mixingBG, 0, 0, 1100, 600);
                 strawctx.drawImage(strawBG, 0, 0, 1100, 600);
                 teactx.drawImage(teaBG, 0, 0 , 1100, 600);
+                icectx.drawImage(iceBG, 0, 0 , 1100, 600);
+                sugarctx.drawImage(sugarBG, 0, 0 , 1100, 600);
 
                 // canvas visibility
                 titlec.style.visibility='visible';
@@ -568,7 +606,10 @@
                 orderc.style.visibility='hidden';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
+
                 teac.style.visibility='hidden';
+                icec.style.visibility='hidden';
+                sugarc.style.visibility='hidden';
 
                 // mixing images + button
                 mixingctx.drawImage(mixingCup, 325, 150, 450, 450);
@@ -591,31 +632,25 @@
 
             // functions for switching visibility of mixing buttons
             function showMixingButtons() {
-                leastb.style.visibility='visible';
-                lessb.style.visibility='visible';
-                regularb.style.visibility='visible';
-                moreb.style.visibility='visible';
-                mostb.style.visibility='visible';
                 teab.style.visibility='visible';
                 blackPearlb.style.visibility='visible';
                 agarPearlb.style.visibility='visible';
                 grassJellyb.style.visibility='visible';
                 ubeBallb.style.visibility='visible';
                 taroBallb.style.visibility='visible';
+                iceb.style.visibility='visible';
+                sugarb.style.visibility='visible';
             }
 
             function hideMixingButtons() {
-                leastb.style.visibility='hidden';
-                lessb.style.visibility='hidden';
-                regularb.style.visibility='hidden';
-                moreb.style.visibility='hidden';
-                mostb.style.visibility='hidden';
                 teab.style.visibility='hidden';
                 blackPearlb.style.visibility='hidden';
                 agarPearlb.style.visibility='hidden';
                 grassJellyb.style.visibility='hidden';
                 ubeBallb.style.visibility='hidden';
                 taroBallb.style.visibility='hidden';
+                iceb.style.visibility='hidden';
+                sugarb.style.visibility='hidden';
             }
             // tea button visibility
             function showTeaButtons() {
@@ -634,7 +669,21 @@
                 thaib.style.visibility='hidden';
             }
 
+            function showSugarAndIceButtons() {
+                leastb.style.visibility='visible';
+                lessb.style.visibility='visible';
+                regularb.style.visibility='visible';
+                moreb.style.visibility='visible';
+                mostb.style.visibility='visible';
+            }
 
+            function hideSugarAndIceButtons() {
+                leastb.style.visibility='hidden';
+                lessb.style.visibility='hidden';
+                regularb.style.visibility='hidden';
+                moreb.style.visibility='hidden';
+                mostb.style.visibility='hidden';
+            }
 
             // show specific canvas
             function showStart() {
@@ -644,6 +693,8 @@
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
                 teac.style.visibility='hidden';
+                icec.style.visibility='hidden';
+                sugarc.style.visibility='hidden';
             }
             function showOrder() {
                 titlec.style.visibility='hidden';
@@ -652,6 +703,8 @@
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
                 teac.style.visibility='hidden';
+                icec.style.visibility='hidden';
+                sugarc.style.visibility='hidden';
             }
             function showMixing() {
                 titlec.style.visibility='hidden';
@@ -660,6 +713,8 @@
                 mixingc.style.visibility='visible';
                 strawc.style.visibility='hidden';
                 teac.style.visibility='hidden';
+                icec.style.visibility='hidden';
+                sugarc.style.visibility='hidden';
             }
             function showStraw() {
                 titlec.style.visibility='hidden';
@@ -668,6 +723,8 @@
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='visible';
                 teac.style.visibility='hidden';
+                icec.style.visibility='hidden';
+                sugarc.style.visibility='hidden';
             }
 
 
@@ -677,6 +734,7 @@
                 showStart();
                 hideMixingButtons();
                 hideTeaButtons();
+                hideSugarAndIceButtons();
                 pokeb.style.visibility='hidden';
                 seeOrderb.style.visibility="hidden";
 
@@ -715,6 +773,7 @@
                 // alert("order working");
                 hideMixingButtons();
                 hideTeaButtons();
+                hideSugarAndIceButtons();
                 pokeb.style.visibility='hidden';
                 seeOrderb.style.visibility="visible";
                 showOrder();
@@ -729,6 +788,7 @@
                 // alert("mixing working");
                 showMixingButtons();
                 hideTeaButtons();
+                hideSugarAndIceButtons();
                 pokeb.style.visibility='hidden';
                 seeOrderb.style.visibility="hidden";
                 showMixing();
@@ -740,7 +800,20 @@
                 showTeaButtons();
                 teac.style.visibility='visible';
             }
-                // teas
+
+            function seeSugar() {
+                hideMixingButtons();
+                showSugarAndIceButtons();
+                sugarc.style.visibility='visible';
+            }
+
+            function seeIce() {
+                hideMixingButtons();
+                showSugarAndIceButtons();
+                icec.style.visibility='visible';
+            }
+
+            // teas
             function seeMilk() {
                 mixing();
                 mixingctx.drawImage(milkTea, 325, 150, 450, 450);
@@ -793,6 +866,7 @@
                 // alert("straw working");
                 hideMixingButtons();
                 hideTeaButtons();
+                hideSugarAndIceButtons();
                 pokeb.style.visibility='visible';
                 seeOrderb.style.visibility="hidden";
                 showStraw();
