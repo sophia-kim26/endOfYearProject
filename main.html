@@ -301,6 +301,8 @@
             let ordersCompleted = 0;
             let orderTaken = false;
 
+            var inCup = ["", "", "", ""] // ice, sugar, tea, bubbles
+
             // order button + lists for randomizing orders
             var seeOrderb = document.getElementById("seeOrder");
             const ice = ["Least", "Less", "Regular", "More", "Most"];
@@ -631,22 +633,27 @@
             function seeMilk() {
                 mixing();
                 mixingctx.drawImage(milkTea, 325, 150, 450, 450);
+                inCup[2] = "milk";
             }
             function seeStrawberry() {
                 mixing();
                 mixingctx.drawImage(strawberryTea, 325, 150, 450, 450);
+                inCup[2] = "strawberry";
             }
             function seeTaro() {
                 mixing();
                 mixingctx.drawImage(taroTea, 325, 150, 450, 450);
+                inCup[2] = "taro";
             }
             function seeMatcha() {
                 mixing();
                 mixingctx.drawImage(matchaTea, 325, 150, 450, 450);
+                inCup[2] = "matcha";
             }
             function seeThai() {
                 mixing();
                 mixingctx.drawImage(thaiTea, 325, 150, 450, 450);
+                inCup[2] = "thai";
             }
             // MIXING BUTTONS END
 
@@ -657,7 +664,6 @@
                 pokeb.style.visibility='visible';
                 seeOrderb.style.visibility="hidden";
                 showStraw();
-                x = 177;
             }
 
             function seeStrawInCup() {
