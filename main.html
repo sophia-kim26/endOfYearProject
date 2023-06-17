@@ -468,10 +468,6 @@
                 // mixing images + button
                 mixingctx.drawImage(mixingCup, 325, 150, 450, 450);
 
-                // straw images
-                strawctx.drawImage(strawStraw, 177, 100, 800, 500);
-                strawctx.drawImage(strawCup, 210, 200, 733, 400);
-
                 // title screen text
                 titlectx.textAlign = "center";
                 titlectx.font = "100px Monospace";
@@ -664,6 +660,8 @@
                 pokeb.style.visibility='visible';
                 seeOrderb.style.visibility="hidden";
                 showStraw();
+                strawctx.drawImage(strawCup, 210, 200, 733, 400);
+                strawctx.drawImage(strawStraw, 177, 100, 800, 500);
             }
 
             function seeStrawInCup() {
