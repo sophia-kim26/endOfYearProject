@@ -389,6 +389,7 @@
 
             // toppings
             var milkTea = new Image();
+            milkTea.src = "mixing/ingredients/milkTea.png"
             var milkChoice = new Image();
 
             var strawberryTea = new Image();
@@ -396,12 +397,15 @@
             var strawberryChoice = new Image();
 
             var taroTea = new Image();
+            taroTea.src = "mixing/ingredients/taroTea.png"
             var taroChoice = new Image();
 
             var matchaTea = new Image();
+            matchaTea.src = "mixing/ingredients/matchaTea.png"
             var matchaChoice = new Image();
 
             var thaiTea = new Image();
+            thaiTea.src = "mixing/ingredients/thaiTea.png"
             var thaiChoice = new Image();
 
             var arrietty = new Image();
@@ -625,6 +629,7 @@
                 // teas
             function seeMilk() {
                 mixing();
+                mixingctx.drawImage(milkTea, 325, 150, 450, 450);
             }
             function seeStrawberry() {
                 mixing();
@@ -632,12 +637,15 @@
             }
             function seeTaro() {
                 mixing();
+                mixingctx.drawImage(taroTea, 325, 150, 450, 450);
             }
             function seeMatcha() {
                 mixing();
+                mixingctx.drawImage(matchaTea, 325, 150, 450, 450);
             }
             function seeThai() {
                 mixing();
+                mixingctx.drawImage(thaiTea, 325, 150, 450, 450);
             }
             // MIXING BUTTONS END
 
