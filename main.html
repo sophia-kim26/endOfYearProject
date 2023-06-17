@@ -657,10 +657,12 @@
                 pokeb.style.visibility='visible';
                 seeOrderb.style.visibility="hidden";
                 showStraw();
+                x = 177;
             }
 
             function seeStrawInCup() {
-                showStraw();
+                strawctx.clearRect(0, 0, 1100, 600);  // clear canvas
+                strawctx.drawImage(strawBG, 0, 0, 1100, 600);
                 strawctx.drawImage(strawStrawInCup, 210, 200, 733, 400);
             }
 
