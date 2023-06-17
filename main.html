@@ -592,9 +592,9 @@
                         drawTextBg(550, 255, "Tea: "+ teaOrder);
                         drawTextBg(550, 315, "Bubbles: "+ bubblesOrder);
 
-                        var correctOptions = [iceAndSugarDict[iceOrder], iceAndSugarDict[sugarOrder], teaDict[teaOrder], bubblesDict[bubblesOrder]]
-
                         orderTaken = true;
+
+                        var correctOptions = [iceAndSugarDict[iceOrder], iceAndSugarDict[sugarOrder], teaDict[teaOrder], bubblesDict[bubblesOrder]]
                     }
             }
 
@@ -660,7 +660,7 @@
             }
 
             function seeStrawInCup() {
-                straw();
+                showStraw();
                 strawctx.drawImage(strawStrawInCup, 210, 200, 733, 400);
             }
 
