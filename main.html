@@ -271,7 +271,7 @@
         <button id = "thai" class = "button thaiButton" onclick="seeThai()">THAI</button>
 
         <!-- straw station -->
-        <button id = "poke" class = "button pokeButton">POKE!</button>
+        <button id = "poke" class = "button pokeButton" onclick = "seeStrawInCup()">POKE!</button>
 
 
         <!-- buttons in order canvas -->
@@ -365,9 +365,6 @@
 
             // straw button
             var pokeb = document.getElementById("poke");
-
-            // // straw images
-            // var strawStrawInCupi = document.getElementById("strawStrawInCup");
 
             function drawTextBg(x, y, text) {
                 orderctx.font = "25px Monospace";
@@ -472,7 +469,6 @@
                 // straw images
                 strawctx.drawImage(strawStraw, 177, 100, 800, 500);
                 strawctx.drawImage(strawCup, 210, 200, 733, 400);
-                strawctx.drawImage(strawStrawInCup, 210, 200, 733, 400);
 
                 // title screen text
                 titlectx.textAlign = "center";
@@ -660,8 +656,12 @@
                 hideTeaButtons();
                 pokeb.style.visibility='visible';
                 seeOrderb.style.visibility="hidden";
-                strawStrawInCup.style.visibility="hidden"; // not working!
                 showStraw();
+            }
+
+            function seeStrawInCup() {
+                straw();
+                strawctx.drawImage(strawStrawInCup, 210, 200, 733, 400);
             }
 
             function credits() {
