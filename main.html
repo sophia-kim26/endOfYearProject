@@ -265,6 +265,8 @@
 
         <!-- canvases for ingredients-->
         <canvas id="tea" width="1100" height="600"style = "position: absolute;"></canvas>
+        <canvas id="ice" width="1100" height="600"style = "position: absolute;"></canvas>
+        <canvas id="sugar" width="1100" height="600"style = "position: absolute;"></canvas>
 
 
         <!-- stations buttons -->
@@ -372,6 +374,12 @@
             var teac = document.getElementById("tea");
             var teactx = teac.getContext("2d");
 
+            var icec = document.getElementById("ice");
+            var icectx = teac.getContext("2d");
+
+            var sugarc = document.getElementById("sugar");
+            var sugarctx = teac.getContext("2d");
+
             // mixing buttons
             var leastb = document.getElementById("least");
             var lessb = document.getElementById("less");
@@ -417,6 +425,12 @@
             // mixing button bgs
             var teaBG = new Image();
             teaBG.src = "backgrounds/mixing/teaBG.png";
+
+            var iceBG = new Image();
+            iceBG.src = "backgrounds/mixing/iceBG.png";
+
+            var sugarBG = new Image();
+            sugarBG.src = "backgrounds/mixing/sugarBG.png";
 
             // toppings
             var milkTea = new Image();
@@ -522,6 +536,8 @@
                 mixingctx.drawImage(mixingBG, 0, 0, 1100, 600);
                 strawctx.drawImage(strawBG, 0, 0, 1100, 600);
                 teactx.drawImage(teaBG, 0, 0 , 1100, 600);
+                icectx.drawImage(iceBG, 0, 0 , 1100, 600);
+                sugarctx.drawImage(sugarBG, 0, 0 , 1100, 600);
 
                 // canvas visibility
                 titlec.style.visibility='visible';
@@ -529,7 +545,10 @@
                 orderc.style.visibility='hidden';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
+
                 teac.style.visibility='hidden';
+                icec.style.visibility='hidden';
+                sugarc.style.visibility='hidden';
 
                 // mixing images + button
                 mixingctx.drawImage(mixingCup, 325, 150, 450, 450);
@@ -603,6 +622,8 @@
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
                 teac.style.visibility='hidden';
+                icec.style.visibility='hidden';
+                sugarc.style.visibility='hidden';
             }
             function showOrder() {
                 titlec.style.visibility='hidden';
@@ -611,6 +632,8 @@
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
                 teac.style.visibility='hidden';
+                icec.style.visibility='hidden';
+                sugarc.style.visibility='hidden';
             }
             function showMixing() {
                 titlec.style.visibility='hidden';
@@ -619,6 +642,8 @@
                 mixingc.style.visibility='visible';
                 strawc.style.visibility='hidden';
                 teac.style.visibility='hidden';
+                icec.style.visibility='hidden';
+                sugarc.style.visibility='hidden';
             }
             function showStraw() {
                 titlec.style.visibility='hidden';
@@ -627,6 +652,8 @@
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='visible';
                 teac.style.visibility='hidden';
+                icec.style.visibility='hidden';
+                sugarc.style.visibility='hidden';
             }
 
 
