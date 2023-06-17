@@ -427,53 +427,53 @@
             // cups
 
             var strawCup_Milk = new Image();
-            strawCup.src = "straw/strawCup_Milk.png";
+            strawCup_Milk.src = "straw/strawCup_Milk.png";
 
             var strawCup_Taro = new Image();
-            strawCup.src = "straw/strawCup_Taro.png";
+            strawCup_Taro.src = "straw/strawCup_Taro.png";
 
             var strawCup_Matcha = new Image();
-            strawCup.src = "straw/strawCup_Matcha.png";
+            strawCup_Matcha.src = "straw/strawCup_Matcha.png";
 
             var strawCup_Thai = new Image();
-            strawCup.src = "straw/strawCup_Thai.png";
+            strawCup_Thai.src = "straw/strawCup_Thai.png";
 
             var strawCup_Strawberry = new Image();
-            strawCup.src = "straw/strawCup_Strawberry.png";
+            strawCup_Strawberry.src = "straw/strawCup_Strawberry.png";
             
             // straws
 
             var strawStraw_Milk = new Image();
-            strawStraw.src = "straw/strawStraw_Milk.png";
+            strawStraw_Milk.src = "straw/strawStraw_Milk.png";
 
             var strawStraw_Taro = new Image();
-            strawStraw.src = "straw/strawStraw_Taro.png";
+            strawStraw_Taro.src = "straw/strawStraw_Taro.png";
 
             var strawStraw_Matcha = new Image();
-            strawStraw.src = "straw/strawStraw_Matcha.png";
+            strawStraw_Matcha.src = "straw/strawStraw_Matcha.png";
 
             var strawStraw_Taro = new Image();
-            strawStraw.src = "straw/strawStraw_Taro.png";
+            strawStraw_Taro.src = "straw/strawStraw_Taro.png";
 
             var strawStraw_Strawberry = new Image();
-            strawStraw.src = "straw/strawStraw_Strawberry.png";
+            strawStraw_Strawberry.src = "straw/strawStraw_Strawberry.png";
 
             // straws in cups
 
             var strawStrawInCup_Milk = new Image();
-            strawStrawInCup.src = "straw/strawStrawInCup_Milk.png";
+            strawStrawInCup_Milk.src = "straw/strawStrawInCup_Milk.png";
 
             var strawStrawInCup_Taro = new Image();
-            strawStrawInCup.src = "straw/strawStrawInCup_Taro.png";
+            strawStrawInCup_Taro.src = "straw/strawStrawInCup_Taro.png";
 
             var strawStrawInCup_Matcha = new Image();
-            strawStrawInCup.src = "straw/strawStrawInCup_Matcha.png";
+            strawStrawInCup_Matcha.src = "straw/strawStrawInCup_Matcha.png";
             
             var strawStrawInCup_Thai = new Image();
-            strawStrawInCup.src = "straw/strawStrawInCup_Thai.png";
+            strawStrawInCup_Thai.src = "straw/strawStrawInCup_Thai.png";
 
             var strawStrawInCup_Strawberry = new Image();
-            strawStrawInCup.src = "straw/strawStrawInCup_Strawberry.png";
+            strawStrawInCup_Strawberry.src = "straw/strawStrawInCup_Strawberry.png";
 
             // mixing station
 
@@ -704,14 +704,17 @@
                 pokeb.style.visibility='visible';
                 seeOrderb.style.visibility="hidden";
                 showStraw();
-                strawctx.drawImage(strawCup, 210, 200, 733, 400);
-                strawctx.drawImage(strawStraw, 177, 100, 800, 500);
+                strawctx.drawImage(strawCup_Milk, 210, 200, 733, 400);
+                strawctx.drawImage(strawStraw_Milk, 177, 100, 800, 500);
             }
 
             function seeStrawInCup() {
                 strawctx.clearRect(0, 0, 1100, 600);  // clear canvas
                 strawctx.drawImage(strawBG, 0, 0, 1100, 600);
-                strawctx.drawImage(strawStrawInCup, 210, 200, 733, 400);
+
+                if (inCup[2] == "milk") {
+                    strawctx.drawImage(strawStrawInCup_Milk, 210, 200, 733, 400);
+                }
             }
 
             function credits() {
