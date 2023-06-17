@@ -166,7 +166,7 @@
         .sugarButton {
             background-color: #ba947d;
             width: 180px;
-            top: 300px;
+            top: 325px;
             right: 500px;
             position: absolute;
         }
@@ -381,12 +381,9 @@
             var sugarctx = teac.getContext("2d");
 
             // mixing buttons
-            var leastb = document.getElementById("least");
-            var lessb = document.getElementById("less");
-            var regularb = document.getElementById("regular");
-            var moreb = document.getElementById("more");
-            var mostb = document.getElementById("most");
             var teab = document.getElementById("teab");
+            var iceb = document.getElementById("iceb");
+            var sugarb = document.getElementById("sugarb");
 
             // tea buttons
             var milkb = document.getElementById("milk");
@@ -394,6 +391,13 @@
             var tarob = document.getElementById("taro");
             var matchab = document.getElementById("matcha");
             var thaib = document.getElementById("thai");
+
+            // ice and sugar buttons
+            var leastb = document.getElementById("least");
+            var lessb = document.getElementById("less");
+            var regularb = document.getElementById("regular");
+            var moreb = document.getElementById("more");
+            var mostb = document.getElementById("most");
 
             // straw button
             var pokeb = document.getElementById("poke");
@@ -521,6 +525,7 @@
                 // hiding buttons
                 hideMixingButtons();
                 hideTeaButtons();
+                hideSugarAndIceButtons();
                 pokeb.style.visibility="hidden";
                 teab.style.visibility="hidden";
                 mostb.style.visibility='hidden';
@@ -768,6 +773,77 @@
                 mixingctx.drawImage(thaiTea, 325, 150, 450, 450);
                 inCup[2] = "thai";
             }
+
+            function seeLeast() {
+                if (icec.style.visibility = "visible") {
+                    mixing();
+                    mixingctx.drawImage(leastIce, 325, 150, 450, 450);
+                    inCup[0] = "least";
+                }
+
+                else if (sugarc.style.visibility = "visible") {
+                    mixing();
+                    mixingctx.drawImage(leastSugar, 325, 150, 450, 450);
+                    inCup[1] = "least";
+                }
+            }
+
+            function seeLess() {
+                if (icec.style.visibility = "visible") {
+                    mixing();
+                    mixingctx.drawImage(lessIce, 325, 150, 450, 450);
+                    inCup[0] = "less";
+                }
+
+                else if (sugarc.style.visibility = "visible") {
+                    mixing();
+                    mixingctx.drawImage(lessSugar, 325, 150, 450, 450);
+                    inCup[1] = "less";
+                }
+            }
+
+            function seeRegular() {
+                if (icec.style.visibility = "visible") {
+                    mixing();
+                    mixingctx.drawImage(regularIce, 325, 150, 450, 450);
+                    inCup[0] = "regular";
+                }
+
+                else if (sugarc.style.visibility = "visible") {
+                    mixing();
+                    mixingctx.drawImage(regularSugar, 325, 150, 450, 450);
+                    inCup[1] = "regular";
+                }
+            }
+
+            function seeMore() {
+                if (icec.style.visibility = "visible") {
+                    mixing();
+                    mixingctx.drawImage(moreIce, 325, 150, 450, 450);
+                    inCup[0] = "more";
+                }
+
+                else if (sugarc.style.visibility = "visible") {
+                    mixing();
+                    mixingctx.drawImage(moreSugar, 325, 150, 450, 450);
+                    inCup[1] = "more";
+                }
+            }
+            
+            function seeMost() {
+                if (icec.style.visibility = "visible") {
+                    mixing();
+                    mixingctx.drawImage(mostIce, 325, 150, 450, 450);
+                    inCup[0] = "most";
+                }
+
+                else if (sugarc.style.visibility = "visible") {
+                    mixing();
+                    mixingctx.drawImage(mostSugar, 325, 150, 450, 450);
+                    inCup[1] = "most";
+                }
+            }
+
             // MIXING BUTTONS END
 
             function straw() {
