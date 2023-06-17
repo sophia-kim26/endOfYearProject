@@ -254,11 +254,11 @@
         <button id = "teab" class = "button teaButton" onclick="seeTea()">TEA</button>
 
         <!-- teas -->
-        <button id = "milk" class = "button milkButton">MILK</button>
-        <button id = "strawberry" class = "button strawberryButton">STRAWBERRY</button>
-        <button id = "taro" class = "button taroButton">TARO</button>
-        <button id = "matcha" class = "button matchaButton">MATCHA</button>
-        <button id = "thai" class = "button thaiButton">THAI</button>
+        <button id = "milk" class = "button milkButton" onclick="seeMilk()">MILK</button>
+        <button id = "strawberry" class = "button strawberryButton" onclick="seeStrawberry()">STRAWBERRY</button>
+        <button id = "taro" class = "button taroButton" onclick="seeTaro()">TARO</button>
+        <button id = "matcha" class = "button matchaButton" onclick="seeMatcha()">MATCHA</button>
+        <button id = "thai" class = "button thaiButton" onclick="seeThai()">THAI</button>
 
         <!-- straw station -->
         <button id = "poke" class = "button pokeButton">POKE!</button>
@@ -369,7 +369,7 @@
             
             // images
             var titleBG = new Image();
-            titleBG.src = "day.png";
+            titleBG.src = "backgrounds/day.png";
 
             var dayBG = new Image();
             dayBG.src = "backgrounds/studioghibli.jpeg";
@@ -392,6 +392,7 @@
             var milkChoice = new Image();
 
             var strawberryTea = new Image();
+            strawberryTea.src = "mixing/ingredients/strawberryTea.png"
             var strawberryChoice = new Image();
 
             var taroTea = new Image();
@@ -620,6 +621,23 @@
                 hideMixingButtons();
                 showTeaButtons();
                 teac.style.visibility='visible';
+            }
+                // teas
+            function seeMilk() {
+                mixing();
+            }
+            function seeStrawberry() {
+                mixing();
+                mixingctx.drawImage(strawberryTea, 325, 150, 450, 450);
+            }
+            function seeTaro() {
+                mixing();
+            }
+            function seeMatcha() {
+                mixing();
+            }
+            function seeThai() {
+                mixing();
             }
             // MIXING BUTTONS END
 
