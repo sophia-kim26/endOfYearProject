@@ -152,6 +152,52 @@
             padding: 200px 50px;
             position: absolute;
         }
+        /* toppings */
+        .blackPearlButton {
+            background-image: url(mixing/buttons/milkButton.png);
+            background-size: cover;
+            background-position: center;
+            top: 450px;
+            right: 425px;
+            padding: 50px 140px;
+            position: absolute;
+        }
+        .agarPearlButton {
+            background-image: url(mixing/buttons/milkButton.png);
+            background-size: cover;
+            background-position: center;
+            top: 325px;
+            right: 575px;
+            padding: 50px 65px;
+            position: absolute;
+        }
+        .grassJellyButton {
+            background-image: url(mixing/buttons/milkButton.png);
+            background-size: cover;
+            background-position: center;
+            top: 325px;
+            right: 425px;
+            padding: 50px 65px;
+            position: absolute;
+        }
+        .ubeBallButton {
+            background-image: url(mixing/buttons/milkButton.png);
+            background-size: cover;
+            background-position: center;
+            top: 200px;
+            right: 575px;
+            padding: 50px 65px;
+            position: absolute;
+        }
+        .taroBallButton {
+            background-image: url(mixing/buttons/milkButton.png);
+            background-size: cover;
+            background-position: center;
+            top: 200px;
+            right: 425px;
+            padding: 50px 65px;
+            position: absolute;
+        }
 
         /* button for straw station */
         .pokeButton {
@@ -270,6 +316,14 @@
         <button id = "matcha" class = "button matchaButton" onclick="seeMatcha()">MATCHA</button>
         <button id = "thai" class = "button thaiButton" onclick="seeThai()">THAI</button>
 
+        <!-- toppings -->
+        <button id = "blackPearl" class = "button blackPearlButton" onclick="seeBlackPearl()"></button>
+        <button id = "agarPearl" class = "button agarPearlButton" onclick="seeAgarPearl()"></button>
+        <button id = "grassJelly" class = "button grassJellyButton" onclick="seeGrassJelly()"></button>
+        <button id = "ubeBall" class = "button ubeBallButton" onclick="seeUbeBall()"></button>
+        <button id = "taroBall" class = "button taroBallButton" onclick="seeTaroBall()"></button>
+
+
         <!-- straw station -->
         <button id = "poke" class = "button pokeButton" onclick = "seeStrawInCup()">POKE!</button>
 
@@ -357,6 +411,13 @@
             var moreb = document.getElementById("more");
             var mostb = document.getElementById("most");
             var teab = document.getElementById("teab");
+
+            // topping buttons
+            var blackPearlb = document.getElementById("blackPearl");
+            var agarPearlb = document.getElementById("agarPearl");
+            var grassJellyb = document.getElementById("grassJelly");
+            var ubeBallb = document.getElementById("ubeBall");
+            var taroBallb = document.getElementById("taroBall");
 
             // tea buttons
             var milkb = document.getElementById("milk");
@@ -536,6 +597,11 @@
                 moreb.style.visibility='visible';
                 mostb.style.visibility='visible';
                 teab.style.visibility='visible';
+                blackPearlb.style.visibility='visible';
+                agarPearlb.style.visibility='visible';
+                grassJellyb.style.visibility='visible';
+                ubeBallb.style.visibility='visible';
+                taroBallb.style.visibility='visible';
             }
 
             function hideMixingButtons() {
@@ -545,6 +611,11 @@
                 moreb.style.visibility='hidden';
                 mostb.style.visibility='hidden';
                 teab.style.visibility='hidden';
+                blackPearlb.style.visibility='hidden';
+                agarPearlb.style.visibility='hidden';
+                grassJellyb.style.visibility='hidden';
+                ubeBallb.style.visibility='hidden';
+                taroBallb.style.visibility='hidden';
             }
             // tea button visibility
             function showTeaButtons() {
@@ -694,6 +765,27 @@
                 mixing();
                 mixingctx.drawImage(thaiTea, 325, 150, 450, 450);
                 inCup[2] = "thai";
+            }
+                // toppings
+            function seeBlackPearl() {
+                mixing();
+                mixingctx.drawImage(milkTea, 325, 150, 450, 450);
+            }
+            function seeAgarPearl() {
+                mixing();
+                mixingctx.drawImage(strawberryTea, 325, 150, 450, 450);
+            }
+            function seeGrassJelly() {
+                mixing();
+                mixingctx.drawImage(taroTea, 325, 150, 450, 450);
+            }
+            function seeUbeBall() {
+                mixing();
+                mixingctx.drawImage(matchaTea, 325, 150, 450, 450);
+            }
+            function seeTaroBall() {
+                mixing();
+                mixingctx.drawImage(thaiTea, 325, 150, 450, 450);
             }
             // MIXING BUTTONS END
 
