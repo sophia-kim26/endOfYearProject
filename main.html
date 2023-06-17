@@ -704,8 +704,34 @@
                 pokeb.style.visibility='visible';
                 seeOrderb.style.visibility="hidden";
                 showStraw();
-                strawctx.drawImage(strawCup_Milk, 210, 200, 733, 400);
-                strawctx.drawImage(strawStraw_Milk, 177, 100, 800, 500);
+
+                strawctx.clearRect(0, 0, 1100, 600);  // clear canvas
+                strawctx.drawImage(strawBG, 0, 0, 1100, 600);
+
+                if (inCup[2] == "milk") {
+                    strawctx.drawImage(strawCup_Milk, 210, 200, 733, 400);
+                    strawctx.drawImage(strawStraw_Milk, 177, 100, 800, 500);
+                }
+
+                else if (inCup[2] == "taro") {
+                    strawctx.drawImage(strawCup_Taro, 210, 200, 733, 400);
+                    strawctx.drawImage(strawStraw_Taro, 177, 100, 800, 500);
+                }
+
+                else if (inCup[2] == "matcha") {
+                    strawctx.drawImage(strawCup_Matcha, 210, 200, 733, 400);
+                    strawctx.drawImage(strawStraw_Matcha, 177, 100, 800, 500);
+                }
+
+                else if (inCup[2] == "thai") {
+                    strawctx.drawImage(strawCup_Thai, 210, 200, 733, 400);
+                    strawctx.drawImage(strawStraw_Thai, 177, 100, 800, 500);
+                }
+
+                else if (inCup[2] == "strawberry") {
+                    strawctx.drawImage(strawCup_Strawberry, 210, 200, 733, 400);
+                    strawctx.drawImage(strawStraw_Strawberry, 177, 100, 800, 500);
+                }
             }
 
             function seeStrawInCup() {
@@ -714,6 +740,22 @@
 
                 if (inCup[2] == "milk") {
                     strawctx.drawImage(strawStrawInCup_Milk, 210, 200, 733, 400);
+                }
+
+                else if (inCup[2] == "taro") {
+                    strawctx.drawImage(strawStrawInCup_Taro, 210, 200, 733, 400);
+                }
+
+                else if (inCup[2] == "matcha") {
+                    strawctx.drawImage(strawStrawInCup_Matcha, 210, 200, 733, 400);
+                }
+
+                else if (inCup[2] == "thai") {
+                    strawctx.drawImage(strawStrawInCup_Thai, 210, 200, 733, 400);
+                }
+
+                else if (inCup[2] == "strawberry") {
+                    strawctx.drawImage(strawStrawInCup_Strawberry, 210, 200, 733, 400);
                 }
             }
 
