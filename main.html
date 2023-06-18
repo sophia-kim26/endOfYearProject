@@ -858,7 +858,7 @@
 
 
             // when button pressed
-            function start() {
+            function day1() {
                 // alert("start working");
                 showStart();
                 hideMixingButtons();
@@ -875,6 +875,14 @@
                 dayctx.fillText("This is your first day as an employee at Cat Boba!", 550, 100)
                 dayctx.fillText("Use the stations on the bottom of the screen to carry out orders.", 550, 150)
                 dayctx.fillText("Press the Order button to continue.", 550, 200)
+            }
+
+            function day2() {
+                
+            }
+
+            function day3() {
+                
             }
 
             function drawTextBg(x, y, text) {
@@ -1036,7 +1044,6 @@
                     inCup[1] = "Least";
                 }
             }
-
             function seeLess() {
                 if (icec.style.visibility == "visible") {
                     mixing();
@@ -1050,7 +1057,6 @@
                     inCup[1] = "Less";
                 }
             }
-
             function seeRegular() {
                 if (icec.style.visibility == "visible") {
                     mixing();
@@ -1064,7 +1070,6 @@
                     inCup[1] = "Regular";
                 }
             }
-
             function seeMore() {
                 if (icec.style.visibility == "visible") {
                     mixing();
@@ -1078,7 +1083,6 @@
                     inCup[1] = "More";
                 }
             }
-            
             function seeMost() {
                 if (icec.style.visibility == "visible") {
                     mixing();
@@ -1205,6 +1209,21 @@
                 drawTextBg(550, 255, "Toppings: "+ scoreDict[3]);
                 drawTextBg(550, 315, "Straw accuracy: " + strawAccuracy);
                 drawTextBg(550, 375, "Your Final Score: "+ score1 + "%");
+
+                // reset
+                day += 1;
+                let ordersCompleted = 0;
+                let orderTaken = false;
+                var inCup = ["", "", "", ""]; // ice, sugar, tea, toppings
+                var correctOptions = ["", "", "", ""];
+
+                if (day == 2) {
+                    day2();
+                }
+
+                if (day == 3) {
+                    day3();
+                }
             }
 
             function credits() {
