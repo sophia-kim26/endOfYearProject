@@ -68,6 +68,7 @@
             top: 50px;
             right: 1250px;
             position: absolute;
+            padding: 200px 50px;
         }
         .leastButton:hover {background-color: #9a8cec;}
         .lessButton {
@@ -75,6 +76,7 @@
             top: 50px;
             right: 1050px;
             position: absolute;
+            padding: 200px 50px;
         }
         .lessButton:hover {background-color: #eb9de2;}
         .regularButton {
@@ -82,6 +84,7 @@
             top: 50px;
             right: 800px;
             position: absolute;
+            padding: 200px 50px;
         }
         .regularButton:hover {background-color: #ec9696;}
         .moreButton {
@@ -89,6 +92,7 @@
             top: 50px;
             right: 600px;
             position: absolute;
+            padding: 200px 50px;
         }
         .moreButton:hover {background-color: #eeca9a;}
         .mostButton {
@@ -96,6 +100,7 @@
             top: 50px;
             right: 400px;
             position: absolute;
+            padding: 200px 50px;
         }
         .mostButton:hover {background-color: #e7e0a2;}
 
@@ -324,11 +329,11 @@
         <button class = "button creditsButton"onclick="credits()">CREDITS</button>
 
         <!-- mixing station -->
-        <button id = "least" class = "button leastButton">LEAST</button>
-        <button id = "less" class = "button lessButton">LESS</button>
-        <button id = "regular" class = "button regularButton">REGULAR</button>
-        <button id = "more" class = "button moreButton">MORE</button>
-        <button id = "most" class = "button mostButton">MOST</button>
+        <button id = "least" class = "button leastButton" onclick = "seeLeast()">LEAST</button>
+        <button id = "less" class = "button lessButton" onclick = "seeLess()">LESS</button>
+        <button id = "regular" class = "button regularButton" onclick = "seeRegular()">REGULAR</button>
+        <button id = "more" class = "button moreButton" onclick = "seeMore()">MORE</button>
+        <button id = "most" class = "button mostButton" onclick = "seeMost()">MOST</button>
 
         <button id = "teab" class = "button teaButton" onclick="seeTea()">TEA</button>
         <button id = "iceb" class = "button iceButton" onclick="seeIce()">ICE</button>
