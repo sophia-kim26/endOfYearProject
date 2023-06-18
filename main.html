@@ -233,6 +233,15 @@
         }
         .pokeButton:hover {background-color: #a2d0e8;}
 
+        .completeOrderButton {
+            background-color: #b6ea69;
+            top: 50px;
+            right: 1140px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .completeOrderButton:hover {background-color: #9dc95b;}
+
         /* buttons in order station */
         .seeOrderButton {
             background-color: #f5775a;
@@ -356,6 +365,7 @@
 
         <!-- straw station -->
         <button id = "poke" class = "button pokeButton" onclick = "seeStrawInCup()">POKE!</button>
+        <button id = "completeOrder" class = "button completeOrderButton" onclick = "completeOrder()">COMPLETE ORDER!</button>
 
 
         <!-- buttons in order canvas -->
@@ -468,6 +478,7 @@
 
             // straw button
             var pokeb = document.getElementById("poke");
+            var completeOrderb = document.getElementById("completeOrder");
             
             // images
             var titleBG = new Image();
@@ -639,8 +650,7 @@
                 hideTeaButtons();
                 hideSugarAndIceButtons();
                 pokeb.style.visibility="hidden";
-                teab.style.visibility="hidden";
-                mostb.style.visibility='hidden';
+                completeOrderb.style.visibility = "hidden";
 
                 alert("go into full screen for highest quality experience!")
 
@@ -1069,7 +1079,13 @@
                     else if (inCup[2] == "strawberry") {
                         strawctx.drawImage(strawStrawInCup_Strawberry, 210, 200, 733, 400);
                     }
+
+                    completeOrderb.style.visibility = "visible";
                 }
+            }
+
+            function completeOrder() {
+
             }
 
             function credits() {
