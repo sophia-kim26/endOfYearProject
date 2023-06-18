@@ -238,7 +238,7 @@
         /* button for straw station */
         .pokeButton {
             background-color: #c3eafd;
-            top: 50px;
+            top: 35px;
             right: 800px;
             position: absolute;
             border-radius: 60%;
@@ -250,7 +250,7 @@
             height: 20px;
             border-radius: 70%;
             position: absolute;
-            top: 150px;
+            top: 140px;
             right: 0px;
             animation: mymove 3s infinite;
             animation-direction: alternate;
@@ -264,13 +264,13 @@
             75%  {background-color: rgb(226, 208, 130);}
             100% {background-color: rgb(226, 148, 130);}
 
-            from {left: 1000px}
-            to {left: 100px}
+            from {left: 916px}
+            to {left: 200px}
         }
 
         .completeOrderButton {
             background-color: #b6ea69;
-            top: 50px;
+            top: 35px;
             right: 1100px;
             border-radius: 50%;
             position: absolute;
@@ -681,6 +681,11 @@
             var strawStrawInCup_Strawberry = new Image();
             strawStrawInCup_Strawberry.src = "straw/strawStrawInCup_Strawberry.png";
 
+            // other for straw
+
+            var leverBeam = new Image();
+            leverBeam.src = "straw/leverBeam.png";
+
             // mixing station
 
             var mixingCup = new Image();
@@ -696,6 +701,7 @@
                 hideTeaButtons();
                 hideSugarAndIceButtons();
                 hideStrawButtons();
+                seeOrderb.style.visibility = "hidden";
 
                 alert("go into full screen for highest quality experience!")
 
@@ -1095,6 +1101,7 @@
 
                 strawctx.clearRect(0, 0, 1100, 600);  // clear canvas
                 strawctx.drawImage(strawBG, 0, 0, 1100, 600);
+                strawctx.drawImage(leverBeam, 160, -160, 800, 600)
 
                 strawctx.font = "20px Monospace";
                 strawctx.textAlign = "center";
@@ -1107,27 +1114,27 @@
 
                 if (inCup[2] == "Milk") {
                     strawctx.drawImage(strawCup_Milk, 210, 200, 733, 400);
-                    strawctx.drawImage(strawStraw_Milk, 177, 100, 800, 500);
+                    strawctx.drawImage(strawStraw_Milk, 177, 100, 800, 575);
                 }
 
                 else if (inCup[2] == "Taro") {
                     strawctx.drawImage(strawCup_Taro, 210, 200, 733, 400);
-                    strawctx.drawImage(strawStraw_Taro, 177, 100, 800, 500);
+                    strawctx.drawImage(strawStraw_Taro, 177, 100, 800, 575);
                 }
 
                 else if (inCup[2] == "Matcha") {
                     strawctx.drawImage(strawCup_Matcha, 210, 200, 733, 400);
-                    strawctx.drawImage(strawStraw_Matcha, 177, 100, 800, 500);
+                    strawctx.drawImage(strawStraw_Matcha, 177, 100, 800, 575);
                 }
 
                 else if (inCup[2] == "Thai") {
                     strawctx.drawImage(strawCup_Thai, 210, 200, 733, 400);
-                    strawctx.drawImage(strawStraw_Thai, 177, 100, 800, 500);
+                    strawctx.drawImage(strawStraw_Thai, 177, 100, 800, 575);
                 }
 
                 else if (inCup[2] == "Strawberry") {
                     strawctx.drawImage(strawCup_Strawberry, 210, 200, 733, 400);
-                    strawctx.drawImage(strawStraw_Strawberry, 177, 100, 800, 500);
+                    strawctx.drawImage(strawStraw_Strawberry, 177, 100, 800, 575);
                 }
             }
 
@@ -1156,6 +1163,7 @@
                         strawctx.drawImage(strawStrawInCup_Strawberry, 210, 200, 733, 400);
                     }
 
+                    strawctx.drawImage(leverBeam, 160, -160, 800, 600)
                     completeOrderb.style.visibility = "visible";
                 }
             }
