@@ -246,23 +246,24 @@
         .pokeButton:hover {background-color: #a2d0e8;}
 
         .leverDiv {
-            width: 100px;
-            height: 100px;
-            top: 0px;
+            width: 50px;
+            height: 20px;
+            position: absolute;
+            top: 175px;
             right: 0px;
-            background-color: red;
             animation: mymove 3s infinite;
             animation-direction: alternate;
             animation-timing-function: ease-in-out;
         }
 
         @keyframes mymove {
-            0%   {background-color: rgb(130, 226, 154);}
-            25%  {background-color: rgb(200, 226, 130);}
-            50%  {background-color: rgb(226, 167, 130);}
-            100% {background-color: rgb(226, 130, 130);}
+            0%   {background-color: rgb(226, 148, 130);}
+            25%  {background-color: rgb(226, 208, 130);}
+            50%  {background-color: rgb(130, 226, 154)}
+            75%  {background-color: rgb(226, 208, 130);}
+            100% {background-color: rgb(226, 148, 130);}
 
-            from {left: 500px}
+            from {left: 1000px}
             to {left: 100px}
         }
 
@@ -400,7 +401,7 @@
         <!-- straw station -->
         <button id = "poke" class = "button pokeButton" onclick = "seeStrawInCup()">POKE!</button>
         <button id = "completeOrder" class = "button completeOrderButton" onclick = "completeOrder()">COMPLETE ORDER!</button>
-        <!-- <div id = "lever" class = "div leverDiv" onclick = "completeOrder()"></div> -->
+        <div id = "lever" class = "div leverDiv" onclick = "completeOrder()"></div>
 
 
         <!-- buttons in order canvas -->
@@ -516,7 +517,7 @@
             // straw button
             var pokeb = document.getElementById("poke");
             var completeOrderb = document.getElementById("completeOrder");
-            // var lever = document.getElementById("lever");
+            var leverd = document.getElementById("lever");
             
             // images
             var titleBG = new Image();
@@ -690,12 +691,11 @@
                 hideTeaButtons();
                 hideSugarAndIceButtons();
                 hideStrawButtons();
+                seeOrderb.style.visibility="hidden";
 
                 alert("go into full screen for highest quality experience!")
 
                 // backgrounds
-                seeOrderb.style.visibility="hidden";
-
                 titlectx.drawImage(titleBG, 0, 0, 1100, 600);
                 dayctx.drawImage(dayBG, 0, 0, 1100, 600);
                 orderctx.drawImage(orderBG, 0, 0, 1100, 600);
@@ -796,6 +796,7 @@
             function hideStrawButtons() {
                 pokeb.style.visibility="hidden";
                 completeOrderb.style.visibility = "hidden";
+                leverd.style.visibility = "hidden";
             }
 
             // show specific canvas
