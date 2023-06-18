@@ -533,6 +533,10 @@
             var thaiTea = new Image();
             thaiTea.src = "mixing/ingredients/thaiTea.png"
 
+            // toppings
+            var blackPearls = new Image();
+            blackPearls.src = "mixing/ingredients/blackPearls.png";
+            
             // ices
 
             var leastIce = new Image();
@@ -870,6 +874,28 @@
                 inCup[2] = "thai";
             }
 
+                // toppings
+            function seeBlackPearl() {
+                mixing();
+                mixingctx.drawImage(blackPearls, 325, 150, 450, 450);
+            }
+            function seeAgarPearl() {
+                mixing();
+                mixingctx.drawImage(strawberryTea, 325, 150, 450, 450);
+            }
+            function seeGrassJelly() {
+                mixing();
+                mixingctx.drawImage(taroTea, 325, 150, 450, 450);
+            }
+            function seeUbeBall() {
+                mixing();
+                mixingctx.drawImage(matchaTea, 325, 150, 450, 450);
+            }
+            function seeTaroBall() {
+                mixing();
+                mixingctx.drawImage(thaiTea, 325, 150, 450, 450);
+            }
+
             function seeLeast() {
                 if (icec.style.visibility = "visible") {
                     mixing();
@@ -940,27 +966,6 @@
                 }
             }
 
-                // toppings
-            function seeBlackPearl() {
-                mixing();
-                mixingctx.drawImage(milkTea, 325, 150, 450, 450);
-            }
-            function seeAgarPearl() {
-                mixing();
-                mixingctx.drawImage(strawberryTea, 325, 150, 450, 450);
-            }
-            function seeGrassJelly() {
-                mixing();
-                mixingctx.drawImage(taroTea, 325, 150, 450, 450);
-            }
-            function seeUbeBall() {
-                mixing();
-                mixingctx.drawImage(matchaTea, 325, 150, 450, 450);
-            }
-            function seeTaroBall() {
-                mixing();
-                mixingctx.drawImage(thaiTea, 325, 150, 450, 450);
-            }
             // MIXING BUTTONS END
 
             function straw() {
