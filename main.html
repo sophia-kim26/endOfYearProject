@@ -367,7 +367,7 @@
 
 
         <!-- stations buttons -->
-        <button class = "button startButton", onclick="start()">START</button>
+        <button class = "button startButton", onclick="day1()">START</button>
         <button class = "button orderButton"onclick="order()">ORDER</button>
         <button class = "button mixingButton"onclick="mixing()">MIXING</button>
         <button class = "button strawButton"onclick="straw()">STRAW</button>
@@ -435,9 +435,7 @@
             let ordersCompleted = 0;
             let orderTaken = false;
 
-            var score1 = 0;
-            var score2 = 0;
-            var score3 = 0;
+            var scores = [0, 0, 0];
             
             var inCup = ["", "", "", ""]; // ice, sugar, tea, toppings
             var correctOptions = ["", "", "", ""];
@@ -878,11 +876,43 @@
             }
 
             function day2() {
-                
+                hideMixingButtons();
+                hideTeaButtons();
+                hideSugarAndIceButtons();
+                hideStrawButtons();
+                seeOrderb.style.visibility="hidden";
+
+                startctx.clearRect(0, 0, 1100, 600);  // clear canvas
+                startctx.drawImage(startBG, 0, 0, 1100, 600);
+
+                // text
+                dayctx.font = "30px Monospace";
+                dayctx.textAlign = "center";
+                dayctx.fillText("Day 2", 550, 50);
+                dayctx.font = "20px Monospace";
+                dayctx.fillText("This is your second day as an employee at Cat Boba!", 550, 100)
+                dayctx.fillText("Use the stations on the bottom of the screen to carry out orders.", 550, 150)
+                dayctx.fillText("Press the Order button to continue.", 550, 200)
             }
 
             function day3() {
-                
+                hideMixingButtons();
+                hideTeaButtons();
+                hideSugarAndIceButtons();
+                hideStrawButtons();
+                seeOrderb.style.visibility="hidden";
+
+                startctx.clearRect(0, 0, 1100, 600);  // clear canvas
+                startctx.drawImage(startBG, 0, 0, 1100, 600);
+
+                // text
+                dayctx.font = "30px Monospace";
+                dayctx.textAlign = "center";
+                dayctx.fillText("Day 3", 550, 50);
+                dayctx.font = "20px Monospace";
+                dayctx.fillText("This is your third day as an employee at Cat Boba!", 550, 100)
+                dayctx.fillText("Use the stations on the bottom of the screen to carry out orders.", 550, 150)
+                dayctx.fillText("Press the Order button to continue.", 550, 200)
             }
 
             function drawTextBg(x, y, text) {
@@ -1195,28 +1225,28 @@
 
                 for (let i = 0; i < 4; i++) {
                     if (inCup[i] == correctOptions[i]) {
-                        score1 += 20;
+                        scores[day-1] += 20;
                         scoreDict[i] = "20";
                     }
                 }
 
                 // to do: calculate score for straw
                 // moved strawAccuracy to global variables
-                score1 += strawAccuracy;
+                scores[day-1] += strawAccuracy;
 
                 drawTextBg(550, 75, "Ice: " + scoreDict[0]);
                 drawTextBg(550, 135, "Sugar: " + scoreDict[1]);
                 drawTextBg(550, 195, "Tea: "+ scoreDict[2]);
                 drawTextBg(550, 255, "Toppings: "+ scoreDict[3]);
                 drawTextBg(550, 315, "Straw accuracy: " + strawAccuracy);
-                drawTextBg(550, 375, "Your Final Score: "+ score1 + "%");
+                drawTextBg(550, 375, "Your Final Score: "+ scores[day-1] + "%");
 
                 // reset
                 day += 1;
-                let ordersCompleted = 0;
-                let orderTaken = false;
-                var inCup = ["", "", "", ""]; // ice, sugar, tea, toppings
-                var correctOptions = ["", "", "", ""];
+                ordersCompleted = 0;
+                orderTaken = false;
+                inCup = ["", "", "", ""]; // ice, sugar, tea, toppings
+                correctOptions = ["", "", "", ""];
 
                 if (day == 2) {
                     day2();
@@ -1225,6 +1255,14 @@
                 if (day == 3) {
                     day3();
                 }
+
+                if (day == 4) {
+                    end();
+                }
+            }
+
+            function end() {
+                // to do
             }
 
             function credits() {
