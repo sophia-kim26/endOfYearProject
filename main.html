@@ -62,7 +62,7 @@
         }
         .creditsButton:hover {background-color: #dda57a;}
 
-        /* buttons on top of canvas for mixing station */
+        /* buttons for ice and sugar in mixing station */
         .leastButton {
             background-color: #B2A4FF;
             top: 50px;
@@ -104,6 +104,7 @@
         }
         .mostButton:hover {background-color: #e7e0a2;}
 
+        /* buttons in main section of mixing station */
         .teaButton {
             background-color: #ba947d;
             width: 180px;
@@ -130,6 +131,15 @@
             position: absolute;
         }
         .sugarButton:hover {background-color: #9f7d69;}
+
+        .resetButton {
+            background-color: #f5ad5a;
+            top: 50px;
+            right: 1100px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .resetButton:hover {background-color: #e59941;}
 
         /* TEAS */
         .milkButton {
@@ -232,6 +242,15 @@
             position: absolute;
         }
         .pokeButton:hover {background-color: #a2d0e8;}
+
+        .completeOrderButton {
+            background-color: #b6ea69;
+            top: 50px;
+            right: 1140px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .completeOrderButton:hover {background-color: #9dc95b;}
 
         /* buttons in order station */
         .seeOrderButton {
@@ -338,6 +357,7 @@
         <button id = "teab" class = "button teaButton" onclick="seeTea()">TEA</button>
         <button id = "iceb" class = "button iceButton" onclick="seeIce()">ICE</button>
         <button id = "sugarb" class = "button sugarButton" onclick="seeSugar()">SUGAR</button>
+        <button id = "resetb" class = "button resetButton" onclick="reset()">RESET</button>
 
         <!-- teas -->
         <button id = "milk" class = "button milkButton" onclick="seeMilk()">MILK</button>
@@ -356,6 +376,7 @@
 
         <!-- straw station -->
         <button id = "poke" class = "button pokeButton" onclick = "seeStrawInCup()">POKE!</button>
+        <button id = "completeOrder" class = "button completeOrderButton" onclick = "completeOrder()">COMPLETE ORDER!</button>
 
 
         <!-- buttons in order canvas -->
@@ -385,14 +406,14 @@
             let ordersCompleted = 0;
             let orderTaken = false;
 
-            var inCup = ["", "", "", ""] // ice, sugar, tea, bubbles
+            var inCup = ["", "", "", ""] // ice, sugar, tea, toppings
 
             // order button + lists for randomizing orders
             var seeOrderb = document.getElementById("seeOrder");
             const ice = ["Least", "Less", "Regular", "More", "Most"];
             const sugar = ["Least", "Less", "Regular", "More", "Most"];
             const tea = ["Milk", "Strawberry", "Taro", "Matcha", "Thai"];
-            const bubbles = ["Black pearls", "Agar pearls", "Grass jelly", "Ube balls", "Taro balls"];
+            const toppings = ["Black pearls", "Agar pearls", "Grass jellies", "Ube balls", "Taro balls"];
 
             //var iceAndSugarDict = {
             //    "Least" : leastb,
@@ -410,7 +431,7 @@
             //    "Thai" : thaib
             //}
 
-            //var bubblesDict = {
+            //var toppingsDict = {
             //    "Black pearls" : blackPearlsb,
             //    "Agar pearls" : agarPearlsb,
             //    "Grass jelly" : grassJellyb,
@@ -435,10 +456,10 @@
             var teactx = teac.getContext("2d");
 
             var icec = document.getElementById("ice");
-            var icectx = teac.getContext("2d");
+            var icectx = icec.getContext("2d");
 
             var sugarc = document.getElementById("sugar");
-            var sugarctx = teac.getContext("2d");
+            var sugarctx = sugarc.getContext("2d");
 
             // mixing buttons
             var teab = document.getElementById("teab");
@@ -468,14 +489,7 @@
 
             // straw button
             var pokeb = document.getElementById("poke");
-
-            function drawTextBg(x, y, text) {
-                orderctx.font = "25px Monospace";
-                orderctx.fillStyle = '#FFFFFF';
-                orderctx.fillRect(x-10, y-30, 320, 50);
-                orderctx.fillStyle = '#000000';
-                orderctx.fillText(text, x, y);
-            }
+            var completeOrderb = document.getElementById("completeOrder");
             
             // images
             var titleBG = new Image();
@@ -564,6 +578,23 @@
             var mostIce = new Image();
             mostIce.src = "mixing/ingredients/mostIce.png"
 
+            // sugars
+
+            var leastSugar = new Image();
+            leastSugar.src = "mixing/ingredients/leastSugar.png"
+
+            var lessSugar = new Image();
+            lessSugar.src = "mixing/ingredients/lessSugar.png"
+
+            var regularSugar = new Image();
+            regularSugar.src = "mixing/ingredients/regularSugar.png"
+
+            var moreSugar = new Image();
+            moreSugar.src = "mixing/ingredients/moreSugar.png"
+
+            var mostSugar = new Image();
+            mostSugar.src = "mixing/ingredients/mostSugar.png"
+
             // cups
 
             var strawCup_Milk = new Image();
@@ -620,15 +651,16 @@
             var mixingCup = new Image();
             mixingCup.src = "mixing/mixingCup.png";
 
+            var sugarContainer = new Image();
+            sugarContainer.src = "mixing/sugarContainer.png";
+
             // beginning page
             window.onload = function() {
                 // hiding buttons
                 hideMixingButtons();
                 hideTeaButtons();
                 hideSugarAndIceButtons();
-                pokeb.style.visibility="hidden";
-                teab.style.visibility="hidden";
-                mostb.style.visibility='hidden';
+                hideStrawButtons();
 
                 alert("go into full screen for highest quality experience!")
 
@@ -657,6 +689,7 @@
 
                 // mixing images + button
                 mixingctx.drawImage(mixingCup, 325, 150, 450, 450);
+                mixingctx.drawImage(sugarContainer, 380, 65, 890, 665);
 
                 // title screen text
                 titlectx.textAlign = "center";
@@ -684,6 +717,7 @@
                 taroBallb.style.visibility='visible';
                 iceb.style.visibility='visible';
                 sugarb.style.visibility='visible';
+                resetb.style.visibility='visible';
             }
 
             function hideMixingButtons() {
@@ -695,6 +729,7 @@
                 taroBallb.style.visibility='hidden';
                 iceb.style.visibility='hidden';
                 sugarb.style.visibility='hidden';
+                resetb.style.visibility='hidden';
             }
             // tea button visibility
             function showTeaButtons() {
@@ -727,6 +762,11 @@
                 regularb.style.visibility='hidden';
                 moreb.style.visibility='hidden';
                 mostb.style.visibility='hidden';
+            }
+
+            function hideStrawButtons() {
+                pokeb.style.visibility="hidden";
+                completeOrderb.style.visibility = "hidden";
             }
 
             // show specific canvas
@@ -779,7 +819,7 @@
                 hideMixingButtons();
                 hideTeaButtons();
                 hideSugarAndIceButtons();
-                pokeb.style.visibility='hidden';
+                hideStrawButtons();
                 seeOrderb.style.visibility="hidden";
 
                 // text
@@ -792,24 +832,36 @@
                 dayctx.fillText("Press the Order button to continue.", 550, 200)
             }
 
+            function drawTextBg(x, y, text) {
+                orderctx.font = "25px Monospace";
+                orderctx.fillStyle = '#FFFFFF';
+                orderctx.fillRect(x-10, y-30, 335, 50);
+                orderctx.fillStyle = '#000000';
+                orderctx.fillText(text, x, y);
+            }
+
             function seeOrder() {
                     // order text
                     if (orderTaken == false) {
+                        var teaOrder = tea[parseInt(Math.random() * 5)];
                         var iceOrder = ice[parseInt(Math.random() * 5)];
                         var sugarOrder = sugar[parseInt(Math.random() * 5)];
-                        var teaOrder = tea[parseInt(Math.random() * 5)];
-                        var bubblesOrder = bubbles[parseInt(Math.random() * 5)];
-                        const orderList = [iceOrder, sugarOrder, teaOrder, bubblesOrder];
+                        var toppingsOrder = toppings[parseInt(Math.random() * 5)];
+                        const orderList = [iceOrder, sugarOrder, teaOrder, toppingsOrder];
 
                         drawTextBg(550, 75, "I would like...");
                         drawTextBg(550, 135, "Tea: " + teaOrder);
-                        drawTextBg(550, 195, "Ice: " + iceOrder);
-                        drawTextBg(550, 255, "Sugar: " + sugarOrder);
-                        drawTextBg(550, 315, "Bubbles: " + bubblesOrder);
+                        drawTextBg(550, 195, "Sugar: "+ sugarOrder);
+                        drawTextBg(550, 255, "Ice: "+ iceOrder);
+                        drawTextBg(550, 315, "Toppings: "+ toppingsOrder);
 
                         orderTaken = true;
 
-                        var correctOptions = [iceAndSugarDict[iceOrder], iceAndSugarDict[sugarOrder], teaDict[teaOrder], bubblesDict[bubblesOrder]]
+                        orderctx.font = "20px Monospace";
+                        orderctx.fillText("Now go to the mixing station", 90, 200);
+                        orderctx.fillText("and mix the proper ingredients!", 90, 250);
+
+                        var correctOptions = [iceAndSugarDict[iceOrder], iceAndSugarDict[sugarOrder], teaDict[teaOrder], toppingsDict[toppingsOrder]]
                     }
             }
 
@@ -818,6 +870,7 @@
                 hideMixingButtons();
                 hideTeaButtons();
                 hideSugarAndIceButtons();
+                hideStrawButtons();
                 pokeb.style.visibility='hidden';
                 seeOrderb.style.visibility="visible";
                 showOrder();
@@ -833,12 +886,19 @@
                 showMixingButtons();
                 hideTeaButtons();
                 hideSugarAndIceButtons();
+                hideStrawButtons();
                 pokeb.style.visibility='hidden';
                 seeOrderb.style.visibility="hidden";
                 showMixing();
             }
 
             // MIXING BUTTONS START
+            function reset() {
+                inCup = ["", "", "", ""];
+                mixingctx.drawImage(mixingCup, 325, 150, 450, 450);
+                mixingctx.drawImage(sugarContainer, 380, 65, 890, 665);
+            }
+
             function seeTea() {
                 hideMixingButtons();
                 showTeaButtons();
@@ -849,130 +909,137 @@
                 hideMixingButtons();
                 showSugarAndIceButtons();
                 sugarc.style.visibility='visible';
+                icec.style.visibility='hidden';
             }
 
             function seeIce() {
                 hideMixingButtons();
                 showSugarAndIceButtons();
                 icec.style.visibility='visible';
+                sugarc.style.visibility='hidden';
             }
 
             // teas
             function seeMilk() {
                 mixing();
                 mixingctx.drawImage(milkTea, 325, 150, 450, 450);
-                inCup[2] = "milk";
+                inCup[2] = "Milk";
             }
             function seeStrawberry() {
                 mixing();
                 mixingctx.drawImage(strawberryTea, 325, 150, 450, 450);
-                inCup[2] = "strawberry";
+                inCup[2] = "Strawberry";
             }
             function seeTaro() {
                 mixing();
                 mixingctx.drawImage(taroTea, 325, 150, 450, 450);
-                inCup[2] = "taro";
+                inCup[2] = "Taro";
             }
             function seeMatcha() {
                 mixing();
                 mixingctx.drawImage(matchaTea, 325, 150, 450, 450);
-                inCup[2] = "matcha";
+                inCup[2] = "Matcha";
             }
             function seeThai() {
                 mixing();
                 mixingctx.drawImage(thaiTea, 325, 150, 450, 450);
-                inCup[2] = "thai";
+                inCup[2] = "Thai";
             }
 
-                // toppings
+            // toppings
             function seeBlackPearl() {
                 mixing();
                 mixingctx.drawImage(blackPearls, 325, 150, 450, 450);
+                inCup[3] = "Black pearls"
             }
             function seeAgarPearl() {
                 mixing();
                 mixingctx.drawImage(agarPearls, 325, 150, 450, 450);
+                inCup[3] = "Agar pearls"
             }
             function seeGrassJelly() {
                 mixing();
                 mixingctx.drawImage(grassJellies, 325, 150, 450, 450);
+                inCup[3] = "Grass jellies"
             }
             function seeUbeBall() {
                 mixing();
                 mixingctx.drawImage(ubeBalls, 325, 150, 450, 450);
+                inCup[3] = "Ube balls"
             }
             function seeTaroBall() {
                 mixing();
                 mixingctx.drawImage(taroBalls, 325, 150, 450, 450);
+                inCup[3] = "Taro balls"
             }
 
             function seeLeast() {
-                if (icec.style.visibility = "visible") {
+                if (icec.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(leastIce, 100, 41, 890, 665);
-                    inCup[0] = "least";
+                    inCup[0] = "Least";
                 }
 
-                if (sugarc.style.visibility = "visible") {
+                if (sugarc.style.visibility == "visible") {
                     mixing();
-                    mixingctx.drawImage(leastSugar, 325, 150, 450, 450);
-                    inCup[1] = "least";
+                    mixingctx.drawImage(leastSugar, 380, 65, 890, 665);
+                    inCup[1] = "Least";
                 }
             }
 
             function seeLess() {
-                if (icec.style.visibility = "visible") {
+                if (icec.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(lessIce, 100, 41, 890, 665);
-                    inCup[0] = "less";
+                    inCup[0] = "Less";
                 }
 
-                if (sugarc.style.visibility = "visible") {
+                if (sugarc.style.visibility == "visible") {
                     mixing();
-                    mixingctx.drawImage(lessSugar, 325, 150, 450, 450);
-                    inCup[1] = "less";
+                    mixingctx.drawImage(lessSugar, 380, 65, 890, 665);
+                    inCup[1] = "Less";
                 }
             }
 
             function seeRegular() {
-                if (icec.style.visibility = "visible") {
+                if (icec.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(regularIce, 100, 41, 890, 665);
-                    inCup[0] = "regular";
+                    inCup[0] = "Regular";
                 }
 
-                if (sugarc.style.visibility = "visible") {
+                if (sugarc.style.visibility == "visible") {
                     mixing();
-                    mixingctx.drawImage(regularSugar, 325, 150, 450, 450);
-                    inCup[1] = "regular";
+                    mixingctx.drawImage(regularSugar, 380, 65, 890, 665);
+                    inCup[1] = "Regular";
                 }
             }
 
             function seeMore() {
-                if (icec.style.visibility = "visible") {
+                if (icec.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(moreIce, 100, 41, 890, 665);
-                    inCup[0] = "more";
+                    inCup[0] = "More";
                 }
 
-                if (sugarc.style.visibility = "visible") {
+                if (sugarc.style.visibility == "visible") {
                     mixing();
-                    mixingctx.drawImage(moreSugar, 325, 150, 450, 450);
-                    inCup[1] = "more";
+                    mixingctx.drawImage(moreSugar, 380, 65, 890, 665);
+                    inCup[1] = "More";
                 }
             }
             
             function seeMost() {
-                if (icec.style.visibility = "visible") {
+                if (icec.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(mostIce, 100, 41, 890, 665);
-                    inCup[0] = "most";
+                    inCup[0] = "Most";
                 }
 
-                if (sugarc.style.visibility = "visible") {
+                if (sugarc.style.visibility == "visible") {
                     mixing();
-                    mixingctx.drawImage(mostSugar, 325, 150, 450, 450);
-                    inCup[1] = "most";
+                    mixingctx.drawImage(mostSugar, 380, 65, 890, 665);
+                    inCup[1] = "Most";
                 }
             }
 
@@ -983,66 +1050,82 @@
                 hideMixingButtons();
                 hideTeaButtons();
                 hideSugarAndIceButtons();
-                pokeb.style.visibility='visible';
                 seeOrderb.style.visibility="hidden";
+                pokeb.style.visibility='visible';
                 showStraw();
 
                 strawctx.clearRect(0, 0, 1100, 600);  // clear canvas
                 strawctx.drawImage(strawBG, 0, 0, 1100, 600);
 
-                if (inCup[2] == "milk") {
+                strawctx.font = "20px Monospace";
+                strawctx.textAlign = "center";
+                strawctx.fillText("You haven't mixed", 590, 555);
+                strawctx.fillText("the ingredients yet.", 590, 590);
+
+                if (inCup[2] == "Milk") {
                     strawctx.drawImage(strawCup_Milk, 210, 200, 733, 400);
                     strawctx.drawImage(strawStraw_Milk, 177, 100, 800, 500);
                 }
 
-                else if (inCup[2] == "taro") {
+                else if (inCup[2] == "Taro") {
                     strawctx.drawImage(strawCup_Taro, 210, 200, 733, 400);
                     strawctx.drawImage(strawStraw_Taro, 177, 100, 800, 500);
                 }
 
-                else if (inCup[2] == "matcha") {
+                else if (inCup[2] == "Matcha") {
                     strawctx.drawImage(strawCup_Matcha, 210, 200, 733, 400);
                     strawctx.drawImage(strawStraw_Matcha, 177, 100, 800, 500);
                 }
 
-                else if (inCup[2] == "thai") {
+                else if (inCup[2] == "Thai") {
                     strawctx.drawImage(strawCup_Thai, 210, 200, 733, 400);
                     strawctx.drawImage(strawStraw_Thai, 177, 100, 800, 500);
                 }
 
-                else if (inCup[2] == "strawberry") {
+                else if (inCup[2] == "Strawberry") {
                     strawctx.drawImage(strawCup_Strawberry, 210, 200, 733, 400);
                     strawctx.drawImage(strawStraw_Strawberry, 177, 100, 800, 500);
                 }
             }
 
             function seeStrawInCup() {
-                strawctx.clearRect(0, 0, 1100, 600);  // clear canvas
-                strawctx.drawImage(strawBG, 0, 0, 1100, 600);
+                if (inCup[2] != "") {
+                    strawctx.clearRect(0, 0, 1100, 600);  // clear canvas
+                    strawctx.drawImage(strawBG, 0, 0, 1100, 600);
 
-                if (inCup[2] == "milk") {
-                    strawctx.drawImage(strawStrawInCup_Milk, 210, 200, 733, 400);
+                    if (inCup[2] == "Milk") {
+                        strawctx.drawImage(strawStrawInCup_Milk, 210, 200, 733, 400);
+                    }
+
+                    else if (inCup[2] == "Taro") {
+                        strawctx.drawImage(strawStrawInCup_Taro, 210, 200, 733, 400);
+                    }
+
+                    else if (inCup[2] == "Matcha") {
+                        strawctx.drawImage(strawStrawInCup_Matcha, 210, 200, 733, 400);
+                    }
+
+                    else if (inCup[2] == "Thai") {
+                        strawctx.drawImage(strawStrawInCup_Thai, 210, 200, 733, 400);
+                    }
+
+                    else if (inCup[2] == "Strawberry") {
+                        strawctx.drawImage(strawStrawInCup_Strawberry, 210, 200, 733, 400);
+                    }
+
+                    completeOrderb.style.visibility = "visible";
                 }
+            }
 
-                else if (inCup[2] == "taro") {
-                    strawctx.drawImage(strawStrawInCup_Taro, 210, 200, 733, 400);
-                }
-
-                else if (inCup[2] == "matcha") {
-                    strawctx.drawImage(strawStrawInCup_Matcha, 210, 200, 733, 400);
-                }
-
-                else if (inCup[2] == "thai") {
-                    strawctx.drawImage(strawStrawInCup_Thai, 210, 200, 733, 400);
-                }
-
-                else if (inCup[2] == "strawberry") {
-                    strawctx.drawImage(strawStrawInCup_Strawberry, 210, 200, 733, 400);
+            function completeOrder() {
+                order();
+                if (inCup == correctOptions) {
+                    orderctx.fillText("YAY", 100, 100);
                 }
             }
 
             function credits() {
-                alert("made by sylvia lee and sophia kim, bca atcs '26\nimage credits go to studio ghibli; go check them out they have nice films");
+                alert("made by sylvia lee and sophia kim, bca atcs '26\nimage credits go to studio ghibli");
             }
 
 
