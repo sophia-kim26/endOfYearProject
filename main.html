@@ -197,7 +197,7 @@
             position: absolute;
         }
         .grassJellyButton {
-            background-image: url(mixing/buttons/milkButton.png);
+            background-image: url(mixing/buttons/grassJellyButton.png);
             background-size: cover;
             background-position: center;
             top: 325px;
@@ -536,6 +536,15 @@
             // toppings
             var blackPearls = new Image();
             blackPearls.src = "mixing/ingredients/blackPearls.png";
+
+            var agarPearls = new Image();
+            agarPearls.src = "mixing/ingredients/agarPearls.png";
+
+            var grassJellies = new Image();
+
+            var ubeBalls = new Image();
+
+            var taroBalls = new Image();
 
             // ices
 
@@ -881,7 +890,7 @@
             }
             function seeAgarPearl() {
                 mixing();
-                mixingctx.drawImage(strawberryTea, 325, 150, 450, 450);
+                mixingctx.drawImage(agarPearls, 325, 150, 450, 450);
             }
             function seeGrassJelly() {
                 mixing();
