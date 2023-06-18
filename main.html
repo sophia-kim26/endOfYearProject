@@ -752,7 +752,6 @@
             }
             
             // button
-            var startButton = document.createElement("BUTTON");
             var orderButton = document.createElement("BUTTON");
             var mixingButton = document.createElement("BUTTON");
             var strawButton = document.createElement("BUTTON");
@@ -915,9 +914,10 @@
             }
 
             function day2() {
+                getReadyForNextDay();
+
                 startButton.style.visibility = "hidden";
                 start2Button.style.visibiliity = "visible";
-                getReadyForNextDay();
 
                 // text
                 dayctx.font = "30px Monospace";
@@ -932,10 +932,11 @@
             }
 
             function day3() {
+                getReadyForNextDay();
+
                 startButton.style.visibility = "hidden";
                 start2Button.style.visibiliity = "hidden";
                 start3Button.style.visibiliity = "visible";
-                getReadyForNextDay();
 
                 // text
                 dayctx.font = "30px Monospace";
