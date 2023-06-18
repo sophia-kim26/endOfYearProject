@@ -637,6 +637,9 @@
             var mixingCup = new Image();
             mixingCup.src = "mixing/mixingCup.png";
 
+            var sugarContainer = new Image();
+            sugarContainer.src = "mixing/sugarContainer.png";
+
             // beginning page
             window.onload = function() {
                 // hiding buttons
@@ -674,7 +677,7 @@
 
                 // mixing images + button
                 mixingctx.drawImage(mixingCup, 325, 150, 450, 450);
-                mixingctx.drawImage(sugarContainer, 300, 150, 890, 665);
+                mixingctx.drawImage(sugarContainer, 380, 65, 890, 665);
 
                 // title screen text
                 titlectx.textAlign = "center";
