@@ -888,6 +888,7 @@
             }
 
             function day2() {
+                showStart();
                 hideMixingButtons();
                 hideTeaButtons();
                 hideSugarAndIceButtons();
@@ -895,8 +896,8 @@
                 hideOrderButtons();
                 start2Button.style.visibiliity = "visible";
 
-                startctx.clearRect(0, 0, 1100, 600);  // clear canvas
-                startctx.drawImage(startBG, 0, 0, 1100, 600);
+                dayctx.clearRect(0, 0, 1100, 600);  // clear canvas
+                dayctx.drawImage(dayBG, 0, 0, 1100, 600);
 
                 // text
                 dayctx.font = "30px Monospace";
@@ -909,6 +910,7 @@
             }
 
             function day3() {
+                showStart();
                 hideMixingButtons();
                 hideTeaButtons();
                 hideSugarAndIceButtons();
@@ -916,8 +918,8 @@
                 hideOrderButtons();
                 start3Button.style.visibiliity = "visible";
 
-                startctx.clearRect(0, 0, 1100, 600);  // clear canvas
-                startctx.drawImage(startBG, 0, 0, 1100, 600);
+                dayctx.clearRect(0, 0, 1100, 600);  // clear canvas
+                dayctx.drawImage(dayBG, 0, 0, 1100, 600);
 
                 // text
                 dayctx.font = "30px Monospace";
