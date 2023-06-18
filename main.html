@@ -885,16 +885,16 @@
             function seeOrder() {
                     // order text
                     if (orderTaken == false) {
-                        var teaOrder = tea[parseInt(Math.random() * 5)];
                         var iceOrder = ice[parseInt(Math.random() * 5)];
                         var sugarOrder = sugar[parseInt(Math.random() * 5)];
+                        var teaOrder = tea[parseInt(Math.random() * 5)];
                         var toppingsOrder = toppings[parseInt(Math.random() * 5)];
                         const orderList = [iceOrder, sugarOrder, teaOrder, toppingsOrder];
 
                         drawTextBg(550, 75, "I would like...");
-                        drawTextBg(550, 135, "Tea: " + teaOrder);
+                        drawTextBg(550, 135, "Ice: " + iceOrder);
                         drawTextBg(550, 195, "Sugar: "+ sugarOrder);
-                        drawTextBg(550, 255, "Ice: "+ iceOrder);
+                        drawTextBg(550, 255, "Tea: "+ teaOrder);
                         drawTextBg(550, 315, "Toppings: "+ toppingsOrder);
 
                         orderTaken = true;
@@ -1180,7 +1180,7 @@
                     2: "X", // tea
                     3: "X" // toppings
                 }
-                
+
                 for (let i = 0; i < 4; i++) {
                     if (inCup[i] == correctOptions[i]) {
                         score1 += 20;
