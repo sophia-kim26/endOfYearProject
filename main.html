@@ -385,14 +385,14 @@
             let ordersCompleted = 0;
             let orderTaken = false;
 
-            var inCup = ["", "", "", ""] // ice, sugar, tea, bubbles
+            var inCup = ["", "", "", ""] // ice, sugar, tea, toppings
 
             // order button + lists for randomizing orders
             var seeOrderb = document.getElementById("seeOrder");
             const ice = ["Least", "Less", "Regular", "More", "Most"];
             const sugar = ["Least", "Less", "Regular", "More", "Most"];
             const tea = ["Milk", "Strawberry", "Taro", "Matcha", "Thai"];
-            const bubbles = ["Black pearls", "Agar pearls", "Grass jelly", "Ube balls", "Taro balls"];
+            const toppings = ["Black pearls", "Agar pearls", "Grass jelly", "Ube balls", "Taro balls"];
 
             //var iceAndSugarDict = {
             //    "Least" : leastb,
@@ -410,7 +410,7 @@
             //    "Thai" : thaib
             //}
 
-            //var bubblesDict = {
+            //var toppingsDict = {
             //    "Black pearls" : blackPearlsb,
             //    "Agar pearls" : agarPearlsb,
             //    "Grass jelly" : grassJellyb,
@@ -468,14 +468,6 @@
 
             // straw button
             var pokeb = document.getElementById("poke");
-
-            function drawTextBg(x, y, text) {
-                orderctx.font = "25px Monospace";
-                orderctx.fillStyle = '#FFFFFF';
-                orderctx.fillRect(x-10, y-30, 320, 50);
-                orderctx.fillStyle = '#000000';
-                orderctx.fillText(text, x, y);
-            }
             
             // images
             var titleBG = new Image();
@@ -813,24 +805,32 @@
                 dayctx.fillText("Press the Order button to continue.", 550, 200)
             }
 
+            function drawTextBg(x, y, text) {
+                orderctx.font = "25px Monospace";
+                orderctx.fillStyle = '#FFFFFF';
+                orderctx.fillRect(x-10, y-30, 335, 50);
+                orderctx.fillStyle = '#000000';
+                orderctx.fillText(text, x, y);
+            }
+
             function seeOrder() {
                     // order text
                     if (orderTaken == false) {
+                        var teaOrder = tea[parseInt(Math.random() * 5)];
                         var iceOrder = ice[parseInt(Math.random() * 5)];
                         var sugarOrder = sugar[parseInt(Math.random() * 5)];
-                        var teaOrder = tea[parseInt(Math.random() * 5)];
-                        var bubblesOrder = bubbles[parseInt(Math.random() * 5)];
-                        const orderList = [iceOrder, sugarOrder, teaOrder, bubblesOrder];
+                        var toppingsOrder = toppings[parseInt(Math.random() * 5)];
+                        const orderList = [iceOrder, sugarOrder, teaOrder, toppingsOrder];
 
                         drawTextBg(550, 75, "I would like...");
-                        drawTextBg(550, 135, "Ice: " + iceOrder);
+                        drawTextBg(550, 135, "Tea: " + teaOrder);
                         drawTextBg(550, 195, "Sugar: "+ sugarOrder);
-                        drawTextBg(550, 255, "Tea: "+ teaOrder);
-                        drawTextBg(550, 315, "Bubbles: "+ bubblesOrder);
+                        drawTextBg(550, 255, "Ice: "+ iceOrder);
+                        drawTextBg(550, 315, "Toppings: "+ toppingsOrder);
 
                         orderTaken = true;
 
-                        var correctOptions = [iceAndSugarDict[iceOrder], iceAndSugarDict[sugarOrder], teaDict[teaOrder], bubblesDict[bubblesOrder]]
+                        var correctOptions = [iceAndSugarDict[iceOrder], iceAndSugarDict[sugarOrder], teaDict[teaOrder], toppingsDict[toppingsOrder]]
                     }
             }
 
