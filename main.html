@@ -1174,19 +1174,28 @@
             function completeOrder() {
                 order();
 
+                var correctDict = {
+                    0: "X", // ice
+                    1: "X", // sugar
+                    2: "X", // tea
+                    3: "X" // toppings
+                }
+                
                 for (let i = 0; i < 4; i++) {
                     if (inCup[i] == correctOptions[i]) {
                         score1 += 20;
+                        correctDict[i] = "O";
                     }
                 }
 
-                // calculate score for straw
+                // to do: calculate score for straw
+                var strawAccuracy = 20;
 
-                drawTextBg(550, 75, "Tea: " + teaOrder);
-                drawTextBg(550, 135, "Sugar: " + sugarOrder);
-                drawTextBg(550, 195, "Ice: "+ iceOrder);
-                drawTextBg(550, 255, "Toppings: "+ toppingsOrder);
-                drawTextBg(550, 315, "Straw accuracy: "+ toppingsOrder);
+                drawTextBg(550, 75, "Ice: " + correctDict[0]);
+                drawTextBg(550, 135, "Sugar: " + correctDict[1]);
+                drawTextBg(550, 195, "Tea: "+ correctDict[2]);
+                drawTextBg(550, 255, "Toppings: "+ correctDict[3]);
+                drawTextBg(550, 315, "Straw accuracy: " + strawAccuracy);
                 drawTextBg(550, 315, "Your Final Score: "+ score1);
             }
 
