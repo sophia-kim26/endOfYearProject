@@ -830,6 +830,10 @@
 
                         orderTaken = true;
 
+                        orderctx.font = "20px Monospace";
+                        orderctx.fillText("Now go to the mixing station", 90, 200);
+                        orderctx.fillText("and mix the proper ingredients!", 90, 250);
+
                         var correctOptions = [iceAndSugarDict[iceOrder], iceAndSugarDict[sugarOrder], teaDict[teaOrder], toppingsDict[toppingsOrder]]
                     }
             }
@@ -1010,8 +1014,10 @@
                 seeOrderb.style.visibility="hidden";
                 showStraw();
 
-                strawctx.clearRect(0, 0, 1100, 600);  // clear canvas
-                strawctx.drawImage(strawBG, 0, 0, 1100, 600);
+                strawctx.font = "20px Monospace";
+                strawctx.textAlign = "center";
+                strawctx.fillText("You haven't mixed", 590, 555);
+                strawctx.fillText("the ingredients yet.", 590, 590);
 
                 if (inCup[2] == "milk") {
                     strawctx.drawImage(strawCup_Milk, 210, 200, 733, 400);
@@ -1040,27 +1046,29 @@
             }
 
             function seeStrawInCup() {
-                strawctx.clearRect(0, 0, 1100, 600);  // clear canvas
-                strawctx.drawImage(strawBG, 0, 0, 1100, 600);
+                if (inCup[2] != "") {
+                    strawctx.clearRect(0, 0, 1100, 600);  // clear canvas
+                    strawctx.drawImage(strawBG, 0, 0, 1100, 600);
 
-                if (inCup[2] == "milk") {
-                    strawctx.drawImage(strawStrawInCup_Milk, 210, 200, 733, 400);
-                }
+                    if (inCup[2] == "milk") {
+                        strawctx.drawImage(strawStrawInCup_Milk, 210, 200, 733, 400);
+                    }
 
-                else if (inCup[2] == "taro") {
-                    strawctx.drawImage(strawStrawInCup_Taro, 210, 200, 733, 400);
-                }
+                    else if (inCup[2] == "taro") {
+                        strawctx.drawImage(strawStrawInCup_Taro, 210, 200, 733, 400);
+                    }
 
-                else if (inCup[2] == "matcha") {
-                    strawctx.drawImage(strawStrawInCup_Matcha, 210, 200, 733, 400);
-                }
+                    else if (inCup[2] == "matcha") {
+                        strawctx.drawImage(strawStrawInCup_Matcha, 210, 200, 733, 400);
+                    }
 
-                else if (inCup[2] == "thai") {
-                    strawctx.drawImage(strawStrawInCup_Thai, 210, 200, 733, 400);
-                }
+                    else if (inCup[2] == "thai") {
+                        strawctx.drawImage(strawStrawInCup_Thai, 210, 200, 733, 400);
+                    }
 
-                else if (inCup[2] == "strawberry") {
-                    strawctx.drawImage(strawStrawInCup_Strawberry, 210, 200, 733, 400);
+                    else if (inCup[2] == "strawberry") {
+                        strawctx.drawImage(strawStrawInCup_Strawberry, 210, 200, 733, 400);
+                    }
                 }
             }
 
