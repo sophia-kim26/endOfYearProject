@@ -493,6 +493,20 @@
             var strawBG = new Image();
             strawBG.src = "backgrounds/studioghibli4.jpeg"
 
+            // characters
+
+            var arrietty = new Image();
+            arrietty.src = "characters/arrietty.png";
+
+            var ponyo = new Image();
+            ponyo.src = "characters/ponyo.png";
+
+            var shizuku = new Image();
+            shizuku.src = "characters/shizuku.png";
+
+            var catbus = new Image();
+            catbus.src = "characters/catbus.png";
+
             // mixing button bgs
             var teaBG = new Image();
             teaBG.src = "backgrounds/mixing/teaBG.png";
@@ -503,7 +517,7 @@
             var sugarBG = new Image();
             sugarBG.src = "backgrounds/mixing/sugarBG.png";
 
-            // toppings
+            // teas
             var milkTea = new Image();
             milkTea.src = "mixing/ingredients/milkTea.png"
 
@@ -519,17 +533,22 @@
             var thaiTea = new Image();
             thaiTea.src = "mixing/ingredients/thaiTea.png"
 
-            var arrietty = new Image();
-            arrietty.src = "characters/arrietty.png";
+            // ices
 
-            var ponyo = new Image();
-            ponyo.src = "characters/ponyo.png";
+            var leastIce = new Image();
+            leastIce.src = "mixing/ingredients/leastIce.png"
 
-            var shizuku = new Image();
-            shizuku.src = "characters/shizuku.png";
+            var lessIce = new Image();
+            lessIce.src = "mixing/ingredients/lessIce.png"
 
-            var catbus = new Image();
-            catbus.src = "characters/catbus.png";
+            var regularIce = new Image();
+            regularIce.src = "mixing/ingredients/regularIce.png"
+
+            var moreIce = new Image();
+            moreIce.src = "mixing/ingredients/moreIce.png"
+
+            var mostIce = new Image();
+            mostIce.src = "mixing/ingredients/mostIce.png"
 
             // cups
 
@@ -854,7 +873,7 @@
             function seeLeast() {
                 if (icec.style.visibility = "visible") {
                     mixing();
-                    mixingctx.drawImage(leastIce, 325, 150, 450, 450);
+                    mixingctx.drawImage(leastIce, 100, 41, 890, 665);
                     inCup[0] = "least";
                 }
 
@@ -868,7 +887,7 @@
             function seeLess() {
                 if (icec.style.visibility = "visible") {
                     mixing();
-                    mixingctx.drawImage(lessIce, 325, 150, 450, 450);
+                    mixingctx.drawImage(lessIce, 100, 41, 890, 665);
                     inCup[0] = "less";
                 }
 
@@ -882,7 +901,7 @@
             function seeRegular() {
                 if (icec.style.visibility = "visible") {
                     mixing();
-                    mixingctx.drawImage(regularIce, 325, 150, 450, 450);
+                    mixingctx.drawImage(regularIce, 100, 41, 890, 665);
                     inCup[0] = "regular";
                 }
 
@@ -896,7 +915,7 @@
             function seeMore() {
                 if (icec.style.visibility = "visible") {
                     mixing();
-                    mixingctx.drawImage(moreIce, 325, 150, 450, 450);
+                    mixingctx.drawImage(moreIce, 100, 41, 890, 665);
                     inCup[0] = "more";
                 }
 
@@ -910,7 +929,7 @@
             function seeMost() {
                 if (icec.style.visibility = "visible") {
                     mixing();
-                    mixingctx.drawImage(mostIce, 325, 150, 450, 450);
+                    mixingctx.drawImage(mostIce, 100, 41, 890, 665);
                     inCup[0] = "most";
                 }
 
