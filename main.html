@@ -402,7 +402,7 @@
         <!-- straw station -->
         <button id = "poke" class = "button pokeButton" onclick = "seeStrawInCup()">POKE!</button>
         <button id = "completeOrder" class = "button completeOrderButton" onclick = "completeOrder()">COMPLETE ORDER!</button>
-        <div id = "lever" class = "div leverDiv" onclick = "completeOrder()"></div>
+        <div id = "lever" class = "div leverDiv"></div>
 
 
         <!-- buttons in order canvas -->
@@ -696,7 +696,6 @@
                 hideTeaButtons();
                 hideSugarAndIceButtons();
                 hideStrawButtons();
-                seeOrderb.style.visibility="hidden";
 
                 alert("go into full screen for highest quality experience!")
 
@@ -1101,6 +1100,10 @@
                 strawctx.textAlign = "center";
                 strawctx.fillText("You haven't mixed", 590, 555);
                 strawctx.fillText("the ingredients yet.", 590, 590);
+
+                strawctx.textAlign = "left";
+                strawctx.fillText("Poke the straw in when the", 725, 70);
+                strawctx.fillText("lever is in the center.", 725, 100);
 
                 if (inCup[2] == "Milk") {
                     strawctx.drawImage(strawCup_Milk, 210, 200, 733, 400);
