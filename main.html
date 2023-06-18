@@ -435,10 +435,10 @@
             var teactx = teac.getContext("2d");
 
             var icec = document.getElementById("ice");
-            var icectx = teac.getContext("2d");
+            var icectx = icec.getContext("2d");
 
             var sugarc = document.getElementById("sugar");
-            var sugarctx = teac.getContext("2d");
+            var sugarctx = sugarc.getContext("2d");
 
             // mixing buttons
             var teab = document.getElementById("teab");
@@ -936,7 +936,7 @@
 
                 if (sugarc.style.visibility = "visible") {
                     mixing();
-                    mixingctx.drawImage(leastSugar, 325, 150, 450, 450);
+                    mixingctx.drawImage(leastSugar, 380, 65, 890, 665);
                     inCup[1] = "least";
                 }
             }
@@ -950,7 +950,7 @@
 
                 if (sugarc.style.visibility = "visible") {
                     mixing();
-                    mixingctx.drawImage(lessSugar, 325, 150, 450, 450);
+                    mixingctx.drawImage(lessSugar, 380, 65, 890, 665);
                     inCup[1] = "less";
                 }
             }
@@ -964,7 +964,7 @@
 
                 if (sugarc.style.visibility = "visible") {
                     mixing();
-                    mixingctx.drawImage(regularSugar, 325, 150, 450, 450);
+                    mixingctx.drawImage(regularSugar, 380, 65, 890, 665);
                     inCup[1] = "regular";
                 }
             }
@@ -978,7 +978,7 @@
 
                 if (sugarc.style.visibility = "visible") {
                     mixing();
-                    mixingctx.drawImage(moreSugar, 325, 150, 450, 450);
+                    mixingctx.drawImage(moreSugar, 380, 65, 890, 665);
                     inCup[1] = "more";
                 }
             }
@@ -992,7 +992,7 @@
 
                 if (sugarc.style.visibility = "visible") {
                     mixing();
-                    mixingctx.drawImage(mostSugar, 325, 150, 450, 450);
+                    mixingctx.drawImage(mostSugar, 380, 65, 890, 665);
                     inCup[1] = "most";
                 }
             }
