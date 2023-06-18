@@ -413,7 +413,7 @@
             const ice = ["Least", "Less", "Regular", "More", "Most"];
             const sugar = ["Least", "Less", "Regular", "More", "Most"];
             const tea = ["Milk", "Strawberry", "Taro", "Matcha", "Thai"];
-            const toppings = ["Black pearls", "Agar pearls", "Grass jelly", "Ube balls", "Taro balls"];
+            const toppings = ["Black pearls", "Agar pearls", "Grass jellies", "Ube balls", "Taro balls"];
 
             //var iceAndSugarDict = {
             //    "Least" : leastb,
@@ -923,62 +923,67 @@
             function seeMilk() {
                 mixing();
                 mixingctx.drawImage(milkTea, 325, 150, 450, 450);
-                inCup[2] = "milk";
+                inCup[2] = "Milk";
             }
             function seeStrawberry() {
                 mixing();
                 mixingctx.drawImage(strawberryTea, 325, 150, 450, 450);
-                inCup[2] = "strawberry";
+                inCup[2] = "Strawberry";
             }
             function seeTaro() {
                 mixing();
                 mixingctx.drawImage(taroTea, 325, 150, 450, 450);
-                inCup[2] = "taro";
+                inCup[2] = "Taro";
             }
             function seeMatcha() {
                 mixing();
                 mixingctx.drawImage(matchaTea, 325, 150, 450, 450);
-                inCup[2] = "matcha";
+                inCup[2] = "Matcha";
             }
             function seeThai() {
                 mixing();
                 mixingctx.drawImage(thaiTea, 325, 150, 450, 450);
-                inCup[2] = "thai";
+                inCup[2] = "Thai";
             }
 
             // toppings
             function seeBlackPearl() {
                 mixing();
                 mixingctx.drawImage(blackPearls, 325, 150, 450, 450);
+                inCup[3] = "Black pearls"
             }
             function seeAgarPearl() {
                 mixing();
                 mixingctx.drawImage(agarPearls, 325, 150, 450, 450);
+                inCup[3] = "Agar pearls"
             }
             function seeGrassJelly() {
                 mixing();
                 mixingctx.drawImage(grassJellies, 325, 150, 450, 450);
+                inCup[3] = "Grass jellies"
             }
             function seeUbeBall() {
                 mixing();
                 mixingctx.drawImage(ubeBalls, 325, 150, 450, 450);
+                inCup[3] = "Ube balls"
             }
             function seeTaroBall() {
                 mixing();
                 mixingctx.drawImage(taroBalls, 325, 150, 450, 450);
+                inCup[3] = "Taro balls"
             }
 
             function seeLeast() {
                 if (icec.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(leastIce, 100, 41, 890, 665);
-                    inCup[0] = "least";
+                    inCup[0] = "Least";
                 }
 
                 if (sugarc.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(leastSugar, 380, 65, 890, 665);
-                    inCup[1] = "least";
+                    inCup[1] = "Least";
                 }
             }
 
@@ -986,13 +991,13 @@
                 if (icec.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(lessIce, 100, 41, 890, 665);
-                    inCup[0] = "less";
+                    inCup[0] = "Less";
                 }
 
                 if (sugarc.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(lessSugar, 380, 65, 890, 665);
-                    inCup[1] = "less";
+                    inCup[1] = "Less";
                 }
             }
 
@@ -1000,13 +1005,13 @@
                 if (icec.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(regularIce, 100, 41, 890, 665);
-                    inCup[0] = "regular";
+                    inCup[0] = "Regular";
                 }
 
                 if (sugarc.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(regularSugar, 380, 65, 890, 665);
-                    inCup[1] = "regular";
+                    inCup[1] = "Regular";
                 }
             }
 
@@ -1014,13 +1019,13 @@
                 if (icec.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(moreIce, 100, 41, 890, 665);
-                    inCup[0] = "more";
+                    inCup[0] = "More";
                 }
 
                 if (sugarc.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(moreSugar, 380, 65, 890, 665);
-                    inCup[1] = "more";
+                    inCup[1] = "More";
                 }
             }
             
@@ -1028,13 +1033,13 @@
                 if (icec.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(mostIce, 100, 41, 890, 665);
-                    inCup[0] = "most";
+                    inCup[0] = "Most";
                 }
 
                 if (sugarc.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(mostSugar, 380, 65, 890, 665);
-                    inCup[1] = "most";
+                    inCup[1] = "Most";
                 }
             }
 
@@ -1049,32 +1054,35 @@
                 pokeb.style.visibility='visible';
                 showStraw();
 
+                strawctx.clearRect(0, 0, 1100, 600);  // clear canvas
+                strawctx.drawImage(strawBG, 0, 0, 1100, 600);
+
                 strawctx.font = "20px Monospace";
                 strawctx.textAlign = "center";
                 strawctx.fillText("You haven't mixed", 590, 555);
                 strawctx.fillText("the ingredients yet.", 590, 590);
 
-                if (inCup[2] == "milk") {
+                if (inCup[2] == "Milk") {
                     strawctx.drawImage(strawCup_Milk, 210, 200, 733, 400);
                     strawctx.drawImage(strawStraw_Milk, 177, 100, 800, 500);
                 }
 
-                else if (inCup[2] == "taro") {
+                else if (inCup[2] == "Taro") {
                     strawctx.drawImage(strawCup_Taro, 210, 200, 733, 400);
                     strawctx.drawImage(strawStraw_Taro, 177, 100, 800, 500);
                 }
 
-                else if (inCup[2] == "matcha") {
+                else if (inCup[2] == "Matcha") {
                     strawctx.drawImage(strawCup_Matcha, 210, 200, 733, 400);
                     strawctx.drawImage(strawStraw_Matcha, 177, 100, 800, 500);
                 }
 
-                else if (inCup[2] == "thai") {
+                else if (inCup[2] == "Thai") {
                     strawctx.drawImage(strawCup_Thai, 210, 200, 733, 400);
                     strawctx.drawImage(strawStraw_Thai, 177, 100, 800, 500);
                 }
 
-                else if (inCup[2] == "strawberry") {
+                else if (inCup[2] == "Strawberry") {
                     strawctx.drawImage(strawCup_Strawberry, 210, 200, 733, 400);
                     strawctx.drawImage(strawStraw_Strawberry, 177, 100, 800, 500);
                 }
@@ -1085,23 +1093,23 @@
                     strawctx.clearRect(0, 0, 1100, 600);  // clear canvas
                     strawctx.drawImage(strawBG, 0, 0, 1100, 600);
 
-                    if (inCup[2] == "milk") {
+                    if (inCup[2] == "Milk") {
                         strawctx.drawImage(strawStrawInCup_Milk, 210, 200, 733, 400);
                     }
 
-                    else if (inCup[2] == "taro") {
+                    else if (inCup[2] == "Taro") {
                         strawctx.drawImage(strawStrawInCup_Taro, 210, 200, 733, 400);
                     }
 
-                    else if (inCup[2] == "matcha") {
+                    else if (inCup[2] == "Matcha") {
                         strawctx.drawImage(strawStrawInCup_Matcha, 210, 200, 733, 400);
                     }
 
-                    else if (inCup[2] == "thai") {
+                    else if (inCup[2] == "Thai") {
                         strawctx.drawImage(strawStrawInCup_Thai, 210, 200, 733, 400);
                     }
 
-                    else if (inCup[2] == "strawberry") {
+                    else if (inCup[2] == "Strawberry") {
                         strawctx.drawImage(strawStrawInCup_Strawberry, 210, 200, 733, 400);
                     }
 
@@ -1110,7 +1118,10 @@
             }
 
             function completeOrder() {
-
+                order();
+                if (inCup == correctOptions) {
+                    orderctx.fillText("YAY", 100, 100);
+                }
             }
 
             function credits() {
