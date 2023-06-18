@@ -649,8 +649,7 @@
                 hideMixingButtons();
                 hideTeaButtons();
                 hideSugarAndIceButtons();
-                pokeb.style.visibility="hidden";
-                completeOrderb.style.visibility = "hidden";
+                hideStrawButtons();
 
                 alert("go into full screen for highest quality experience!")
 
@@ -752,6 +751,11 @@
                 mostb.style.visibility='hidden';
             }
 
+            function hideStrawButtons() {
+                pokeb.style.visibility="hidden";
+                completeOrderb.style.visibility = "hidden";
+            }
+
             // show specific canvas
             function showStart() {
                 titlec.style.visibility='hidden';
@@ -802,7 +806,7 @@
                 hideMixingButtons();
                 hideTeaButtons();
                 hideSugarAndIceButtons();
-                pokeb.style.visibility='hidden';
+                hideStrawButtons();
                 seeOrderb.style.visibility="hidden";
 
                 // text
@@ -853,6 +857,7 @@
                 hideMixingButtons();
                 hideTeaButtons();
                 hideSugarAndIceButtons();
+                hideStrawButtons();
                 pokeb.style.visibility='hidden';
                 seeOrderb.style.visibility="visible";
                 showOrder();
@@ -868,6 +873,7 @@
                 showMixingButtons();
                 hideTeaButtons();
                 hideSugarAndIceButtons();
+                hideStrawButtons();
                 pokeb.style.visibility='hidden';
                 seeOrderb.style.visibility="hidden";
                 showMixing();
@@ -1020,8 +1026,8 @@
                 hideMixingButtons();
                 hideTeaButtons();
                 hideSugarAndIceButtons();
-                pokeb.style.visibility='visible';
                 seeOrderb.style.visibility="hidden";
+                pokeb.style.visibility='visible';
                 showStraw();
 
                 strawctx.font = "20px Monospace";
