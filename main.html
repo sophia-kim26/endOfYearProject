@@ -304,7 +304,7 @@
 
         .finishButton {
             background-color: #b988e3;
-            top: 450px;
+            top: 425px;
             right: 650px;
             border-radius: 50%;
             position: absolute;
@@ -888,7 +888,7 @@
                 dayctx.fillText("Press the Order button to continue.", 550, 200)
 
                 orderctx.drawImage(arrietty, -150, 240, 679, 367);
-                drawTextBg(550, 550, "Customer: Arrietty");
+                drawTextBg(550, 550, "Customer: Arrietty", 300);
             }
 
             function getReadyForNextDay() {
@@ -930,7 +930,7 @@
                 dayctx.fillText("Press the Order button to continue.", 550, 200)
 
                 orderctx.drawImage(ponyo, -50, 240, 500, 500);
-                drawTextBg(550, 550, "Customer: Ponyo");
+                drawTextBg(550, 550, "Customer: Ponyo", 250);
             }
 
             function day3() {
@@ -950,14 +950,14 @@
                 dayctx.fillText("Press the Order button to continue.", 550, 200)
 
                 orderctx.drawImage(shizuku, 50, 300, 214, 300);
-                orderctx.drawImage(catbus, 390, 414, 261, 193);
-                drawTextBg(550, 550, "Customer: Shizuku & the Catbus");
+                orderctx.drawImage(catbus, 260, 414, 261, 193);
+                drawTextBg(550, 550, "Customer: Shizuku & the Catbus", 475);
             }
 
-            function drawTextBg(x, y, text) {
+            function drawTextBg(x, y, text, length) {
                 orderctx.font = "25px Monospace";
                 orderctx.fillStyle = '#FFFFFF';
-                orderctx.fillRect(x-10, y-30, 371, 50);
+                orderctx.fillRect(x-10, y-30, length, 50);
                 orderctx.fillStyle = '#000000';
                 orderctx.fillText(text, x, y);
             }
@@ -971,11 +971,11 @@
                         var toppingsOrder = toppings[parseInt(Math.random() * 5)];
                         const orderList = [iceOrder, sugarOrder, teaOrder, toppingsOrder];
 
-                        drawTextBg(550, 75, "I would like...");
-                        drawTextBg(550, 135, "Tea: " + teaOrder);
-                        drawTextBg(550, 195, "Sugar: "+ sugarOrder);
-                        drawTextBg(550, 255, "Ice: "+ iceOrder);
-                        drawTextBg(550, 315, "Toppings: "+ toppingsOrder);
+                        drawTextBg(550, 75, "I would like...", 371);
+                        drawTextBg(550, 135, "Tea: " + teaOrder, 371);
+                        drawTextBg(550, 195, "Sugar: "+ sugarOrder, 371);
+                        drawTextBg(550, 255, "Ice: "+ iceOrder, 371);
+                        drawTextBg(550, 315, "Toppings: "+ toppingsOrder, 371);
 
                         orderTaken = true;
 
@@ -1269,12 +1269,12 @@
                 // moved strawAccuracy to global variables
                 scores[day-1] += strawAccuracy;
 
-                drawTextBg(550, 75, "Ice: " + scoreDict[0]);
-                drawTextBg(550, 135, "Sugar: " + scoreDict[1]);
-                drawTextBg(550, 195, "Tea: "+ scoreDict[2]);
-                drawTextBg(550, 255, "Toppings: "+ scoreDict[3]);
-                drawTextBg(550, 315, "Straw accuracy: " + strawAccuracy);
-                drawTextBg(550, 375, "Your Final Score: "+ scores[day-1] + "%");
+                drawTextBg(550, 75, "Ice: " + scoreDict[0], 371);
+                drawTextBg(550, 135, "Sugar: " + scoreDict[1], 371);
+                drawTextBg(550, 195, "Tea: "+ scoreDict[2], 371);
+                drawTextBg(550, 255, "Toppings: "+ scoreDict[3], 371);
+                drawTextBg(550, 315, "Straw accuracy: " + strawAccuracy, 371);
+                drawTextBg(550, 375, "Your Final Score: "+ scores[day-1] + "%", 371);
             }
 
             function finish() {
