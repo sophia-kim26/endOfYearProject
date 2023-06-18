@@ -888,6 +888,7 @@
                 dayctx.fillText("Press the Order button to continue.", 550, 200)
 
                 orderctx.drawImage(arrietty, -150, 240, 679, 367);
+                drawTextBg(550, 550, "Customer: Arrietty");
             }
 
             function getReadyForNextDay() {
@@ -917,7 +918,7 @@
                 getReadyForNextDay();
 
                 startButton.style.visibility = "hidden";
-                start2Button.style.visibiliity = "visible";
+                start2Button.style.visibility = "visible";
 
                 // text
                 dayctx.font = "30px Monospace";
@@ -929,14 +930,15 @@
                 dayctx.fillText("Press the Order button to continue.", 550, 200)
 
                 orderctx.drawImage(ponyo, -50, 240, 500, 500);
+                drawTextBg(550, 550, "Customer: Ponyo");
             }
 
             function day3() {
                 getReadyForNextDay();
 
                 startButton.style.visibility = "hidden";
-                start2Button.style.visibiliity = "hidden";
-                start3Button.style.visibiliity = "visible";
+                start2Button.style.visibility = "hidden";
+                start3Button.style.visibility = "visible";
 
                 // text
                 dayctx.font = "30px Monospace";
@@ -949,6 +951,7 @@
 
                 orderctx.drawImage(shizuku, 50, 300, 214, 300);
                 orderctx.drawImage(catbus, 390, 414, 261, 193);
+                drawTextBg(550, 550, "Customer: Shizuku & the Catbus");
             }
 
             function drawTextBg(x, y, text) {
