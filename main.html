@@ -312,16 +312,16 @@
         .finishButton:hover {background-color: #9069b3;}
         p1 {
             font-family: Monospace;
-            top: 50px;
-            right: 145px;
+            top: 670px;
+            right: 1160px;
             position: absolute;
         }
 
         p2 {
             font-family: Monospace;
-            top: -20px;
-            right: -155px;
-            position: absolute;
+            top: 10px;
+            right: 50px;
+            position: relative;
         }
 
         .rulesPanel {
@@ -329,11 +329,11 @@
             text-align: center;
             font-size: 20px;
             font-family: Monospace;
-            padding: 20px 15px;
+            padding: 0px 15px;
             width: 200px;
             position: absolute;
-            top: -718px;
-            right: -1175px;
+            top: 70px;
+            right: 50px;
         }
 
         .rule1 {
@@ -344,8 +344,8 @@
             padding: 20px 15px;
             width: 200px;
             position: absolute;
-            top: -700px;
-            right: -1175px;
+            top: 170px;
+            right: 50px;
         }
 
         .rule2 {
@@ -356,8 +356,8 @@
             padding: 20px 15px;
             width: 200px;
             position: absolute;
-            top: -682px;
-            right: -1175px;
+            top: 305px;
+            right: 50px;
         }
 
         .rule3 {
@@ -368,8 +368,8 @@
             padding: 20px 15px;
             width: 200px;
             position: absolute;
-            top: -664px;
-            right: -1175px;
+            top: 455px;
+            right: 50px;
         }
 
 
@@ -528,6 +528,7 @@
             var completeOrderb = document.getElementById("completeOrder");
             var leverd = document.getElementById("lever");
             var leverRect = leverd.getBoundingClientRect();
+            var leverPos = leverRect.left;
             var strawAccuracy = 20;
         
             
@@ -1195,7 +1196,7 @@
             }
 
             function seeStrawInCup() {
-                const leverPos = leverRect.x;
+                leverPos = leverRect.left;
                 console.log(leverPos);
                 if (leverPos <= 400){
                     strawAccuracy-=10;
