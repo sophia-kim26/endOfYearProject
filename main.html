@@ -301,6 +301,15 @@
             position: absolute;
         }
         .seeOrderButton:hover {background-color: #df5f42;}
+
+        .finishButton {
+            background-color: #b988e3;
+            top: 450px;
+            right: 650px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .finishButton:hover {background-color: #9069b3;}
         p1 {
             font-family: Monospace;
             top: 50px;
@@ -382,8 +391,8 @@
 
         <!-- stations buttons -->
         <button class = "button startButton", onclick="day1()">START</button>
-        <button class = "button startButton", onclick="day2()">START</button>
-        <button class = "button startButton", onclick="day3()">START</button>
+        <button id = "start2" class = "button start2Button", onclick="day2()">START</button>
+        <button id = "start3" class = "button start3Button", onclick="day3()">START</button>
         <button class = "button orderButton"onclick="order()">ORDER</button>
         <button class = "button mixingButton"onclick="mixing()">MIXING</button>
         <button class = "button strawButton"onclick="straw()">STRAW</button>
@@ -421,11 +430,9 @@
         <button id = "completeOrder" class = "button completeOrderButton" onclick = "completeOrder()">COMPLETE ORDER!</button>
         <div id = "lever" class = "div leverDiv"></div>
 
-
-        <!-- buttons in order canvas -->
-        <button class = "button arrietyButton">SEE ORDER!</button>
         <!-- buttons in order canvas -->
         <button id = "seeOrder" class = "button seeOrderButton" onclick="seeOrder()">SEE ORDER!</button>
+        <button id = "finish" class = "button finishButton" onclick="finish()">FINISH</button>
 
         <div class = "rulesPanel">
             <h3>|| INFO ||</h3>
@@ -456,36 +463,17 @@
             var inCup = ["", "", "", ""]; // ice, sugar, tea, toppings
             var correctOptions = ["", "", "", ""];
 
+            // day 2 and day 3 start buttons
+            var start2Button = document.getElementById("start2");
+            var start3Button = document.getElementById("start3");
+        
             // order button + lists for randomizing orders
             var seeOrderb = document.getElementById("seeOrder");
+            var finishb = document.getElementById("finish");
             const ice = ["Least", "Less", "Regular", "More", "Most"];
             const sugar = ["Least", "Less", "Regular", "More", "Most"];
             const tea = ["Milk", "Strawberry", "Taro", "Matcha", "Thai"];
             const toppings = ["Black pearls", "Agar pearls", "Grass jellies", "Ube balls", "Taro balls"];
-
-            //var iceAndSugarDict = {
-            //    "Least" : leastb,
-            //    "Less" : lessb,
-            //   "Regular" : regularb,
-            //    "More" : moreb,
-            //    "Most" : mostb
-            //}
-
-            //var teaDict = {
-            //    "Milk" : milkb,
-            //    "Strawberry" : strawberryb,
-            //    "Taro" : tarob,
-            //    "Matcha" : matchab,
-            //    "Thai" : thaib
-            //}
-
-            //var toppingsDict = {
-            //    "Black pearls" : blackPearlsb,
-            //    "Agar pearls" : agarPearlsb,
-            //    "Grass jelly" : grassJellyb,
-            //    "Ube balls" : ubeBallsb,
-            //    "Taro Balls" : taroBallsb
-            //}
             
             // canvases
             var titlec = document.getElementById("title");
@@ -720,6 +708,7 @@
                 hideTeaButtons();
                 hideSugarAndIceButtons();
                 hideStrawButtons();
+                hideOrderButtons();
                 seeOrderb.style.visibility = "hidden";
                 start2Button.style.visibility = "hidden";
                 start3Button.style.visibility = "hidden";
@@ -762,8 +751,6 @@
             
             // button
             var startButton = document.createElement("BUTTON");
-            var start2Button = document.createElement("BUTTON");
-            var start3Button = document.createElement("BUTTON");
             var orderButton = document.createElement("BUTTON");
             var mixingButton = document.createElement("BUTTON");
             var strawButton = document.createElement("BUTTON");
@@ -832,6 +819,11 @@
                 leverd.style.visibility = "hidden";
             }
 
+            function hideOrderButtons() {
+                seeOrderb.style.visibility="hidden";
+                finishb.style.visibility="hidden";
+            }
+
             // show specific canvas
             function showStart() {
                 titlec.style.visibility='hidden';
@@ -883,7 +875,7 @@
                 hideTeaButtons();
                 hideSugarAndIceButtons();
                 hideStrawButtons();
-                seeOrderb.style.visibility="hidden";
+                hideOrderButtons();
 
                 // text
                 dayctx.font = "30px Monospace";
@@ -900,7 +892,7 @@
                 hideTeaButtons();
                 hideSugarAndIceButtons();
                 hideStrawButtons();
-                seeOrderb.style.visibility="hidden";
+                hideOrderButtons();
                 start2Button.style.visibiliity = "visible";
 
                 startctx.clearRect(0, 0, 1100, 600);  // clear canvas
@@ -921,7 +913,7 @@
                 hideTeaButtons();
                 hideSugarAndIceButtons();
                 hideStrawButtons();
-                seeOrderb.style.visibility="hidden";
+                hideOrderButtons();
                 start3Button.style.visibiliity = "visible";
 
                 startctx.clearRect(0, 0, 1100, 600);  // clear canvas
@@ -993,7 +985,7 @@
                 hideSugarAndIceButtons();
                 hideStrawButtons();
                 pokeb.style.visibility='hidden';
-                seeOrderb.style.visibility="hidden";
+                hideOrderButtons();
                 showMixing();
 
                 mixingctx.font = "20px Monospace";
@@ -1156,7 +1148,7 @@
                 hideMixingButtons();
                 hideTeaButtons();
                 hideSugarAndIceButtons();
-                seeOrderb.style.visibility="hidden";
+                hideOrderButtons();
                 pokeb.style.visibility='visible';
                 showStraw();
                 leverd.style.visibility = "visible";
@@ -1237,6 +1229,7 @@
 
             function completeOrder() {
                 order();
+                finishb.style.visibility = "visible";
 
                 var scoreDict = {
                     0: "0", // ice
@@ -1262,8 +1255,10 @@
                 drawTextBg(550, 255, "Toppings: "+ scoreDict[3]);
                 drawTextBg(550, 315, "Straw accuracy: " + strawAccuracy);
                 drawTextBg(550, 375, "Your Final Score: "+ scores[day-1] + "%");
+            }
 
-                // reset
+            function finish() {
+                // finish day
                 day += 1;
                 ordersCompleted = 0;
                 orderTaken = false;
