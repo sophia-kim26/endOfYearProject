@@ -240,13 +240,35 @@
             top: 50px;
             right: 800px;
             position: absolute;
+            border-radius: 60%;
         }
         .pokeButton:hover {background-color: #a2d0e8;}
+
+        .leverDiv {
+            width: 100px;
+            height: 100px;
+            top: 0px;
+            right: 0px;
+            background-color: red;
+            animation: mymove 3s infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+        }
+
+        @keyframes mymove {
+            0%   {background-color: rgb(130, 226, 154);}
+            25%  {background-color: rgb(200, 226, 130);}
+            50%  {background-color: rgb(226, 167, 130);}
+            100% {background-color: rgb(226, 130, 130);}
+
+            from {left: 500px}
+            to {left: 100px}
+        }
 
         .completeOrderButton {
             background-color: #b6ea69;
             top: 50px;
-            right: 1140px;
+            right: 1100px;
             border-radius: 50%;
             position: absolute;
         }
@@ -377,6 +399,7 @@
         <!-- straw station -->
         <button id = "poke" class = "button pokeButton" onclick = "seeStrawInCup()">POKE!</button>
         <button id = "completeOrder" class = "button completeOrderButton" onclick = "completeOrder()">COMPLETE ORDER!</button>
+        <!-- <div id = "lever" class = "div leverDiv" onclick = "completeOrder()"></div> -->
 
 
         <!-- buttons in order canvas -->
@@ -399,6 +422,8 @@
         <div class = "rule3">
             <p3>there are also speciality seasonal drinks / tea / toppings available!</p3>
         </div>
+
+        <div class = "leverDiv"></div>
 
 
         <script>
@@ -490,6 +515,7 @@
             // straw button
             var pokeb = document.getElementById("poke");
             var completeOrderb = document.getElementById("completeOrder");
+            // var lever = document.getElementById("lever");
             
             // images
             var titleBG = new Image();
@@ -890,6 +916,11 @@
                 pokeb.style.visibility='hidden';
                 seeOrderb.style.visibility="hidden";
                 showMixing();
+
+                mixingctx.font = "20px Monospace";
+                mixingctx.fillText("After putting all the ingredients in", 580, 70);
+                mixingctx.fillText("the cup, go to the straw station.", 580, 120);
+                
             }
 
             // MIXING BUTTONS START
