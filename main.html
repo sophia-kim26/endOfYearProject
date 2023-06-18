@@ -870,12 +870,14 @@
                 hideMixingButtons();
                 showSugarAndIceButtons();
                 sugarc.style.visibility='visible';
+                icec.style.visibility='hidden';
             }
 
             function seeIce() {
                 hideMixingButtons();
                 showSugarAndIceButtons();
                 icec.style.visibility='visible';
+                sugarc.style.visibility='hidden';
             }
 
             // teas
@@ -928,13 +930,13 @@
             }
 
             function seeLeast() {
-                if (icec.style.visibility = "visible") {
+                if (icec.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(leastIce, 100, 41, 890, 665);
                     inCup[0] = "least";
                 }
 
-                if (sugarc.style.visibility = "visible") {
+                if (sugarc.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(leastSugar, 380, 65, 890, 665);
                     inCup[1] = "least";
@@ -942,13 +944,13 @@
             }
 
             function seeLess() {
-                if (icec.style.visibility = "visible") {
+                if (icec.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(lessIce, 100, 41, 890, 665);
                     inCup[0] = "less";
                 }
 
-                if (sugarc.style.visibility = "visible") {
+                if (sugarc.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(lessSugar, 380, 65, 890, 665);
                     inCup[1] = "less";
@@ -956,13 +958,13 @@
             }
 
             function seeRegular() {
-                if (icec.style.visibility = "visible") {
+                if (icec.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(regularIce, 100, 41, 890, 665);
                     inCup[0] = "regular";
                 }
 
-                if (sugarc.style.visibility = "visible") {
+                if (sugarc.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(regularSugar, 380, 65, 890, 665);
                     inCup[1] = "regular";
@@ -970,13 +972,13 @@
             }
 
             function seeMore() {
-                if (icec.style.visibility = "visible") {
+                if (icec.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(moreIce, 100, 41, 890, 665);
                     inCup[0] = "more";
                 }
 
-                if (sugarc.style.visibility = "visible") {
+                if (sugarc.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(moreSugar, 380, 65, 890, 665);
                     inCup[1] = "more";
@@ -984,13 +986,13 @@
             }
             
             function seeMost() {
-                if (icec.style.visibility = "visible") {
+                if (icec.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(mostIce, 100, 41, 890, 665);
                     inCup[0] = "most";
                 }
 
-                if (sugarc.style.visibility = "visible") {
+                if (sugarc.style.visibility == "visible") {
                     mixing();
                     mixingctx.drawImage(mostSugar, 380, 65, 890, 665);
                     inCup[1] = "most";
