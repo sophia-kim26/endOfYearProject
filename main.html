@@ -62,7 +62,7 @@
         }
         .creditsButton:hover {background-color: #dda57a;}
 
-        /* buttons on top of canvas for mixing station */
+        /* buttons for ice and sugar in mixing station */
         .leastButton {
             background-color: #B2A4FF;
             top: 50px;
@@ -104,6 +104,7 @@
         }
         .mostButton:hover {background-color: #e7e0a2;}
 
+        /* buttons in main section of mixing station */
         .teaButton {
             background-color: #ba947d;
             width: 180px;
@@ -130,6 +131,15 @@
             position: absolute;
         }
         .sugarButton:hover {background-color: #9f7d69;}
+
+        .resetButton {
+            background-color: #f5ad5a;
+            top: 50px;
+            right: 1100px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .resetButton:hover {background-color: #e59941;}
 
         /* TEAS */
         .milkButton {
@@ -347,6 +357,7 @@
         <button id = "teab" class = "button teaButton" onclick="seeTea()">TEA</button>
         <button id = "iceb" class = "button iceButton" onclick="seeIce()">ICE</button>
         <button id = "sugarb" class = "button sugarButton" onclick="seeSugar()">SUGAR</button>
+        <button id = "resetb" class = "button resetButton" onclick="reset()">RESET</button>
 
         <!-- teas -->
         <button id = "milk" class = "button milkButton" onclick="seeMilk()">MILK</button>
@@ -706,6 +717,7 @@
                 taroBallb.style.visibility='visible';
                 iceb.style.visibility='visible';
                 sugarb.style.visibility='visible';
+                resetb.style.visibility='visible';
             }
 
             function hideMixingButtons() {
@@ -717,6 +729,7 @@
                 taroBallb.style.visibility='hidden';
                 iceb.style.visibility='hidden';
                 sugarb.style.visibility='hidden';
+                resetb.style.visibility='hidden';
             }
             // tea button visibility
             function showTeaButtons() {
@@ -880,6 +893,12 @@
             }
 
             // MIXING BUTTONS START
+            function reset() {
+                inCup = ["", "", "", ""];
+                mixingctx.drawImage(mixingCup, 325, 150, 450, 450);
+                mixingctx.drawImage(sugarContainer, 380, 65, 890, 665);
+            }
+
             function seeTea() {
                 hideMixingButtons();
                 showTeaButtons();
@@ -927,7 +946,7 @@
                 inCup[2] = "thai";
             }
 
-                // toppings
+            // toppings
             function seeBlackPearl() {
                 mixing();
                 mixingctx.drawImage(blackPearls, 325, 150, 450, 450);
