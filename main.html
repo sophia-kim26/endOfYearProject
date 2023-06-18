@@ -33,6 +33,20 @@
             position: absolute;
         }
         .startButton:hover {background-color: #c17bdf;}
+        .start2Button{
+            background-color: #E4A5FF;
+            top: 650px;
+            right: 1000px;
+            position: absolute;
+        }
+        .start2Button:hover {background-color: #c17bdf;}
+        .start3Button{
+            background-color: #E4A5FF;
+            top: 650px;
+            right: 1000px;
+            position: absolute;
+        }
+        .start3Button:hover {background-color: #c17bdf;}
         .orderButton {
             background-color: #FFAAC9;
             top: 650px;
@@ -368,6 +382,8 @@
 
         <!-- stations buttons -->
         <button class = "button startButton", onclick="day1()">START</button>
+        <button class = "button startButton", onclick="day2()">START</button>
+        <button class = "button startButton", onclick="day3()">START</button>
         <button class = "button orderButton"onclick="order()">ORDER</button>
         <button class = "button mixingButton"onclick="mixing()">MIXING</button>
         <button class = "button strawButton"onclick="straw()">STRAW</button>
@@ -705,6 +721,8 @@
                 hideSugarAndIceButtons();
                 hideStrawButtons();
                 seeOrderb.style.visibility = "hidden";
+                start2Button.style.visibility = "hidden";
+                start3Button.style.visibility = "hidden";
 
                 alert("go into full screen for highest quality experience!")
 
@@ -744,6 +762,8 @@
             
             // button
             var startButton = document.createElement("BUTTON");
+            var start2Button = document.createElement("BUTTON");
+            var start3Button = document.createElement("BUTTON");
             var orderButton = document.createElement("BUTTON");
             var mixingButton = document.createElement("BUTTON");
             var strawButton = document.createElement("BUTTON");
@@ -881,6 +901,7 @@
                 hideSugarAndIceButtons();
                 hideStrawButtons();
                 seeOrderb.style.visibility="hidden";
+                start2Button.style.visibiliity = "visible";
 
                 startctx.clearRect(0, 0, 1100, 600);  // clear canvas
                 startctx.drawImage(startBG, 0, 0, 1100, 600);
@@ -901,6 +922,7 @@
                 hideSugarAndIceButtons();
                 hideStrawButtons();
                 seeOrderb.style.visibility="hidden";
+                start3Button.style.visibiliity = "visible";
 
                 startctx.clearRect(0, 0, 1100, 600);  // clear canvas
                 startctx.drawImage(startBG, 0, 0, 1100, 600);
