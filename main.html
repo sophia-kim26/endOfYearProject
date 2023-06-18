@@ -525,6 +525,9 @@
             var pokeb = document.getElementById("poke");
             var completeOrderb = document.getElementById("completeOrder");
             var leverd = document.getElementById("lever");
+            var leverRect = leverd.getBoundingClientRect();
+            var leverPos = leverRect.x;
+        
             
             // images
             var titleBG = new Image();
@@ -1142,6 +1145,7 @@
             }
 
             function seeStrawInCup() {
+                leverPos = leverRect.x;
                 if (inCup[2] != "") {
                     strawctx.clearRect(0, 0, 1100, 600);  // clear canvas
                     strawctx.drawImage(strawBG, 0, 0, 1100, 600);
@@ -1190,6 +1194,9 @@
 
                 // to do: calculate score for straw
                 var strawAccuracy = 20;
+                if (leverPos >= 600){
+                    strawAccuracy-=10;
+                }
                 score1 += strawAccuracy;
 
                 drawTextBg(550, 75, "Ice: " + scoreDict[0]);
