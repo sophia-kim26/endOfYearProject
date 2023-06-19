@@ -489,7 +489,7 @@
             var strawc = document.getElementById("straw");
             var strawctx = strawc.getContext("2d");
             var endc = document.getElementById("end");
-            var endctx = strawc.getContext("2d");
+            var endctx = endc.getContext("2d");
 
             // ingredient canvases
             var teac = document.getElementById("tea");
@@ -918,6 +918,7 @@
                 hideSugarAndIceButtons();
                 hideStrawButtons();
                 hideOrderButtons();
+                strawAccuracy = 20;
 
                 // reset start station
                 dayctx.clearRect(0, 0, 1100, 600);  // clear canvas
