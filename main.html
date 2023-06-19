@@ -456,7 +456,7 @@
 
 
         <script>
-            let day = 1; // // change to 3 make day 3 show up right away
+            let day = 3; // // change to 3 make day 3 show up right away
             let orderTaken = false;
 
             var scores = [0, 0, 0];
@@ -718,9 +718,9 @@
                 hideSugarAndIceButtons();
                 hideStrawButtons();
                 hideOrderButtons();
-                seeOrderb.style.visibility = "visible";
+                seeOrderb.style.visibility = "hidden";
                 start2Button.style.visibility = "hidden";
-                start3Button.style.visibility = "hidden"; // change to visible to make day 3 show up right away
+                start3Button.style.visibility = "visible"; // change to visible to make day 3 show up right away
 
                 alert("go into full screen for highest quality experience!")
 
@@ -908,7 +908,7 @@
                 dayctx.fillText("Press the Order button to continue.", 550, 200)
 
                 orderctx.drawImage(arrietty, -150, 240, 679, 367);
-                drawTextBg(550, 550, "Customer: Arrietty", 300);
+                drawTextBg(550, 550, "Customer: Arrietty", 300, orderctx);
             }
 
             function getReadyForNextDay() {
@@ -951,7 +951,7 @@
                 dayctx.fillText("Press the Order button to continue.", 550, 200)
 
                 orderctx.drawImage(ponyo, -50, 240, 500, 500);
-                drawTextBg(550, 550, "Customer: Ponyo", 250);
+                drawTextBg(550, 550, "Customer: Ponyo", 250, orderctx);
             }
 
             function day3() {
@@ -972,15 +972,15 @@
 
                 orderctx.drawImage(shizuku, 50, 300, 214, 300);
                 orderctx.drawImage(catbus, 260, 414, 261, 193);
-                drawTextBg(550, 550, "Customers: Shizuku & the Catbus", 488);
+                drawTextBg(550, 550, "Customers: Shizuku & the Catbus", 488, orderctx);
             }
 
-            function drawTextBg(x, y, text, length) {
-                orderctx.font = "25px Monospace";
-                orderctx.fillStyle = '#FFFFFF';
-                orderctx.fillRect(x-10, y-30, length, 50);
-                orderctx.fillStyle = '#000000';
-                orderctx.fillText(text, x, y);
+            function drawTextBg(x, y, text, length, ctx) {
+                ctx.font = "25px Monospace";
+                ctx.fillStyle = '#FFFFFF';
+                ctx.fillRect(x-10, y-30, length, 50);
+                ctx.fillStyle = '#000000';
+                ctx.fillText(text, x, y);
             }
 
             function seeOrder() {
@@ -992,11 +992,11 @@
                         var toppingsOrder = toppings[parseInt(Math.random() * 5)];
                         const orderList = [iceOrder, sugarOrder, teaOrder, toppingsOrder];
 
-                        drawTextBg(550, 75, "I would like...", 371);
-                        drawTextBg(550, 135, "Tea: " + teaOrder, 371);
-                        drawTextBg(550, 195, "Sugar: "+ sugarOrder, 371);
-                        drawTextBg(550, 255, "Ice: "+ iceOrder, 371);
-                        drawTextBg(550, 315, "Toppings: "+ toppingsOrder, 371);
+                        drawTextBg(550, 75, "I would like...", 371, orderctx);
+                        drawTextBg(550, 135, "Tea: " + teaOrder, 371, orderctx);
+                        drawTextBg(550, 195, "Sugar: "+ sugarOrder, 371, orderctx);
+                        drawTextBg(550, 255, "Ice: "+ iceOrder, 371, orderctx);
+                        drawTextBg(550, 315, "Toppings: "+ toppingsOrder, 371, orderctx);
 
                         orderTaken = true;
 
@@ -1288,12 +1288,12 @@
                 // moved strawAccuracy to global variables
                 scores[day-1] += strawAccuracy;
 
-                drawTextBg(550, 75, "Ice: " + scoreDict[0], 371);
-                drawTextBg(550, 135, "Sugar: " + scoreDict[1], 371);
-                drawTextBg(550, 195, "Tea: "+ scoreDict[2], 371);
-                drawTextBg(550, 255, "Toppings: "+ scoreDict[3], 371);
-                drawTextBg(550, 315, "Straw accuracy: " + strawAccuracy, 371);
-                drawTextBg(550, 375, "Your Final Score: "+ scores[day-1] + "%", 371);
+                drawTextBg(550, 75, "Ice: " + scoreDict[0], 371, orderctx);
+                drawTextBg(550, 135, "Sugar: " + scoreDict[1], 371, orderctx);
+                drawTextBg(550, 195, "Tea: "+ scoreDict[2], 371, orderctx);
+                drawTextBg(550, 255, "Toppings: "+ scoreDict[3], 371, orderctx);
+                drawTextBg(550, 315, "Straw accuracy: " + strawAccuracy, 371, orderctx);
+                drawTextBg(550, 375, "Your Final Score: "+ scores[day-1] + "%", 371, orderctx);
             }
 
             function finish() {
@@ -1324,15 +1324,34 @@
                 hideOrderButtons();
                 showEnd();
 
+                var finalScore = scores[0] + scores[1] + scores[2];
+
                 // message above score depending on how high ur score is
 
-                endctx.textAlign = "center";
+                endctx.textAlign = "left";
                 endctx.font = "30px Monospace";
+
+                if (finalScore <= 100) {
+                    drawTextBg(340, 50, "Oof... poor customer service.", 460, endctx);
+                }
+
+                else if (finalScore <= 200 && finalScore > 100) {
+                    drawTextBg(310, 50, "Hmm... moderate customer service!", 515, endctx);
+                }
+
+                else if (finalScore <= 300 && finalScore > 0) {
+                    drawTextBg(275, 50, "Wow... outstanding customer service!!", 580, endctx);
+                }
+
+                endctx.textAlign = "center";
                 endctx.fillText("Your final score is...", 550, 270);
                 endctx.font = "50px Monospace";
-                endctx.fillText(scores[0] + scores[1] + scores[2] + " / 300 points", 550, 328);
+                endctx.fillText(finalScore + " / 300 points", 550, 328);
 
                 // how much money you earned
+
+                endctx.textAlign = "left";
+                drawTextBg(387, 500, "Your earnings: $" + (30 + finalScore / 12), 340, endctx);
             }
 
             function credits() {
