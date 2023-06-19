@@ -456,7 +456,7 @@
 
 
         <script>
-            let day = 1; // change
+            let day = 3; // change
             let orderTaken = false;
 
             var scores = [0, 0, 0];
@@ -720,7 +720,7 @@
                 hideOrderButtons();
                 seeOrderb.style.visibility = "hidden";
                 start2Button.style.visibility = "hidden";
-                start3Button.style.visibility = "hidden"; // change
+                start3Button.style.visibility = "visible"; // change
 
                 alert("go into full screen for highest quality experience!")
 
@@ -1324,11 +1324,15 @@
                 hideOrderButtons();
                 showEnd();
 
+                // message above score depending on how high ur score is
+
                 endctx.textAlign = "center";
                 endctx.font = "30px Monospace";
                 endctx.fillText("Your final score is...", 550, 270);
                 endctx.font = "50px Monospace";
-                endctx.fillText(scores[0] + scores[1] + scores[2] + " / 300 points", 550, 310);
+                endctx.fillText(scores[0] + scores[1] + scores[2] + " / 300 points", 550, 328);
+
+                // how much money you earned
             }
 
             function credits() {
