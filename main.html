@@ -315,7 +315,7 @@
         p1 {
             font-family: Monospace;
             top: 670px;
-            right: 1160px;
+            right: 1170px;
             position: absolute;
         }
 
@@ -384,6 +384,7 @@
         <canvas id="order" width="1100" height="600"style = "position: absolute;"></canvas>
         <canvas id="mixing" width="1100" height="600"style = "position: absolute;"></canvas>
         <canvas id="straw" width="1100" height="600"style = "position: absolute;"></canvas>
+        <canvas id="end" width="1100" height="600"style = "position: absolute;"></canvas>
 
         <!-- canvases for ingredients-->
         <canvas id="tea" width="1100" height="600"style = "position: absolute;"></canvas>
@@ -456,8 +457,7 @@
 
 
         <script>
-            let day = 1;
-            let ordersCompleted = 0;
+            let day = 3; // change
             let orderTaken = false;
 
             var scores = [0, 0, 0];
@@ -488,6 +488,8 @@
             var mixingctx = mixingc.getContext("2d");
             var strawc = document.getElementById("straw");
             var strawctx = strawc.getContext("2d");
+            var endc = document.getElementById("end");
+            var endctx = strawc.getContext("2d");
 
             // ingredient canvases
             var teac = document.getElementById("tea");
@@ -550,10 +552,12 @@
             mixingBG.src = "backgrounds/studioghibli3.jpeg";
             
             var strawBG = new Image();
-            strawBG.src = "backgrounds/studioghibli4.jpeg"
+            strawBG.src = "backgrounds/studioghibli4.jpeg";
+
+            var endBG = new Image();
+            endBG.src = "backgrounds/studioghibli5.jpeg";
 
             // characters
-
             var arrietty = new Image();
             arrietty.src = "characters/arrietty.png";
 
@@ -716,7 +720,7 @@
                 hideOrderButtons();
                 seeOrderb.style.visibility = "hidden";
                 start2Button.style.visibility = "hidden";
-                start3Button.style.visibility = "hidden";
+                start3Button.style.visibility = "visible"; // change
 
                 alert("go into full screen for highest quality experience!")
 
@@ -728,7 +732,8 @@
                 strawctx.drawImage(strawBG, 0, 0, 1100, 600);
                 teactx.drawImage(teaBG, 0, 0 , 1100, 600);
                 icectx.drawImage(iceBG, 0, 0 , 1100, 600);
-                sugarctx.drawImage(sugarBG, 0, 0 , 1100, 600);
+                sugarctx.drawImage(sugarBG, 0, 0, 1100, 600);
+                endctx.drawImage(endBG, 0, 0, 1100, 600);
 
                 // canvas visibility
                 titlec.style.visibility='visible';
@@ -736,6 +741,7 @@
                 orderc.style.visibility='hidden';
                 mixingc.style.visibility='hidden';
                 strawc.style.visibility='hidden';
+                endc.style.visibility='hidden';
 
                 teac.style.visibility='hidden';
                 icec.style.visibility='hidden';
@@ -839,6 +845,7 @@
                 teac.style.visibility='hidden';
                 icec.style.visibility='hidden';
                 sugarc.style.visibility='hidden';
+                endc.style.visibility='hidden';
             }
             function showOrder() {
                 titlec.style.visibility='hidden';
@@ -871,6 +878,17 @@
                 sugarc.style.visibility='hidden';
             }
 
+            function showEnd() {
+                titlec.style.visibility='hidden';
+                dayc.style.visibility='hidden';
+                orderc.style.visibility='hidden';
+                mixingc.style.visibility='hidden';
+                strawc.style.visibility='hidden';
+                teac.style.visibility='hidden';
+                icec.style.visibility='hidden';
+                sugarc.style.visibility='hidden';
+                endc.style.visibility='visible';
+            }
 
             // when button pressed
             function day1() {
@@ -937,6 +955,10 @@
                 dayctx.fillText("This is your third day as an employee at Cat Boba!", 550, 100)
                 dayctx.fillText("Use the stations on the bottom of the screen to carry out orders.", 550, 150)
                 dayctx.fillText("Press the Order button to continue.", 550, 200)
+                
+                orderctx.drawImage(shizuku, 50, 300, 214, 300);
+                orderctx.drawImage(catbus, 260, 414, 261, 193);
+                drawTextBg(550, 550, "Customers: Shizuku & the Catbus", 488);
             }
 
             function drawTextBg(x, y, text) {
@@ -1268,7 +1290,6 @@
             function finish() {
                 // finish day
                 day += 1;
-                ordersCompleted = 0;
                 orderTaken = false;
                 inCup = ["", "", "", ""]; // ice, sugar, tea, toppings
                 correctOptions = ["", "", "", ""];
@@ -1287,7 +1308,17 @@
             }
 
             function end() {
-                alert(scores[0] + scores[1] + scores[2]);
+                hideMixingButtons();
+                hideTeaButtons();
+                hideSugarAndIceButtons();
+                hideStrawButtons();
+                hideOrderButtons();
+                showEnd();
+
+                endctx.textAlign = "center";
+                endctx.font = "20px Monospace";
+                endctx.fillText("Your final score is...", 550, 295);
+                endctx.fillText(scores[0] + scores[1] + scores[2] + " / 300 points", 550, 305);
             }
 
             function credits() {
