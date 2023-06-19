@@ -530,7 +530,9 @@
             var pokeb = document.getElementById("poke");
             var completeOrderb = document.getElementById("completeOrder");
             var leverd = document.getElementById("lever");
-            var leverPos = 0;
+            // var leverPos = 0;
+            var leverRect = leverd.getBoundingClientRect();
+            var leverPos = leverRect.left; // i just put this here so the complete order button works
             var strawAccuracy = 20;
         
             
@@ -952,7 +954,7 @@
 
             function day3() {
                 getReadyForNextDay();
-                
+
                 startButton.style.visibility = "hidden";
                 start2Button.style.visibility = "hidden";
                 start3Button.style.visibility = "visible";
