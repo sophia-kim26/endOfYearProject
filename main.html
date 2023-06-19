@@ -14,9 +14,6 @@
         }
 
         /* main buttons */
-        :root {
-            --pos: 0;
-        }
         .button {
             border: none;
             padding: 30px 56px;
@@ -263,6 +260,7 @@
         .pokeButton:hover {background-color: #a2d0e8;}
 
         .leverDiv {
+            --pos: 0;
             width: 40px;
             height: 20px;
             border-radius: 70%;
@@ -533,7 +531,7 @@
             var pokeb = document.getElementById("poke");
             var completeOrderb = document.getElementById("completeOrder");
             var leverd = document.getElementById("lever");
-            var leverVar = document.querySelector(':root');
+            var leverVar = document.querySelector('.leverDiv');
             let leverCs = getComputedStyle(leverVar);
             var leverPos = leverCs.getPropertyValue('--pos');
             console.log(leverPos);
