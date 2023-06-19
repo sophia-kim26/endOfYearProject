@@ -730,8 +730,8 @@
                 strawctx.drawImage(strawBG, 0, 0, 1100, 600);
                 teactx.drawImage(teaBG, 0, 0 , 1100, 600);
                 icectx.drawImage(iceBG, 0, 0 , 1100, 600);
-                sugarctx.drawImage(sugarBG, 0, 0 , 1100, 600);
-                endctx.drawImage(endBG, 0, 0 , 1100, 600);
+                sugarctx.drawImage(sugarBG, 0, 0, 1100, 600);
+                endctx.drawImage(endBG, 0, 0, 1100, 600);
 
                 // canvas visibility
                 titlec.style.visibility='visible';
@@ -970,7 +970,7 @@
 
                 orderctx.drawImage(shizuku, 50, 300, 214, 300);
                 orderctx.drawImage(catbus, 260, 414, 261, 193);
-                drawTextBg(550, 550, "Customer: Shizuku & the Catbus", 475);
+                drawTextBg(550, 550, "Customers: Shizuku & the Catbus", 488);
             }
 
             function drawTextBg(x, y, text, length) {
@@ -1323,6 +1323,11 @@
                 hideStrawButtons();
                 hideOrderButtons();
                 showEnd();
+
+                endctx.textAlign = "center";
+                endctx.font = "20px Monospace";
+                endctx.fillText("Your final score is...", 550, 295);
+                endctx.fillText(scores[0] + scores[1] + scores[2] + " / 300 points", 550, 305);
             }
 
             function credits() {
